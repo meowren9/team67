@@ -8,9 +8,9 @@ public class GameManager : Photon.PunBehaviour {
     public GameObject cam2;
     public GameObject hand1;
 
-    public static bool debug = true;
+    public static bool debug = false;
 
-	// Use this for initialization
+    
 	void Start () {
         //TODO: choose ovr
 
@@ -18,14 +18,14 @@ public class GameManager : Photon.PunBehaviour {
         {
             cam1.SetActive(true);
             cam2.SetActive(false);
-            hand1.SetActive(true);
+           // hand1.SetActive(true);
         }
         else
         {
             if (PhotonNetwork.isMasterClient) //p1
             {
                 cam1.SetActive(true);
-                hand1.SetActive(true);
+                //hand1.SetActive(true);
                 cam2.SetActive(false);
             }
             else //p2
