@@ -8,7 +8,7 @@ public class GameManager : Photon.PunBehaviour {
     public GameObject cam2;
     public GameObject hand1;
 
-    public static bool debug = false;
+    public static bool debug = true;
 
     
 	void Start () {

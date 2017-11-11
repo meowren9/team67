@@ -8,6 +8,7 @@ public class HeadLookAt : MonoBehaviour {
     public float speed;
 	void Update () {
         var targetRotation = Quaternion.LookRotation(target.position - transform.position);
+        //TODO: need constraint
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
 	}
 }
