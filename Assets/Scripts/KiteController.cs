@@ -30,7 +30,7 @@ public class KiteController : MonoBehaviour {
 
         if (Database.handDrag)
         {
-
+            print("handdrag = true");
             Line.positionCount = 3;
             Line.SetPosition(0, playerSky.position);
             Line.SetPosition(1, handRight.position);
@@ -42,7 +42,7 @@ public class KiteController : MonoBehaviour {
         {
             if (!added)
             {
-                print("Called");
+                
                 addColliderToLine();
                 added = true;
             }
@@ -87,17 +87,28 @@ public class KiteController : MonoBehaviour {
             }
         }
 
+        if (Database.dragBack)
+        {
+            if (Database.handDrag)
+            {
+                playerSky.position += new Vector3(0.01f, -0.01f, 0.0f);
+
+
+            }
+
+        }
 
         if (Database.releaseKite)
         {
-            playerSky.position += new Vector3(0.0f, 0.1f, 0.0f);
+            playerSky.position += new Vector3(-0.1f, 0.1f, 0.0f);
         }
 
 
 
         if (Database.isPull)
         {
-            playerSky.position += new Vector3(0.0f, -0.02f, 0.0f);
+            print("ispull");
+            playerSky.position += new Vector3(0.002f, -0.002f, 0.0f);
         }
 
 

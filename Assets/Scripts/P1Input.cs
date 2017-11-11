@@ -7,10 +7,20 @@ public class P1Input : MonoBehaviour {
 
     bool EnterArea;
     bool pressTrigger;
+    bool spaceDown;
 
     void Update()
     {
-        if(!GameManager.debug)
+        if (Input.GetKey(KeyCode.Space))
+        {
+            spaceDown = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            spaceDown = false;
+        }
+
+        if (!GameManager.debug)
         {
             if (!PhotonNetwork.isMasterClient) //p1
             {
@@ -21,29 +31,26 @@ public class P1Input : MonoBehaviour {
 
         if (Database.moveUp)
         {
-            this.transform.position += new Vector3(0.0f, 0.1f, 0.0f);
+            this.transform.position += new Vector3(-0.1f, 0.0f, 0.0f);
         }
 
         if (Database.moveDown)
         {
-            this.transform.position += new Vector3(0.0f, -0.1f, 0.0f);
+            this.transform.position += new Vector3(0.1f, -0.0f, 0.0f);
         }
 
-        if (EnterArea)
+        if (EnterArea && spaceDown)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-                Database.handDrag = true;
+            Database.handDrag = true;
         }
 
-        if (!EnterArea)
+
+
+        if (!spaceDown)
         {
+
             Database.handDrag = false;
-        }
 
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            Database.handDrag = false;
-            EnterArea = false;
         }
 
 
@@ -76,6 +83,14 @@ public class P1Input : MonoBehaviour {
 
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.name == "rayArea")
+        {
+            EnterArea = false;
 
+        }
+
+    }
 
 }
