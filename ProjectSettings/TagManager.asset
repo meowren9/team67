@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CheckPoint0
+  - ControlArea
+  - CheckPoint2
+  - CheckPoint1
+  - firework
   layers:
   - Default
   - TransparentFX
