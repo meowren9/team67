@@ -66,6 +66,7 @@ public class GrabController : MonoBehaviour {
                     if(GameManager.debug)
                     {
                         GameObject f = Instantiate(firework, this.transform.position, this.transform.rotation);
+                        f.GetComponent<Rigidbody>().useGravity = true;
                         collidingObject = f;
                     }
                     else

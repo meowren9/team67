@@ -7,12 +7,15 @@ public class Target : MonoBehaviour {
 
     public bool active = true;
     public NianController nian;
+    public GameObject fireworkParticle;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "firework" && active)
         {
             active = false;
+
+            fireworkParticle.SetActive(true);
             nian.ChangeTarget();
             Debug.Log("enter");
         }
