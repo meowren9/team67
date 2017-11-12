@@ -107,8 +107,11 @@ public class KiteController : MonoBehaviour {
 
         if (Database.isPull)
         {
-            print("ispull");
-            playerSky.position += new Vector3(0.002f, -0.002f, 0.0f);
+            if (!Database.handDrag)
+            {
+                playerSky.position += new Vector3(0.002f, -0.002f, 0.0f);
+
+            }
         }
 
 
