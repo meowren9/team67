@@ -11,7 +11,8 @@ public class GameManager : Photon.PunBehaviour
 
 
 
-    public static bool debug = true;
+    public static bool debug = false;
+    public int player = 2;
     public GameObject firework;
 
     //test
@@ -42,8 +43,16 @@ public class GameManager : Photon.PunBehaviour
 
             if (GameManager.debug)
             {
-                p1ovr.SetActive(true);
-                p2ovr.SetActive(false);
+                if(player == 1)
+                {
+                    p1ovr.SetActive(true);
+                    p2ovr.SetActive(false);
+                }else
+                {
+                    p1ovr.SetActive(false);
+                    p2ovr.SetActive(true);
+                }
+                
             }
             else
             {

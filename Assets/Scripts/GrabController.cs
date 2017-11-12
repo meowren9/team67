@@ -63,8 +63,16 @@ public class GrabController : MonoBehaviour {
                 if(inBasket)
                 {
                     //Debug.Log("grab2");
-                    GameObject f = Instantiate(firework, this.transform.position, this.transform.rotation);
-                    collidingObject = f;
+                    if(GameManager.debug)
+                    {
+                        GameObject f = Instantiate(firework, this.transform.position, this.transform.rotation);
+                        collidingObject = f;
+                    }
+                    else
+                    {
+                        GameObject f = PhotonNetwork.Instantiate(this.firework.name, this.transform.position, this.transform.rotation, 0);
+                        collidingObject = f;
+                    }
                     GrabObject();
                 }
             }
