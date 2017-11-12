@@ -15,15 +15,15 @@ public class P1Input : MonoBehaviour
 
 
 
-        ////if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0)
-        if (Input.GetKey(KeyCode.Space))
+        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0)
+        ////if (Input.GetKey(KeyCode.Space))
         {
 
             spaceDown = true;
         }
 
-        ////if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) == 0)
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) == 0)
+        ////if (Input.GetKeyUp(KeyCode.Space))
         {
 
             spaceDown = false;

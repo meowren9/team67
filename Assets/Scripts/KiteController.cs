@@ -12,21 +12,19 @@ public class KiteController : MonoBehaviour {
     public Transform kiteKit;
     public Transform handRight;
 
+    Vector3 kiteDirection;
 
     bool added = false;
     void Start()
     {
         Line = GameObject.Find("line").GetComponent<LineRenderer>();
-        
 
 
     }
 
     void Update () {
 
-
-
-
+        kiteDirection = playerSky.position - kiteKit.position;
 
         if (Database.handDrag)
         {
@@ -58,14 +56,8 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
+                print("Left!");
                 playerSky.position += new Vector3(0.0f, 0.0f, -0.02f);
-
-            }
-
-            else
-            {
-                added = false;
-                Destroy(GameObject.Find("LineCollider"), 0.1f);
             }
             
         }
@@ -74,49 +66,44 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
+                print("Right!");
                 playerSky.position += new Vector3(0.0f, 0.0f, 0.02f);
-
-
-            }
-
-            else
-            {
-                added = false;
-                Destroy(GameObject.Find("LineCollider"), 0.1f);
             }
         }
+
+
+        if (Database.dragBack)
+        {
+            if (Database.handDrag)
+            {
+                print("back!");
+                playerSky.position += new Vector3(-0.02f, 0.0f, 0.0f);
+            }
+           
+        }
+
+        if (Database.dragForward)
+        {
+            if (Database.handDrag)
+            {
+                print("Forward!");
+                playerSky.position += new Vector3(0.02f, 0.0f, 0.0f);
+            }
+        }
+
 
 
         if (Database.releaseKite)
         {
-            playerSky.position += new Vector3(-0.02f, 0.02f, 0.0f);
+            playerSky.position += kiteDirection * 0.001f;
         }
-
-
 
         if (Database.isPull)
         {
-            playerSky.position += new Vector3(0.0f, -0.02f, 0.0f);
+            playerSky.position -= kiteDirection * 0.001f;
         }
 
-        if (Database.dragBack)
-        {
-            playerSky.position += new Vector3(0.002f, 0.0f, 0.0f);
-        }
-        
-
-
-        
     }
-
-    IEnumerator DelayFollow()
-    {
-        yield return new WaitForSeconds(1.0f);
-        Database.startFollow = true;
-    }
-
-
-   
 
 
 

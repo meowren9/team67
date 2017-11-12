@@ -47,7 +47,8 @@ public class FishingToolControl : MonoBehaviour {
 
         //Debug.Log("!!" + OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger));
         //if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0f)
-        if (1==1)
+        if(OVRInput.Get(OVRInput.Button.One))
+        ////if (1==1)
         {
             
             rotPlane = new Plane(fishingReel.transform.right, fishingReel.transform.position);
