@@ -43,7 +43,6 @@ public class KiteController : MonoBehaviour {
             if (!added)
             {
                 print("Called");
-                addColliderToLine();
                 added = true;
             }
             
@@ -59,7 +58,7 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
-                playerSky.position += new Vector3(0.0f, 0.0f, -0.1f);
+                playerSky.position += new Vector3(0.0f, 0.0f, -0.02f);
 
             }
 
@@ -75,7 +74,7 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
-                playerSky.position += new Vector3(0.0f, 0.0f, 0.1f);
+                playerSky.position += new Vector3(0.0f, 0.0f, 0.02f);
 
 
             }
@@ -90,7 +89,7 @@ public class KiteController : MonoBehaviour {
 
         if (Database.releaseKite)
         {
-            playerSky.position += new Vector3(0.0f, 0.1f, 0.0f);
+            playerSky.position += new Vector3(-0.02f, 0.02f, 0.0f);
         }
 
 
@@ -100,7 +99,10 @@ public class KiteController : MonoBehaviour {
             playerSky.position += new Vector3(0.0f, -0.02f, 0.0f);
         }
 
-
+        if (Database.dragBack)
+        {
+            playerSky.position += new Vector3(0.002f, 0.0f, 0.0f);
+        }
         
 
 
@@ -114,23 +116,7 @@ public class KiteController : MonoBehaviour {
     }
 
 
-    private void addColliderToLine()
-    {
-        BoxCollider col = new GameObject("LineCollider").AddComponent<BoxCollider>();
-        col.transform.parent = Line.transform; // Collider is added as child object of line
-        float lineLength = Vector3.Distance(playerSky.position, kiteKit.position); // length of line
-        col.size = new Vector3(lineLength, 0.1f, 1f); // size of collider is set where X is length of line, Y is width of line, Z will be set as per requirement
-        Vector3 midPoint = (playerSky.position + kiteKit.position) / 2;
-        col.transform.position = midPoint; // setting position of collider object
-        // Following lines calculate the angle between playerSky.position and kiteKit.position
-        float angle = (Mathf.Abs(playerSky.position.y - kiteKit.position.y) / Mathf.Abs(playerSky.position.x - kiteKit.position.x));
-        if ((playerSky.position.y < kiteKit.position.y && playerSky.position.x > kiteKit.position.x) || (kiteKit.position.y < playerSky.position.y && kiteKit.position.x > playerSky.position.x))
-        {
-            angle *= -1;
-        }
-        angle = Mathf.Rad2Deg * Mathf.Atan(angle);
-        col.transform.Rotate(0, 0, angle);
-    }
+   
 
 
 

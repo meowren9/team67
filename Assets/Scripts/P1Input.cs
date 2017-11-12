@@ -2,15 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P1Input : MonoBehaviour {
+public class P1Input : MonoBehaviour
+{
 
 
     bool EnterArea;
     bool pressTrigger;
+    bool spaceDown;
 
     void Update()
     {
-        if(!GameManager.debug)
+
+
+
+        ////if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0)
+        if (Input.GetKey(KeyCode.Space))
+        {
+
+            spaceDown = true;
+        }
+
+        ////if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) == 0)
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+
+            spaceDown = false;
+        }
+
+        if (!GameManager.debug)
         {
             if (!PhotonNetwork.isMasterClient) //p1
             {
@@ -21,43 +40,40 @@ public class P1Input : MonoBehaviour {
 
         if (Database.moveUp)
         {
-            this.transform.position += new Vector3(0.0f, 0.1f, 0.0f);
+            this.transform.position += new Vector3(-0.1f, 0.0f, 0.0f);
         }
 
         if (Database.moveDown)
         {
-            this.transform.position += new Vector3(0.0f, -0.1f, 0.0f);
+            this.transform.position += new Vector3(0.1f, -0.0f, 0.0f);
         }
 
-        if (EnterArea)
+        if (EnterArea && spaceDown)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-                Database.handDrag = true;
+            Database.handDrag = true;
         }
 
-        if (!EnterArea)
+
+
+        if (!spaceDown)
         {
+
             Database.handDrag = false;
-        }
 
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            Database.handDrag = false;
-            EnterArea = false;
         }
 
 
 
-        //if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y > 0)
+        if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y > 0)
 
-        if (Input.GetKeyDown(KeyCode.M))
+        ////if (Input.GetKeyDown(KeyCode.M))
         {
             Database.releaseKite = true;
         }
 
-        //if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y == 0)
+        if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y == 0)
 
-        if(Input.GetKeyUp(KeyCode.M))
+        ////if (Input.GetKeyUp(KeyCode.M))
         {
             Database.releaseKite = false;
         }
@@ -68,7 +84,7 @@ public class P1Input : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "rayArea")
+        if (other.name == "rayArea")
         {
             EnterArea = true;
 
@@ -76,6 +92,14 @@ public class P1Input : MonoBehaviour {
 
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.name == "rayArea")
+        {
+            EnterArea = false;
 
+        }
+
+    }
 
 }

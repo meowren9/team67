@@ -5,7 +5,7 @@ public class PlaneToPoint : MonoBehaviour
     public Transform target;
     public Transform playerSky;
     public Transform playerGround;
-    
+
 
 
     void Update()
@@ -16,10 +16,34 @@ public class PlaneToPoint : MonoBehaviour
         //这里使用planeTarget　坐标和法线,平面的法线也就是正面方向(up方向)
         //Plane plane = new Plane(planeTarget.up, planeTarget.position);
         Plane plane = new Plane(playerSky.position, playerGround.position, playerSky.position + new Vector3(0.0f, 0.2f, 0.0f));
+        Plane planeHori = new Plane(playerSky.position, playerGround.position, playerSky.position + new Vector3(0.0f, 0.0f, 0.1f));
+
         float distance = plane.GetDistanceToPoint(target.position);
+        float distanceHori = plane.GetDistanceToPoint(target.position);
         //Debug.Log("distance:" + distance);
 
-        if(distance > 0.2f)
+
+
+
+        if (distanceHori > 0.1f)//dragback distance
+        {
+            if (Database.handDrag)
+            {
+                Database.dragBack = true;
+            }
+        }
+
+
+        if (distanceHori < -0.1f)
+        {
+            if (Database.handDrag)
+            {
+                Database.dragBack = false;
+            }
+        }
+
+
+        if (distance > 0.1f)
         {
             if (Database.handDrag)
             {
@@ -28,7 +52,7 @@ public class PlaneToPoint : MonoBehaviour
             }
         }
 
-        if(distance < -0.2f)
+        if (distance < -0.1f)
         {
             if (Database.handDrag)
             {
@@ -37,7 +61,7 @@ public class PlaneToPoint : MonoBehaviour
             }
         }
 
-        if(distance < 0.19f && distance > -0.19f)
+        if (distance < 0.09f && distance > -0.09f)
         {
             Database.dragLeft = false;
             Database.dragRight = false;

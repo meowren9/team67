@@ -71,6 +71,7 @@ public class GrabController : MonoBehaviour {
                     else
                     {
                         GameObject f = PhotonNetwork.Instantiate(this.firework.name, this.transform.position, this.transform.rotation, 0);
+                        f.GetComponent<Rigidbody>().useGravity = true;
                         collidingObject = f;
                     }
                     GrabObject();

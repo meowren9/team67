@@ -22,6 +22,8 @@ public class Database : MonoBehaviour
     public static bool spaceDown = false;
     public static bool dragLeft = false;
     public static bool dragRight = false;
+    public static bool dragBack = false;
+
     public static bool dragCenter = false;
 
 

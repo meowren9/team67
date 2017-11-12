@@ -26,7 +26,6 @@ GameObject:
   - component: {fileID: 114092375071736124}
   - component: {fileID: 114875008889560446}
   - component: {fileID: 114356206802212392}
-  - component: {fileID: 114649936985185676}
   m_Layer: 0
   m_Name: Firework
   m_TagString: firework
@@ -96,7 +95,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -134,7 +133,6 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 114875008889560446}
-  - {fileID: 114649936985185676}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
@@ -151,19 +149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 367573b5d1648f04ba570cce2c68a89d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114649936985185676
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1474218876850914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64179f3720bbfe947b7724caa67b7c1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 1
 --- !u!114 &114875008889560446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,9 +162,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PositionModel:
     SynchronizeEnabled: 1
-    TeleportEnabled: 0
+    TeleportEnabled: 1
     TeleportIfDistanceGreaterThan: 3
-    InterpolateOption: 0
+    InterpolateOption: 4
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 1
     InterpolateMoveTowardsAcceleration: 2
