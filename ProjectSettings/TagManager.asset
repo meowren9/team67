@@ -9,6 +9,7 @@ TagManager:
   - CheckPoint2
   - CheckPoint1
   - firework
+  - basket
   layers:
   - Default
   - TransparentFX
