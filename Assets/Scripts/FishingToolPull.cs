@@ -58,6 +58,7 @@ public class FishingToolPull : MonoBehaviour {
                         isCheckPointClear[2] = false;
                         isCheckPointClear[point] = true;
                         Database.isPull = true;
+                        print("ispull");
                         StopAllCoroutines();
                         StartCoroutine(CheckSpeed(waitingTime));
                         return;
