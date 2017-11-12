@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GrabController : MonoBehaviour {
 
-
+    public float grabBegin = 0.55f;
+    public float grabEnd = 0.35f;
+    public float speed = 2f;
     // 1
     private GameObject collidingObject;
     // 2
@@ -13,12 +15,23 @@ public class GrabController : MonoBehaviour {
     [SerializeField]
     protected OVRInput.Controller m_controller;
 
-    void Update()
-    {
+    protected float m_prevFlex;
 
-        //Debug.Log("update");
-       // //if (Controller.GetHairTriggerDown())
-        if (Input.GetKeyDown(KeyCode.M))
+    void FixedUpdate()
+    {
+        OnUpdatedAnchors();
+    }
+
+    void OnUpdatedAnchors()
+    {
+        float prevFlex = m_prevFlex;
+        m_prevFlex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, m_controller);
+        CheckForGrabOrRelease(prevFlex);
+    }
+
+    protected void CheckForGrabOrRelease(float prevFlex)
+    {
+        if ((m_prevFlex >= grabBegin) && (prevFlex < grabBegin))
         {
             Debug.Log("grab");
             if (collidingObject)
@@ -26,10 +39,7 @@ public class GrabController : MonoBehaviour {
                 GrabObject();
             }
         }
-
-        // 2
-        //if (Controller.GetHairTriggerUp())
-        if (Input.GetKeyUp(KeyCode.M))
+        else if ((m_prevFlex <= grabEnd) && (prevFlex > grabEnd))
         {
             Debug.Log("release");
             if (objectInHand)
@@ -38,6 +48,7 @@ public class GrabController : MonoBehaviour {
             }
         }
     }
+
     private void SetCollidingObject(Collider col)
     {
         // 1
@@ -103,19 +114,8 @@ public class GrabController : MonoBehaviour {
             Destroy(GetComponent<FixedJoint>());
             // 3
 
-            //OVRPose localPose = new OVRPose { position = OVRInput.GetLocalControllerPosition(m_controller), orientation = OVRInput.GetLocalControllerRotation(m_controller) };
-            //OVRPose offsetPose = new OVRPose { position = m_anchorOffsetPosition, orientation = m_anchorOffsetRotation };
-            //localPose = localPose * offsetPose;
-
-            //OVRPose trackingSpace = transform.ToOVRPose() * localPose.Inverse();
-            //Vector3 linearVelocity = trackingSpace.orientation * OVRInput.GetLocalControllerVelocity(m_controller);
-            //Vector3 angularVelocity = trackingSpace.orientation * OVRInput.GetLocalControllerAngularVelocity(m_controller);
-
-            //objectInHand.GetComponent<Rigidbody>().velocity = linearVelocity;
-            //objectInHand.GetComponent<Rigidbody>().angularVelocity = angularVelocity;
-
-            objectInHand.GetComponent<Rigidbody>().velocity = OVRInput.GetLocalControllerVelocity(m_controller);
-            objectInHand.GetComponent<Rigidbody>().angularVelocity = OVRInput.GetLocalControllerAngularVelocity(m_controller);
+            objectInHand.GetComponent<Rigidbody>().velocity = speed*OVRInput.GetLocalControllerVelocity(m_controller);
+            objectInHand.GetComponent<Rigidbody>().angularVelocity = speed*OVRInput.GetLocalControllerAngularVelocity(m_controller);
         }
         // 4
         objectInHand = null;
