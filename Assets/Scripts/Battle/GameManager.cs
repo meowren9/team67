@@ -11,7 +11,7 @@ public class GameManager : Photon.PunBehaviour
 
 
 
-    public static bool debug = false;
+    public static bool debug = true;
     public GameObject firework;
 
     //test
@@ -21,32 +21,24 @@ public class GameManager : Photon.PunBehaviour
     void Start()
     {
         //fire work
-        if (firework == null)
-        {
-            Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'", this);
-        }
-        else
-        {
-            //instantiate firework and basket
-            if (!PhotonNetwork.isMasterClient)
-            {
-                //TODO
-                GameObject f = PhotonNetwork.Instantiate(this.firework.name, new Vector3(0f, 0f, 0f), Quaternion.identity, 0);
+        //if (firework == null)
+        //{
+        //    Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'", this);
+        //}
+        //else
+        //{
+        //    //instantiate firework and basket
+        //    if (!PhotonNetwork.isMasterClient)
+        //    {
+        //        //TODO
+        //        GameObject f = PhotonNetwork.Instantiate(this.firework.name, new Vector3(0f, 0f, 0f), Quaternion.identity, 0);
 
-            }
-                
+        //    }
+
+        //}
 
             
-            //if (debug)
-            //{
-            //    //Instantiate(firework, new Vector3(0f, 5f, 0f), Quaternion.identity);
-            //    GameObject c = Instantiate(cube);
-            //    c.transform.parent = p1.transform;
-            //    c.transform.localPosition = new Vector3(0,0,-0.5f);
-            //}
-
-
-            //TODO: choose ovr
+           
 
             if (GameManager.debug)
             {
@@ -71,6 +63,5 @@ public class GameManager : Photon.PunBehaviour
 
         }
 
-    }
 
 }
