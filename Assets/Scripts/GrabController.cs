@@ -17,9 +17,28 @@ public class GrabController : MonoBehaviour {
 
     protected float m_prevFlex;
 
-    void FixedUpdate()
+    [SerializeField] bool inBasket = false;
+    public GameObject firework;
+
+    void Update()
     {
         OnUpdatedAnchors();
+        //debug
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if (inBasket)
+            {
+                GameObject f = Instantiate(firework, this.transform.position,this.transform.rotation);
+                collidingObject = f;
+                GrabObject();
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            ReleaseObject();
+        }
+
     }
 
     void OnUpdatedAnchors()
@@ -38,6 +57,16 @@ public class GrabController : MonoBehaviour {
             {
                 GrabObject();
             }
+            else
+            {
+                if(inBasket)
+                {
+                    GameObject f = Instantiate(firework, this.transform, true);
+                    collidingObject = f;
+                    GrabObject();
+                }
+            }
+
         }
         else if ((m_prevFlex <= grabEnd) && (prevFlex > grabEnd))
         {
@@ -51,42 +80,49 @@ public class GrabController : MonoBehaviour {
 
     private void SetCollidingObject(Collider col)
     {
-        // 1
         if (collidingObject || !col.GetComponent<Rigidbody>())
         {
             return;
         }
-        // 2
         collidingObject = col.gameObject;
     }
 
     public void OnTriggerEnter(Collider other)
     {
+        if(other.tag == "basket")
+        {
+            inBasket = true;
+        }
 
-        Debug.Log("colide");
-        SetCollidingObject(other);
+        if(other.tag == "firework")
+        {
+            Debug.Log("colide with firework");
+            SetCollidingObject(other);
+        }
     }
 
-    // 2
     public void OnTriggerStay(Collider other)
     {
         SetCollidingObject(other);
     }
 
-    // 3
     public void OnTriggerExit(Collider other)
     {
+        if (other.tag == "basket")
+        {
+            inBasket = false;
+        }
+
         if (!collidingObject)
         {
             return;
         }
-
         collidingObject = null;
     }
 
     private void GrabObject()
     {
-        // 1
+        //todo:
         objectInHand = collidingObject;
         collidingObject = null;
         // 2
