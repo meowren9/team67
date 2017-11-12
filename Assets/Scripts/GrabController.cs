@@ -24,20 +24,20 @@ public class GrabController : MonoBehaviour {
     {
         OnUpdatedAnchors();
         //debug
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if (inBasket)
-            {
-                GameObject f = Instantiate(firework, this.transform.position,this.transform.rotation);
-                collidingObject = f;
-                GrabObject();
-            }
-        }
+        //if(Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    if (inBasket)
+        //    {
+        //        GameObject f = Instantiate(firework, this.transform.position,this.transform.rotation);
+        //        collidingObject = f;
+        //        GrabObject();
+        //    }
+        //}
 
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            ReleaseObject();
-        }
+        //if (Input.GetKeyUp(KeyCode.Space))
+        //{
+        //    ReleaseObject();
+        //}
 
     }
 
@@ -52,16 +52,18 @@ public class GrabController : MonoBehaviour {
     {
         if ((m_prevFlex >= grabBegin) && (prevFlex < grabBegin))
         {
-            Debug.Log("grab");
+            
             if (collidingObject)
             {
+                //Debug.Log("grab1");
                 GrabObject();
             }
             else
             {
                 if(inBasket)
                 {
-                    GameObject f = Instantiate(firework, this.transform, true);
+                    //Debug.Log("grab2");
+                    GameObject f = Instantiate(firework, this.transform.position, this.transform.rotation);
                     collidingObject = f;
                     GrabObject();
                 }
