@@ -12,7 +12,7 @@ public class GameManager : Photon.PunBehaviour
     public GameObject p2Ava;
 
 
-    public static bool debug = true;
+    public static bool debug = false;
     public int player = 2;
     public GameObject firework;
 

@@ -2063,7 +2063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  heartSpeed: 20
+  heartSpeed: 10
   Blood: {fileID: 1387769194}
 --- !u!1 &385117835
 GameObject:
@@ -5488,7 +5488,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1001953151}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.286, y: -0.348, z: -0.048}
+  m_LocalPosition: {x: 0.36, y: -0.64, z: -0.05}
   m_LocalScale: {x: 0.30841157, y: 0.30841157, z: 0.30841157}
   m_Children:
   - {fileID: 2036630226}
@@ -6621,15 +6621,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: b61e8b28537745d4a903da7739c6028b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.020999812
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b61e8b28537745d4a903da7739c6028b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.48400003
+      value: -0.76
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b61e8b28537745d4a903da7739c6028b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.017999563
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b61e8b28537745d4a903da7739c6028b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9329,7 +9329,7 @@ Prefab:
       objectReference: {fileID: 1415966934}
     - target: {fileID: 1081585137132590, guid: 86fc02bf52173654d98a5d48bb8f4fdf, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23676179976726802, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
