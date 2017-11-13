@@ -7,8 +7,9 @@ public class GameManager : Photon.PunBehaviour
 
     public GameObject p1ovr;
     public GameObject p2ovr;
-    //public GameObject hand1;
 
+    public GameObject p1Ava;
+    public GameObject p2Ava;
 
 
     public static bool debug = true;
@@ -38,20 +39,24 @@ public class GameManager : Photon.PunBehaviour
 
         //}
 
-            
            
-
             if (GameManager.debug)
             {
                 if(player == 1)
                 {
                     p1ovr.SetActive(true);
                     p2ovr.SetActive(false);
-                }else
+                    p1Ava.SetActive(false);
+                    p2Ava.SetActive(true);
+
+            }
+            else
                 {
                     p1ovr.SetActive(false);
                     p2ovr.SetActive(true);
-                }
+                    p1Ava.SetActive(true);
+                    p2Ava.SetActive(false);
+            }
                 
             }
             else
@@ -60,12 +65,16 @@ public class GameManager : Photon.PunBehaviour
                 {
                     p1ovr.SetActive(true);
                     p2ovr.SetActive(false);
-                }
+                    p1Ava.SetActive(false);
+                    p2Ava.SetActive(true);
+            }
                 else //p2
                 {
                     p1ovr.SetActive(false);
                     p2ovr.SetActive(true);
-                }
+                    p1Ava.SetActive(true);
+                    p2Ava.SetActive(false);
+            }
             }
 
 

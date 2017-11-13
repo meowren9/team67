@@ -59,7 +59,7 @@ public class KiteController : MonoBehaviour {
             if (Database.handDrag)
             {
                 print("Left!");
-                playerSky.position += new Vector3(0.0f, 0.0f, -0.02f);
+                playerSky.position += new Vector3(0.0f, 0.0f, 0.02f);
             }
             
         }
@@ -69,7 +69,7 @@ public class KiteController : MonoBehaviour {
             if (Database.handDrag)
             {
                 print("Right!");
-                playerSky.position += new Vector3(0.0f, 0.0f, 0.02f);
+                playerSky.position += new Vector3(0.0f, 0.0f, -0.02f);
             }
         }
 
