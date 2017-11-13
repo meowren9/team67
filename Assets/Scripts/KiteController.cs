@@ -12,6 +12,8 @@ public class KiteController : MonoBehaviour {
     public Transform kiteKit;
     public Transform handRight;
 
+    public float highest = 35.0f;
+    public float lowest = 12.0f;
     Vector3 kiteDirection;
 
     bool added = false;
@@ -95,12 +97,32 @@ public class KiteController : MonoBehaviour {
 
         if (Database.releaseKite)
         {
-            playerSky.position += kiteDirection * 0.001f;
+            if(playerSky.position.y < highest)
+            {
+                playerSky.position += kiteDirection * 0.001f;
+            }
+            else
+            {
+                print("out of range");
+                playerSky.position += new Vector3(kiteDirection.x * 0.001f, 0.0f, kiteDirection.z * 0.001f);
+            }
+            
         }
 
         if (Database.isPull)
         {
-            playerSky.position -= kiteDirection * 0.001f;
+
+            if(playerSky.position.y > lowest)
+            {
+                playerSky.position -= kiteDirection * 0.001f;
+            }
+            else
+            {
+                print("out of range");
+                playerSky.position -= new Vector3 (kiteDirection.x * 0.001f, 0.0f, kiteDirection.z * 0.001f);
+                
+            }
+            
         }
 
     }

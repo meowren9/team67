@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class P2Health : Photon.PunBehaviour, IPunObservable { //controlled by master
 
     public float health = 100f;
     public float heartSpeed = 3f;
+
+    public GameObject Blood;
+    Image BloodImage;
 
     void OnParticleCollision(GameObject other)
     {
@@ -26,5 +30,14 @@ public class P2Health : Photon.PunBehaviour, IPunObservable { //controlled by ma
         {
             this.health = (float)stream.ReceiveNext();
         }
+    }
+
+
+    void Update()
+    {
+
+        BloodImage = Blood.GetComponent<Image>();
+        BloodImage.color = new Color(155.0f, 2.0f, 2.0f, 1-health/100);
+
     }
 }

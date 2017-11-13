@@ -1,0 +1,220 @@
+fileFormatVersion: 2
+guid: 91f863e2bb10b3840b46095e835d838f
+timeCreated: 1510529544
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: back
+    100002: chin
+    100004: elnow
+    100006: front
+    100008: group
+    100010: head
+    100012: horn
+    100014: //RootNode
+    100016: joint10
+    100018: joint12
+    100020: joint13
+    100022: joint15
+    100024: joint16
+    100026: joint17
+    100028: joint18
+    100030: joint27
+    100032: joint31
+    100034: joint32
+    100036: joint34
+    100038: joint35
+    100040: joint36
+    100042: joint37
+    100044: joint7
+    100046: joint8
+    100048: joint9
+    100050: leftarm
+    100052: leftear
+    100054: leftleg
+    100056: main
+    100058: mouth
+    100060: neck
+    100062: nose
+    100064: pasted__joint12
+    100066: pasted__joint15
+    100068: pasted__joint16
+    100070: pasted__joint17
+    100072: pasted__joint18
+    100074: pasted__joint20
+    100076: pasted__joint21
+    100078: pasted__joint23
+    100080: pasted__joint24
+    100082: pasted__joint25
+    100084: pasted__joint26
+    100086: pasted__pSphere16
+    100088: pCylinder2
+    100090: pCylinder3
+    100092: rightarm
+    100094: rightear
+    100096: rightleg
+    100098: tail
+    100100: transform1
+    100102: transform2
+    100104: up
+    400000: back
+    400002: chin
+    400004: elnow
+    400006: front
+    400008: group
+    400010: head
+    400012: horn
+    400014: //RootNode
+    400016: joint10
+    400018: joint12
+    400020: joint13
+    400022: joint15
+    400024: joint16
+    400026: joint17
+    400028: joint18
+    400030: joint27
+    400032: joint31
+    400034: joint32
+    400036: joint34
+    400038: joint35
+    400040: joint36
+    400042: joint37
+    400044: joint7
+    400046: joint8
+    400048: joint9
+    400050: leftarm
+    400052: leftear
+    400054: leftleg
+    400056: main
+    400058: mouth
+    400060: neck
+    400062: nose
+    400064: pasted__joint12
+    400066: pasted__joint15
+    400068: pasted__joint16
+    400070: pasted__joint17
+    400072: pasted__joint18
+    400074: pasted__joint20
+    400076: pasted__joint21
+    400078: pasted__joint23
+    400080: pasted__joint24
+    400082: pasted__joint25
+    400084: pasted__joint26
+    400086: pasted__pSphere16
+    400088: pCylinder2
+    400090: pCylinder3
+    400092: rightarm
+    400094: rightear
+    400096: rightleg
+    400098: tail
+    400100: transform1
+    400102: transform2
+    400104: up
+    4300000: pCylinder3
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: pCylinder3
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
