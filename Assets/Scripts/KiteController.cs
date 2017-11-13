@@ -99,12 +99,12 @@ public class KiteController : MonoBehaviour {
         {
             if(playerSky.position.y < highest)
             {
-                playerSky.position += kiteDirection * 0.001f;
+                playerSky.position += kiteDirection * 0.002f;
             }
             else
             {
                 print("out of range");
-                playerSky.position += new Vector3(kiteDirection.x * 0.001f, 0.0f, kiteDirection.z * 0.001f);
+                playerSky.position += new Vector3(kiteDirection.x * 0.002f, 0.0f, kiteDirection.z * 0.002f);
             }
             
         }
@@ -114,12 +114,12 @@ public class KiteController : MonoBehaviour {
 
             if(playerSky.position.y > lowest)
             {
-                playerSky.position -= kiteDirection * 0.001f;
+                playerSky.position -= kiteDirection * 0.002f;
             }
             else
             {
                 print("out of range");
-                playerSky.position -= new Vector3 (kiteDirection.x * 0.001f, 0.0f, kiteDirection.z * 0.001f);
+                playerSky.position -= new Vector3 (kiteDirection.x * 0.002f, 0.0f, kiteDirection.z * 0.002f);
                 
             }
             

@@ -37,7 +37,8 @@ public class P2Health : Photon.PunBehaviour, IPunObservable { //controlled by ma
     {
 
         BloodImage = Blood.GetComponent<Image>();
-        BloodImage.color = new Color(155.0f, 2.0f, 2.0f, 1-health/100);
+        BloodImage.color = new Color(155.0f/255, 2.0f/255, 2.0f/255, 1-health/100);
+        //new Color32()
 
     }
 }

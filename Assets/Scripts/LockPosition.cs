@@ -14,6 +14,7 @@ public class LockPosition : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.transform.position = P2.position;
+        //if(PhotonNetwork.isMasterClient)
+            this.transform.position = P2.position;
 	}
 }

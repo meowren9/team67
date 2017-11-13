@@ -17,9 +17,11 @@ public class NianController : Photon.PunBehaviour, IPunObservable { //controled 
     public int active_target_idx = 0;
     public GameObject[] targets;
 
+    AudioSource nian_audio;
 
     void Awake()
     {
+        nian_audio = GetComponent<AudioSource>();
         IsFiring = false;
         alive = true;
         if (PhotonNetwork.isMasterClient || GameManager.debug)
@@ -33,11 +35,22 @@ public class NianController : Photon.PunBehaviour, IPunObservable { //controled 
         
     }
 
+    bool prev_fire = false;
 
     void Update()
     {
+        if(prev_fire == false && IsFiring == true) 
+        {
+            nian_audio.Play();
+        }
+        prev_fire = IsFiring;
+
         var emission = Beams.emission;
         emission.enabled = IsFiring;
+
+        
+        
+
 
         for (int i = 0; i < health; i++)
         {
