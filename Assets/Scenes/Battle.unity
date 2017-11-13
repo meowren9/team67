@@ -1070,8 +1070,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.875, z: 0.371}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children:
-  - {fileID: 658165426}
+  m_Children: []
   m_Father: {fileID: 739456100}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1138,6 +1137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 373841209}
+  head: {fileID: 0}
   speed: 2
 --- !u!1 &263344488
 GameObject:
@@ -1160,7 +1160,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400096, guid: 91f863e2bb10b3840b46095e835d838f, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 263344488}
-  m_LocalRotation: {x: -0.69931495, y: 0.10468314, z: 0.70069385, w: 0.09501652}
+  m_LocalRotation: {x: -0.699315, y: 0.10468312, z: 0.7006939, w: 0.0950165}
   m_LocalPosition: {x: -0.002077104, y: -0.00095583446, z: -0.0223102}
   m_LocalScale: {x: 0.6333773, y: 1, z: 1}
   m_Children:
@@ -1264,7 +1264,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   nian: {fileID: 739456104}
-  fireworkParticle: {fileID: 368229242}
+  fireworkParticle: {fileID: 0}
   fireworkSet: {fileID: 0}
 --- !u!1 &302657185
 GameObject:
@@ -2077,7 +2077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   heartSpeed: 10
-  Blood: {fileID: 1387769194}
+  Blood: {fileID: 0}
 --- !u!1 &385117835
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,11 +2168,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c8d0bede534e0b449bb8a021cc70b1a2, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &390854625 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4763961549009592, guid: c8d0bede534e0b449bb8a021cc70b1a2,
-    type: 2}
-  m_PrefabInternal: {fileID: 390854624}
 --- !u!1 &391128824
 GameObject:
   m_ObjectHideFlags: 0
@@ -3260,20 +3255,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -3410,31 +3391,31 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 204111566}
+    m_TransformParent: {fileID: 1103397368}
     m_Modifications:
     - target: {fileID: 4599504393707834, guid: c95d6d4638a7a5940b5afbc0b7000905, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0037
       objectReference: {fileID: 0}
     - target: {fileID: 4599504393707834, guid: c95d6d4638a7a5940b5afbc0b7000905, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0569
       objectReference: {fileID: 0}
     - target: {fileID: 4599504393707834, guid: c95d6d4638a7a5940b5afbc0b7000905, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: 0.0562
       objectReference: {fileID: 0}
     - target: {fileID: 4599504393707834, guid: c95d6d4638a7a5940b5afbc0b7000905, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4599504393707834, guid: c95d6d4638a7a5940b5afbc0b7000905, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4599504393707834, guid: c95d6d4638a7a5940b5afbc0b7000905, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4599504393707834, guid: c95d6d4638a7a5940b5afbc0b7000905, type: 2}
       propertyPath: m_LocalRotation.w
@@ -3452,7 +3433,7 @@ Prefab:
     - target: {fileID: 198188701412789196, guid: c95d6d4638a7a5940b5afbc0b7000905,
         type: 2}
       propertyPath: randomSeed
-      value: -122341945
+      value: -1605588564
       objectReference: {fileID: 0}
     - target: {fileID: 198188701412789196, guid: c95d6d4638a7a5940b5afbc0b7000905,
         type: 2}
@@ -3504,7 +3485,11 @@ Prefab:
     - target: {fileID: 198158727212422248, guid: c95d6d4638a7a5940b5afbc0b7000905,
         type: 2}
       propertyPath: randomSeed
-      value: -549294355
+      value: -1575148539
+      objectReference: {fileID: 0}
+    - target: {fileID: 4599504393707834, guid: c95d6d4638a7a5940b5afbc0b7000905, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c95d6d4638a7a5940b5afbc0b7000905, type: 2}
@@ -4309,7 +4294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   nian: {fileID: 739456104}
-  fireworkParticle: {fileID: 1454161873}
+  fireworkParticle: {fileID: 0}
   fireworkSet: {fileID: 0}
 --- !u!1001 &824583201
 Prefab:
@@ -5108,7 +5093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae107c4cc5d99945a840ca0d9eff75d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  P2: {fileID: 390854625}
+  P2: {fileID: 0}
 --- !u!114 &951727850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5765,7 +5750,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1096105057}
-  - component: {fileID: 1096105058}
   m_Layer: 0
   m_Name: neck
   m_TagString: Untagged
@@ -5779,27 +5763,14 @@ Transform:
   m_PrefabParentObject: {fileID: 400060, guid: 91f863e2bb10b3840b46095e835d838f, type: 3}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1096105056}
-  m_LocalRotation: {x: -0, y: -0, z: -2.6087687e-37, w: 1}
+  m_LocalRotation: {x: 0.07445341, y: 0.70317614, z: 0.00000055506814, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 552977280}
   m_Father: {fileID: 1103397368}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1096105058
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1096105056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 258a2036a9c501746b203d4a411ef95f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 373841209}
-  speed: 2
 --- !u!1 &1098358186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5971,14 +5942,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1103397367}
-  m_LocalRotation: {x: -8.0296703e-20, y: -3.2489115e-18, z: 0.052720208, w: 0.9986094}
+  m_LocalRotation: {x: -0.03727827, y: -0.7061235, z: 0.03727827, w: 0.7061235}
   m_LocalPosition: {x: -0.042140204, y: -0.002122088, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 658165426}
   - {fileID: 1096105057}
   m_Father: {fileID: 1626635530}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 6.044}
 --- !u!114 &1103397369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5991,6 +5963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 373841209}
+  head: {fileID: 552977280}
   speed: 2
 --- !u!1 &1112826555
 GameObject:
@@ -6298,8 +6271,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   nian: {fileID: 739456104}
-  fireworkParticle: {fileID: 1689817674}
-  fireworkSet: {fileID: 8912589}
+  fireworkParticle: {fileID: 0}
+  fireworkSet: {fileID: 0}
 --- !u!1 &1173182967
 GameObject:
   m_ObjectHideFlags: 0
@@ -7793,7 +7766,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   nian: {fileID: 739456104}
-  fireworkParticle: {fileID: 1626295807}
+  fireworkParticle: {fileID: 0}
   fireworkSet: {fileID: 0}
 --- !u!1001 &1454161871
 Prefab:
@@ -10808,7 +10781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   nian: {fileID: 739456104}
-  fireworkParticle: {fileID: 1336484468}
+  fireworkParticle: {fileID: 0}
   fireworkSet: {fileID: 0}
 --- !u!1 &2036630225
 GameObject:
