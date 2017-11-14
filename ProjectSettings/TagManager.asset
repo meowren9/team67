@@ -11,6 +11,7 @@ TagManager:
   - firework
   - basket
   - fireworkSet
+  - nian
   layers:
   - Default
   - TransparentFX

@@ -17,6 +17,8 @@ public class NianController : Photon.PunBehaviour, IPunObservable { //controled 
     public int active_target_idx = 0;
     public GameObject[] targets;
 
+    public GameObject Lanterns;
+
     AudioSource nian_audio;
 
     void Awake()
@@ -39,7 +41,9 @@ public class NianController : Photon.PunBehaviour, IPunObservable { //controled 
 
     void Update()
     {
-        if(prev_fire == false && IsFiring == true) 
+
+
+        if (prev_fire == false && IsFiring == true) 
         {
             nian_audio.Play();
         }
@@ -63,6 +67,8 @@ public class NianController : Photon.PunBehaviour, IPunObservable { //controled 
                 targets[i].SetActive(false);
             }
         }
+
+
     }
 
 

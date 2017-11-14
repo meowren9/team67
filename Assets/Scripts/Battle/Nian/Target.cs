@@ -9,8 +9,15 @@ public class Target : MonoBehaviour {
     public NianController nian;
     public GameObject fireworkParticle;
 
-    public GameObject fireworkSet;
 
+
+    //sijie
+    public GameObject fireworkSet;
+    public GameObject lanternSet;
+
+
+    bool moveAway = false;
+    //sijie end
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "firework" && active)
@@ -21,11 +28,26 @@ public class Target : MonoBehaviour {
             nian.ChangeTarget();
             Debug.Log("enter");
             
+
+
+
+            //Sijie 
             //finish the last target
             if(this.name == "Face")
             {
                 fireworkSet.SetActive(true);
+                
+                
             }
+
+            else if (this.name == "Back")
+            {
+                lanternSet.SetActive(true);
+            }
+
+
+            //Sijie End
         }
     }
+
 }

@@ -68,6 +68,7 @@ public class P1Input : MonoBehaviour
 
         ////if (Input.GetKeyDown(KeyCode.M))
         {
+            OVRInput.SetControllerVibration(1, 20, OVRInput.Controller.LTouch);
             Database.releaseKite = true;
         }
 
@@ -75,8 +76,10 @@ public class P1Input : MonoBehaviour
 
         ////if (Input.GetKeyUp(KeyCode.M))
         {
+            OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.LTouch);
             Database.releaseKite = false;
         }
+
 
 
 

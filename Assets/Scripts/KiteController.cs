@@ -13,7 +13,11 @@ public class KiteController : MonoBehaviour {
     public Transform handRight;
 
     public float highest = 35.0f;
-    public float lowest = 12.0f;
+    public float lowest = 6.0f;
+    public float xMax = 16.0f;
+    public float xMin = -7.0f;
+    public float zMax = 28.0f;
+    public float zMin = -8.0f;
     Vector3 kiteDirection;
 
     bool added = false;
@@ -40,14 +44,6 @@ public class KiteController : MonoBehaviour {
 
         else
         {
-            if (!added)
-            {
-                print("Called");
-                added = true;
-            }
-            
-            
-
             Line.positionCount = 2;
             Line.SetPosition(0, playerSky.position);
             Line.SetPosition(1, kiteKit.position);
@@ -58,8 +54,8 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
-                print("Left!");
-                playerSky.position += new Vector3(0.0f, 0.0f, 0.02f);
+                if(playerSky.position.z < zMax)
+                    playerSky.position += new Vector3(0.0f, 0.0f, 0.02f);
             }
             
         }
@@ -68,8 +64,8 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
-                print("Right!");
-                playerSky.position += new Vector3(0.0f, 0.0f, -0.02f);
+                if (playerSky.position.z > zMin)
+                    playerSky.position += new Vector3(0.0f, 0.0f, -0.02f);
             }
         }
 
@@ -78,8 +74,8 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
-                print("back!");
-                playerSky.position += new Vector3(-0.02f, 0.0f, 0.0f);
+                if (playerSky.position.x > xMin)
+                    playerSky.position += new Vector3(-0.02f, 0.0f, 0.0f);
             }
            
         }
@@ -88,8 +84,8 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
-                print("Forward!");
-                playerSky.position += new Vector3(0.02f, 0.0f, 0.0f);
+                if (playerSky.position.x < xMax)
+                    playerSky.position += new Vector3(0.02f, 0.0f, 0.0f);
             }
         }
 
@@ -97,32 +93,26 @@ public class KiteController : MonoBehaviour {
 
         if (Database.releaseKite)
         {
-            if(playerSky.position.y < highest)
+            if (playerSky.position.y > lowest && playerSky.position.y < highest && playerSky.position.x < xMax && playerSky.position.x > xMin
+            && playerSky.position.z > zMin && playerSky.position.z < zMax)
             {
                 playerSky.position += kiteDirection * 0.002f;
             }
-            else
-            {
-                print("out of range");
-                playerSky.position += new Vector3(kiteDirection.x * 0.002f, 0.0f, kiteDirection.z * 0.002f);
-            }
-            
+
+
+
         }
 
         if (Database.isPull)
         {
 
-            if(playerSky.position.y > lowest)
+            if(playerSky.position.y > lowest && playerSky.position.y < highest && playerSky.position.x < xMax && playerSky.position.x > xMin 
+                && playerSky.position.z > zMin && playerSky.position.z < zMax)
             {
                 playerSky.position -= kiteDirection * 0.002f;
             }
-            else
-            {
-                print("out of range");
-                playerSky.position -= new Vector3 (kiteDirection.x * 0.002f, 0.0f, kiteDirection.z * 0.002f);
-                
-            }
-            
+
+
         }
 
     }
