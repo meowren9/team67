@@ -22,6 +22,8 @@ public class P1Input : MonoBehaviour
 
     int tutorialWatingTime = 8;
 
+    public GameObject Wheel;
+
     int count = 0;
     int count1 = 0;
     void Update()
@@ -113,11 +115,11 @@ public class P1Input : MonoBehaviour
 
         ////if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y > 0)
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKey(KeyCode.M))
         {
             OVRInput.SetControllerVibration(1, 20, OVRInput.Controller.LTouch);
             Database.releaseKite = true;
-            
+            Wheel.transform.Rotate(10.0f, 0.0f, 0.0f);
         }
 
         ////if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y == 0)
