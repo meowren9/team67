@@ -11,10 +11,7 @@ public class PlaneToPoint : MonoBehaviour
     void Update()
     {
 
-        //Plane 类提供了处理平面所用到的基本算法
-        //3的点构成一个面,或者坐标和法线构成一个面
-        //这里使用planeTarget　坐标和法线,平面的法线也就是正面方向(up方向)
-        //Plane plane = new Plane(planeTarget.up, planeTarget.position);
+
         Plane planeVir = new Plane(playerSky.position, playerGround.position, playerSky.position + new Vector3(0.0f, 0.2f, 0.0f));
         Plane planeHori = new Plane(playerSky.position, playerGround.position, playerSky.position + new Vector3(0.0f, 0.0f, 0.1f));
 

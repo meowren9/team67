@@ -36,4 +36,6 @@ public class Database : MonoBehaviour
     public static bool isPull = false;
 
     public static bool win = false;
+
+    public static bool isTutorial = true;
 }
