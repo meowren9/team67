@@ -112,7 +112,7 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
-                if (playerSky.position.x+0.02 < xMax)
+                if (playerSky.position.x + 0.02 < xMax)
                     playerSky.position += new Vector3(0.02f, 0.0f, 0.0f);
             }
         }
@@ -141,6 +141,7 @@ public class KiteController : MonoBehaviour {
             if (playerSky.position.y - kiteDirection.y * 0.003f > lowest
                 && playerSky.position.x - kiteDirection.x * 0.003f > xMin)
             {
+
                 playerSky.position -= kiteDirection * 0.003f;
             }
 

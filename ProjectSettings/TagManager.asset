@@ -12,6 +12,7 @@ TagManager:
   - basket
   - fireworkSet
   - nian
+  - fireLantern
   layers:
   - Default
   - TransparentFX

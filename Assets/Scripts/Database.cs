@@ -40,4 +40,6 @@ public class Database : MonoBehaviour
     public static bool isTutorial = true;
     public static bool finishFight = false;
 
+    public static int tutorialTarget = 0;
+
 }

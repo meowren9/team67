@@ -69,7 +69,7 @@ public class ToolControl : MonoBehaviour {
             if (isRotate)
             {
                 fishingReel.transform.localEulerAngles = new Vector3(nextRot+80f, 0f, 0f);
-                print("pp");
+
                 OVRInput.SetControllerVibration(1, 20, OVRInput.Controller.RTouch);
             }
 

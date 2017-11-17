@@ -26,7 +26,7 @@ public class Target : MonoBehaviour {
 
             fireworkParticle.SetActive(true);
             nian.ChangeTarget();
-            Debug.Log("enter");
+
             
 
 

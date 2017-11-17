@@ -10,6 +10,7 @@ public class P1Input : MonoBehaviour
     bool pressTrigger;
     bool spaceDown;
     public GameObject tutorial;
+    public GameObject targetSet;
     public GameObject Nian;
 
     public Texture[] textureDrag, textureRelease, texturePull;
@@ -64,7 +65,10 @@ public class P1Input : MonoBehaviour
         }
 
 
-
+        if(Database.tutorialTarget == 3)
+        {
+            Nian.SetActive(true);
+        }
 
 
 
@@ -270,8 +274,8 @@ public class P1Input : MonoBehaviour
                 }
                 else
                 {
-                    print("innnn");
-                    Nian.SetActive(true);
+
+                    targetSet.SetActive(true);
                 }
             }
 
