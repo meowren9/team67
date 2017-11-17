@@ -19,12 +19,15 @@ public class FireworkDestroy : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
 
-
-        if(other.tag == "firework")
+        if(other.GetComponent<SetFire>().fired == true)
         {
+            if(other.tag == "firework")
+            {
 
-            Destroy(target, 0.1f);
-            Database.tutorialTarget ++;
+                Destroy(target, 0.1f);
+                Database.tutorialTarget ++;
+            }
+
         }
     }
 }

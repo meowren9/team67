@@ -6,6 +6,7 @@ public class SetFire : MonoBehaviour {
 
 
     public GameObject Sparkle;
+    public bool fired = false;
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +23,7 @@ public class SetFire : MonoBehaviour {
         if(other.tag == "fireLantern")
         {
             Sparkle.SetActive(true);
-
+            fired = true;
         }
     }
 }

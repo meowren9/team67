@@ -20,34 +20,40 @@ public class Target : MonoBehaviour {
     //sijie end
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "firework" && active)
-        {
-            active = false;
 
-            fireworkParticle.SetActive(true);
-            nian.ChangeTarget();
+        if(other.GetComponent<SetFire>().fired == true)
+        {
+            print("oms");
+            if(other.tag == "firework" && active)
+            {
+                active = false;
+
+                fireworkParticle.SetActive(true);
+                nian.ChangeTarget();
 
             
 
 
 
-            //Sijie 
-            //finish the last target
-            if(this.name == "Face")
-            {
-                fireworkSet.SetActive(true);
+                //Sijie 
+                //finish the last target
+                if(this.name == "Face")
+                {
+                    fireworkSet.SetActive(true);
                 
                 
+                }
+
+                else if (this.name == "Back")
+                {
+                    lanternSet.SetActive(true);
+                }
+
+
+                //Sijie End
             }
-
-            else if (this.name == "Back")
-            {
-                lanternSet.SetActive(true);
-            }
-
-
-            //Sijie End
         }
+
     }
 
 }

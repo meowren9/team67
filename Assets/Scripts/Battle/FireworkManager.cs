@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireworkManager : MonoBehaviour {
 
+    public bool fired;
 	// Use this for initialization
 	void Start () {
 		
