@@ -14,7 +14,7 @@ public class Detection : MonoBehaviour {
 
     void OnTriggerStay(Collider other)
     {
-        Debug.Log("trigger stay");
+        //Debug.Log("trigger stay");
         if(other.tag == "Player" && mode == 0)
         {
             isDetected = true;
@@ -26,7 +26,7 @@ public class Detection : MonoBehaviour {
     }
     void OnTriggerExit(Collider other)
     {
-        Debug.Log("trigger exit");
+        //Debug.Log("trigger exit");
         if (other.tag == "Player" && mode == 0)
         {
              //Debug.Log("trigger exit");

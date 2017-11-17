@@ -23,12 +23,10 @@ public class NianAI : MonoBehaviour {
 
     //follow
     public float followSpeed = 0f;
-    Coroutine followCoroutine;
     public float followStopDistance = 0f;
 
     //attack
     public float attackCD = 0f;
-    Coroutine attackCoroutine;
 
     //dodge
     public float dodgeSpeed = 0f;
@@ -41,12 +39,14 @@ public class NianAI : MonoBehaviour {
 
     //hang
     public float hangSpeed = 0f;
-    Coroutine hangCoroutine;
+    Vector3 hangingTarget;
 
     //player 2
     public Transform player2;
     public float safeHeight = 0f;
-    private bool distance;
+
+
+    public int status;
 
     //strategy
     //0:follow
@@ -59,22 +59,26 @@ public class NianAI : MonoBehaviour {
         currentCoroutine = StartCoroutine(Follow());
         facingTarget = player2;
         facingCoroutine = StartCoroutine(Facing());
+        hangingTarget = new Vector3(0, transform.position.y, 0);
     }
 
     void Update()
     {
+        if (dodgeLock)
+            return;
+
         int strategy = Analysis();
+        status = strategy;
         //Debug.Log("strategy = " + strategy);
         if (strategy == current_strategy)
             return;
 
-        if (dodgeLock)
-            return;
-
         current_strategy = strategy;
+
         if (currentCoroutine != null)
         {
             StopCoroutine(currentCoroutine);
+            currentCoroutine = null;
         }
 
         switch (strategy)
@@ -86,6 +90,7 @@ public class NianAI : MonoBehaviour {
                 currentCoroutine = StartCoroutine(Attack());
                 break;
             case 2:
+                Debug.Log("start dodging");
                 currentCoroutine = StartCoroutine(Dodge());
                 break;
             case 3:
@@ -122,19 +127,36 @@ public class NianAI : MonoBehaviour {
     {
         while (true)
         {
-            if (!dodgeLock)
-            { 
-                Vector3 targerPosition = new Vector3(facingTarget.position.x, transform.position.y, facingTarget.position.z);
-                var targetRotation = Quaternion.LookRotation(targerPosition - transform.position);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, facingSpeed * Time.deltaTime);
-                yield return null;
-            }
-            else //dodging facing
+            Vector3 targerPosition = Vector3.forward;
+            if (current_strategy == 3)
             {
-                Vector3 targerPosition = new Vector3(dodgingTarget.x, transform.position.y, dodgingTarget.z);
-                var targetRotation = Quaternion.LookRotation(targerPosition - transform.position);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, facingSpeed * Time.deltaTime);
+               targerPosition = new Vector3(hangingTarget.x, transform.position.y, hangingTarget.z);
+            } else if(current_strategy == 2)
+            {
+                targerPosition = new Vector3(dodgingTarget.x, transform.position.y, dodgingTarget.z);
+            } else
+            {
+                targerPosition = new Vector3(facingTarget.position.x, transform.position.y, facingTarget.position.z);
             }
+
+            var targetRotation = Quaternion.LookRotation(targerPosition - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, facingSpeed * Time.deltaTime);
+            yield return null;
+
+            //if (!dodgeLock)
+            //{ 
+            //    Vector3 targerPosition = new Vector3(facingTarget.position.x, transform.position.y, facingTarget.position.z);
+            //    var targetRotation = Quaternion.LookRotation(targerPosition - transform.position);
+            //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, facingSpeed * Time.deltaTime);
+            //    yield return null;
+            //}
+            //else 
+            //{
+            //    Vector3 targerPosition = new Vector3(dodgingTarget.x, transform.position.y, dodgingTarget.z);
+            //    var targetRotation = Quaternion.LookRotation(targerPosition - transform.position);
+            //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, facingSpeed * Time.deltaTime);
+            //    yield return null;
+            //}
            
         }
         yield break;
@@ -148,16 +170,29 @@ public class NianAI : MonoBehaviour {
             return false;
 
         if (transform.position.x > limit_x_max)
+        {
+            transform.position = new Vector3(limit_x_max, transform.position.y, transform.position.z);
             return false;
+        }
+           
 
         if (transform.position.x < limit_x_min)
+        {
+            transform.position = new Vector3(limit_x_min, transform.position.y, transform.position.z);
             return false;
+        }
 
-        if(transform.position.z > limit_z_max)
+        if (transform.position.z > limit_z_max)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, limit_z_max);
             return false;
+        }
 
         if (transform.position.z < limit_z_min)
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, limit_z_min);
             return false;
+        }
 
         return true;
     }
@@ -166,9 +201,11 @@ public class NianAI : MonoBehaviour {
     {
         while (Analysis() == 0)
         {
-            //Debug.Log("Following...");
+            Debug.Log("Following...");
             if(CheckMoveable())
+            {
                 transform.Translate(Vector3.forward * followSpeed * Time.deltaTime);
+            }
             yield return null;
         }
         yield break;
@@ -187,8 +224,9 @@ public class NianAI : MonoBehaviour {
 
     IEnumerator Dodge()
     {
-        dodgeLock = true;
-        yield return new WaitForSeconds(dodgeDelay);
+        Debug.Log("dodging...");
+        
+        //yield return new WaitForSeconds(dodgeDelay);
 
         float x = Random.Range(transform.position.x - dodgeRange, transform.position.x + dodgeRange);
         float z = Random.Range(transform.position.z - dodgeRange, transform.position.z + dodgeRange);
@@ -196,11 +234,14 @@ public class NianAI : MonoBehaviour {
         x = Mathf.Clamp(x, limit_x_min, limit_x_max);
         z = Mathf.Clamp(z, limit_z_min, limit_z_max);
 
-        dodgingTarget = new Vector3(x, 0, z);
-        
-        while(Vector3.Distance(dodgingTarget,transform.position) > 0.1f) // to be public
+        dodgingTarget = new Vector3(x, transform.position.y, z);
+
+        dodgeLock = true;
+
+        while (Vector3.Distance(dodgingTarget, transform.position) > 0.3f) // to be public
         {
-            transform.position = Vector3.Slerp(transform.position, dodgingTarget, Time.deltaTime * dodgeSpeed);
+            transform.position = Vector3.Lerp(transform.position, dodgingTarget, Time.deltaTime * dodgeSpeed);
+            yield return null;
         }
 
         dodgeLock = false;
@@ -212,7 +253,17 @@ public class NianAI : MonoBehaviour {
         while(Analysis() == 3)
         {
             Debug.Log("Hanging...");
-            yield return new WaitForSeconds(1f);
+            float x = Random.Range(limit_x_min, limit_x_max);
+            float z = Random.Range(limit_z_min, limit_z_max);
+
+            hangingTarget = new Vector3(x, transform.position.y, z);
+
+            while (Vector3.Distance(hangingTarget, transform.position) > 0.3f) // to be public
+            {
+                transform.position = Vector3.Lerp(transform.position, hangingTarget, Time.deltaTime * hangSpeed);
+                yield return null;
+            }
+
         }
         yield break;
     }
