@@ -38,4 +38,6 @@ public class Database : MonoBehaviour
     public static bool win = false;
 
     public static bool isTutorial = true;
+    public static bool finishFight = false;
+
 }

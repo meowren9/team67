@@ -10,6 +10,8 @@ public class P1Input : MonoBehaviour
     bool pressTrigger;
     bool spaceDown;
     public GameObject tutorial;
+    public GameObject Nian;
+
     public Texture[] textureDrag, textureRelease, texturePull;
 
     bool isDragTutorial = true;
@@ -26,13 +28,15 @@ public class P1Input : MonoBehaviour
 
     int count = 0;
     int count1 = 0;
+    int count2 = 0;
+
+
     void Update()
     {
 
         //tutorial part
 
-        if((Database.dragBack == true || Database.dragForward == true || 
-           Database.dragLeft == true || Database.dragRight == true )&& isDragTutorial)
+        if(Database.releaseKite && isDragTutorial)
         {
 
             isDragTutorial = false;
@@ -41,7 +45,8 @@ public class P1Input : MonoBehaviour
 
         }
 
-        if (Database.releaseKite  == true && isReleaseTutorial)
+        if ((Database.dragBack == true || Database.dragForward == true ||
+           Database.dragLeft == true || Database.dragRight == true) == true && isReleaseTutorial)
         {
             
 
@@ -52,8 +57,10 @@ public class P1Input : MonoBehaviour
         if (Database.isPull == true && isPullTutorial)
         {
 
-            Destroy(tutorial, 3f);
+            isPullTutorial = false;
+            Destroy(tutorial, 3.2f);
             Database.isTutorial = false;//game start;
+           
         }
 
 
@@ -64,15 +71,15 @@ public class P1Input : MonoBehaviour
 
         //tutorial end
 
-        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0)
-        ////if (Input.GetKey(KeyCode.Space))
+        ////if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0)
+        if (Input.GetKey(KeyCode.Space))
         {
 
             spaceDown = true;
         }
 
-        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) == 0)
-        ////if (Input.GetKeyUp(KeyCode.Space))
+        ////if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) == 0)
+        if (Input.GetKeyUp(KeyCode.Space))
         {
 
             spaceDown = false;
@@ -113,18 +120,18 @@ public class P1Input : MonoBehaviour
 
 
 
-        if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y > 0)
+        ////if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y > 0)
 
-        ////if (Input.GetKey(KeyCode.M))
+        if (Input.GetKey(KeyCode.M))
         {
             OVRInput.SetControllerVibration(1, 20, OVRInput.Controller.LTouch);
             Database.releaseKite = true;
             Wheel.transform.Rotate(10.0f, 0.0f, 0.0f);
         }
 
-        if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y == 0)
+        ////if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y == 0)
 
-        ////if (Input.GetKeyUp(KeyCode.M))
+        if (Input.GetKeyUp(KeyCode.M))
         {
             OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.LTouch);
             Database.releaseKite = false;
@@ -251,6 +258,21 @@ public class P1Input : MonoBehaviour
                 else if (tutorial.GetComponent<Renderer>().material.mainTexture == texturePull[2])
                     tutorial.GetComponent<Renderer>().material.mainTexture = texturePull[0];
 
+            }
+
+
+            if (!Database.isTutorial)
+            {
+
+                if(count2 < tutorialWatingTime)
+                {
+                    count2++;
+                }
+                else
+                {
+                    print("innnn");
+                    Nian.SetActive(true);
+                }
             }
 
             yield return new WaitForSeconds(0.4f);

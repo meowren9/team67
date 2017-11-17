@@ -21,6 +21,7 @@ public class KiteController : MonoBehaviour {
     Vector3 kiteDirection;
 
     bool added = false;
+
     void Start()
     {
         Line = GameObject.Find("line").GetComponent<LineRenderer>();
@@ -31,6 +32,33 @@ public class KiteController : MonoBehaviour {
     void Update () {
 
         kiteDirection = playerSky.position - kiteKit.position;
+
+
+        if(Database.finishFight == true)
+        {
+
+            lowest = 0.52f;
+            xMin = -12.95f;
+            float dist = Vector3.Distance(playerSky.position, kiteKit.position);
+            if(dist < 1.0f)
+            {
+                //near enough
+            }
+
+        }
+
+        if (Database.isTutorial == true)
+        {
+
+            lowest = 0.52f;
+            xMin = -12.95f;
+            float dist = Vector3.Distance(playerSky.position, kiteKit.position);
+            if (dist < 1.0f)
+            {
+                //near enough
+            }
+
+        }
 
         if (Database.handDrag)
         {
