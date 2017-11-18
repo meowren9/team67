@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NianAI : MonoBehaviour {
+public class NianAI : Photon.PunBehaviour, IPunObservable
+{
 
     //moving place limit
     public float limit_x_min = 0f;
@@ -16,7 +17,12 @@ public class NianAI : MonoBehaviour {
 
     //coroutine
     Coroutine currentCoroutine = null;
+
+    //strategy
     int current_strategy = 0;
+    public int status;
+
+    //facing
     Coroutine facingCoroutine = null;
     public float facingSpeed = 0f;
     Transform facingTarget;
@@ -27,6 +33,10 @@ public class NianAI : MonoBehaviour {
 
     //attack
     public float attackCD = 0f;
+    public float fireLastTime;
+    bool IsFiring = false;
+    public float fireCD = 0f;
+    public ParticleSystem Fire;
 
     //dodge
     public float dodgeSpeed = 0f;
@@ -41,12 +51,22 @@ public class NianAI : MonoBehaviour {
     public float hangSpeed = 0f;
     Vector3 hangingTarget;
 
+    //die
+    public Transform[] turnTarget;
+    public float FlyingSpeed = 0f;
+
+
     //player 2
     public Transform player2;
     public float safeHeight = 0f;
 
 
-    public int status;
+    //health
+    public NianHealth health;
+    bool dead = false;
+
+    //anim
+    public Animator nian_anim;
 
     //strategy
     //0:follow
@@ -59,17 +79,38 @@ public class NianAI : MonoBehaviour {
         currentCoroutine = StartCoroutine(Follow());
         facingTarget = player2;
         facingCoroutine = StartCoroutine(Facing());
-        hangingTarget = new Vector3(0, transform.position.y, 0);
+        hangingTarget = new Vector3(0, transform.position.y, 0);//init
+
+        StartCoroutine(FireSync());
+        
     }
+
+
 
     void Update()
     {
+        //to be master control
+
+        if(health.status == 2)
+        {
+            if(!dead)
+            {
+                if(currentCoroutine != null)
+                {
+                    StopCoroutine(currentCoroutine);
+                    currentCoroutine = null;
+                }
+                currentCoroutine = StartCoroutine(Die());
+                dead = true;
+            }
+            return;
+        }
+
         if (dodgeLock)
             return;
 
         int strategy = Analysis();
         status = strategy;
-        //Debug.Log("strategy = " + strategy);
         if (strategy == current_strategy)
             return;
 
@@ -90,7 +131,6 @@ public class NianAI : MonoBehaviour {
                 currentCoroutine = StartCoroutine(Attack());
                 break;
             case 2:
-                Debug.Log("start dodging");
                 currentCoroutine = StartCoroutine(Dodge());
                 break;
             case 3:
@@ -103,11 +143,13 @@ public class NianAI : MonoBehaviour {
     }
 
    
+   
 
     int Analysis()
     {
         if (danger.isDetected)
             return 2;
+
         if (attack.isDetected)
             return 1;
 
@@ -115,17 +157,30 @@ public class NianAI : MonoBehaviour {
         {
             return 3; 
         }
+
         if (player2.position.y <= safeHeight)
         {
             return 0;
         }
+
         Debug.Log("unexpected strategy");
         return -1;
     }
 
+    IEnumerator FireSync()
+    {
+        while(!dead)
+        {
+            var emission = Fire.emission;
+            emission.enabled = IsFiring;
+            yield return null;
+        }
+        yield break;
+    }
+
     IEnumerator Facing()
     {
-        while (true)
+        while (!dead)
         {
             Vector3 targerPosition = Vector3.forward;
             if (current_strategy == 3)
@@ -143,21 +198,6 @@ public class NianAI : MonoBehaviour {
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, facingSpeed * Time.deltaTime);
             yield return null;
 
-            //if (!dodgeLock)
-            //{ 
-            //    Vector3 targerPosition = new Vector3(facingTarget.position.x, transform.position.y, facingTarget.position.z);
-            //    var targetRotation = Quaternion.LookRotation(targerPosition - transform.position);
-            //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, facingSpeed * Time.deltaTime);
-            //    yield return null;
-            //}
-            //else 
-            //{
-            //    Vector3 targerPosition = new Vector3(dodgingTarget.x, transform.position.y, dodgingTarget.z);
-            //    var targetRotation = Quaternion.LookRotation(targerPosition - transform.position);
-            //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, facingSpeed * Time.deltaTime);
-            //    yield return null;
-            //}
-           
         }
         yield break;
     }
@@ -216,8 +256,28 @@ public class NianAI : MonoBehaviour {
         while (Analysis() == 1)
         {
             Debug.Log("Attacking...");
-            //anim.SetTrigger("attack");
-            yield return new WaitForSeconds(attackCD);
+            if(health.status == 0) //normal attack
+            {
+                nian_anim.SetTrigger("scratch");
+                yield return new WaitForSeconds(attackCD);
+            }
+            else if(health.status == 1) //fire attack
+            {
+
+                if (PhotonNetwork.isMasterClient || GameManager.debug)
+                {
+                    //Debug.Log("Fire start");
+                    IsFiring = true;
+                    yield return new WaitForSeconds(fireLastTime);
+                    IsFiring = false;
+                    yield return new WaitForSeconds(attackCD);
+                }
+                
+            }
+            else
+            {
+                yield break;
+            }
         }
         yield break;
     }
@@ -226,7 +286,7 @@ public class NianAI : MonoBehaviour {
     {
         Debug.Log("dodging...");
         
-        //yield return new WaitForSeconds(dodgeDelay);
+        yield return new WaitForSeconds(dodgeDelay);
 
         float x = Random.Range(transform.position.x - dodgeRange, transform.position.x + dodgeRange);
         float z = Random.Range(transform.position.z - dodgeRange, transform.position.z + dodgeRange);
@@ -268,5 +328,46 @@ public class NianAI : MonoBehaviour {
         yield break;
     }
 
+    //rotate?
 
+    IEnumerator Die()
+    {
+
+        //anything else?
+
+        int turn_len = turnTarget.Length;
+        //todo: facing?
+        for(int i = 0; i < turn_len; i++)
+        {
+            while (Vector3.Distance(turnTarget[i].position, transform.position) > 0.3f) // to be public
+            {
+                transform.position = Vector3.Lerp(transform.position, turnTarget[i].position, Time.deltaTime * FlyingSpeed);
+                yield return null;
+            }
+            //todo: turn delay
+        }
+        
+        //todo: explode
+
+        yield break;
+    }
+
+
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            // We own this player: send the others our data
+            stream.SendNext(IsFiring);
+            //stream.SendNext(active_target_idx);
+            //stream.SendNext(alive);
+        }
+        else
+        {
+            // Network player, receive data
+            this.IsFiring = (bool)stream.ReceiveNext();
+            //this.active_target_idx = (int)stream.ReceiveNext();
+            //this.alive = (bool)stream.ReceiveNext();
+        }
+    }
 }
