@@ -16,7 +16,12 @@ public class NianAI : MonoBehaviour {
 
     //coroutine
     Coroutine currentCoroutine = null;
+
+    //strategy
     int current_strategy = 0;
+    public int status;
+
+    //facing
     Coroutine facingCoroutine = null;
     public float facingSpeed = 0f;
     Transform facingTarget;
@@ -41,12 +46,21 @@ public class NianAI : MonoBehaviour {
     public float hangSpeed = 0f;
     Vector3 hangingTarget;
 
+    //die
+    public Transform[] turnTarget;
+    public float FlyingSpeed = 0f;
+
+
     //player 2
     public Transform player2;
     public float safeHeight = 0f;
 
 
-    public int status;
+    //health
+    public NianHealth health;
+    bool dead = false;
+
+    
 
     //strategy
     //0:follow
@@ -64,12 +78,26 @@ public class NianAI : MonoBehaviour {
 
     void Update()
     {
+        if(health.status == 2)
+        {
+            if(!dead)
+            {
+                if(currentCoroutine != null)
+                {
+                    StopCoroutine(currentCoroutine);
+                    currentCoroutine = null;
+                }
+                currentCoroutine = StartCoroutine(Die());
+                dead = true;
+            }
+            return;
+        }
+
         if (dodgeLock)
             return;
 
         int strategy = Analysis();
         status = strategy;
-        //Debug.Log("strategy = " + strategy);
         if (strategy == current_strategy)
             return;
 
@@ -90,7 +118,6 @@ public class NianAI : MonoBehaviour {
                 currentCoroutine = StartCoroutine(Attack());
                 break;
             case 2:
-                Debug.Log("start dodging");
                 currentCoroutine = StartCoroutine(Dodge());
                 break;
             case 3:
@@ -108,6 +135,7 @@ public class NianAI : MonoBehaviour {
     {
         if (danger.isDetected)
             return 2;
+
         if (attack.isDetected)
             return 1;
 
@@ -115,17 +143,19 @@ public class NianAI : MonoBehaviour {
         {
             return 3; 
         }
+
         if (player2.position.y <= safeHeight)
         {
             return 0;
         }
+
         Debug.Log("unexpected strategy");
         return -1;
     }
 
     IEnumerator Facing()
     {
-        while (true)
+        while (!dead)
         {
             Vector3 targerPosition = Vector3.forward;
             if (current_strategy == 3)
@@ -143,21 +173,6 @@ public class NianAI : MonoBehaviour {
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, facingSpeed * Time.deltaTime);
             yield return null;
 
-            //if (!dodgeLock)
-            //{ 
-            //    Vector3 targerPosition = new Vector3(facingTarget.position.x, transform.position.y, facingTarget.position.z);
-            //    var targetRotation = Quaternion.LookRotation(targerPosition - transform.position);
-            //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, facingSpeed * Time.deltaTime);
-            //    yield return null;
-            //}
-            //else 
-            //{
-            //    Vector3 targerPosition = new Vector3(dodgingTarget.x, transform.position.y, dodgingTarget.z);
-            //    var targetRotation = Quaternion.LookRotation(targerPosition - transform.position);
-            //    transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, facingSpeed * Time.deltaTime);
-            //    yield return null;
-            //}
-           
         }
         yield break;
     }
@@ -226,7 +241,7 @@ public class NianAI : MonoBehaviour {
     {
         Debug.Log("dodging...");
         
-        //yield return new WaitForSeconds(dodgeDelay);
+        yield return new WaitForSeconds(dodgeDelay);
 
         float x = Random.Range(transform.position.x - dodgeRange, transform.position.x + dodgeRange);
         float z = Random.Range(transform.position.z - dodgeRange, transform.position.z + dodgeRange);
@@ -268,5 +283,29 @@ public class NianAI : MonoBehaviour {
         yield break;
     }
 
+    //rotate?
 
-}
+    IEnumerator Die()
+    {
+
+        //anything else?
+
+        int turn_len = turnTarget.Length;
+        //todo: facing?
+        for(int i = 0; i < turn_len; i++)
+        {
+            while (Vector3.Distance(turnTarget[i].position, transform.position) > 0.3f) // to be public
+            {
+                transform.position = Vector3.Lerp(transform.position, turnTarget[i].position, Time.deltaTime * FlyingSpeed);
+                yield return null;
+            }
+            //todo: turn delay
+        }
+        
+        //todo: explode
+
+        yield break;
+    }
+
+
+    }
