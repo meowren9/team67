@@ -25,7 +25,7 @@ public class KiteController : MonoBehaviour {
     void Start()
     {
         Line = GameObject.Find("line").GetComponent<LineRenderer>();
-
+        
 
     }
 
