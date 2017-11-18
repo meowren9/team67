@@ -9,8 +9,7 @@ public class VillagerCreater : MonoBehaviour {
 
     public Transform[] presetPositon;
     public int VillagersPerUnitTime = 10;
-    public int lanternTypes;
-    public int villagerTypes;
+
 
 	// Use this for initialization
 	void Start () {

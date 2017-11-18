@@ -624,9 +624,9 @@ MonoBehaviour:
   inTheMiddle: {fileID: 4079952599023508}
   lanternPosition: {fileID: 4866607158643144}
   peoplePosition: {fileID: 4991103628805308}
-  speedLantern: 0.5
-  speedVillager: 0.5
-  speedLanternUp: 0.5
+  speedLantern: 0.1
+  speedVillager: 0.2
+  speedLanternUp: 0.2
   lantern: {fileID: 1641698631440936}
   people: {fileID: 1041120382917886}
   minimum: -1
