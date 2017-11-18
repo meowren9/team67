@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NianAI : MonoBehaviour {
+public class NianAI : Photon.PunBehaviour, IPunObservable
+{
 
     //moving place limit
     public float limit_x_min = 0f;
@@ -32,6 +33,10 @@ public class NianAI : MonoBehaviour {
 
     //attack
     public float attackCD = 0f;
+    public float fireLastTime;
+    bool IsFiring = false;
+    public float fireCD = 0f;
+    public ParticleSystem Fire;
 
     //dodge
     public float dodgeSpeed = 0f;
@@ -60,7 +65,8 @@ public class NianAI : MonoBehaviour {
     public NianHealth health;
     bool dead = false;
 
-    
+    //anim
+    public Animator nian_anim;
 
     //strategy
     //0:follow
@@ -73,11 +79,18 @@ public class NianAI : MonoBehaviour {
         currentCoroutine = StartCoroutine(Follow());
         facingTarget = player2;
         facingCoroutine = StartCoroutine(Facing());
-        hangingTarget = new Vector3(0, transform.position.y, 0);
+        hangingTarget = new Vector3(0, transform.position.y, 0);//init
+
+        StartCoroutine(FireSync());
+        
     }
+
+
 
     void Update()
     {
+        //to be master control
+
         if(health.status == 2)
         {
             if(!dead)
@@ -130,6 +143,7 @@ public class NianAI : MonoBehaviour {
     }
 
    
+   
 
     int Analysis()
     {
@@ -151,6 +165,17 @@ public class NianAI : MonoBehaviour {
 
         Debug.Log("unexpected strategy");
         return -1;
+    }
+
+    IEnumerator FireSync()
+    {
+        while(!dead)
+        {
+            var emission = Fire.emission;
+            emission.enabled = IsFiring;
+            yield return null;
+        }
+        yield break;
     }
 
     IEnumerator Facing()
@@ -231,8 +256,28 @@ public class NianAI : MonoBehaviour {
         while (Analysis() == 1)
         {
             Debug.Log("Attacking...");
-            //anim.SetTrigger("attack");
-            yield return new WaitForSeconds(attackCD);
+            if(health.status == 0) //normal attack
+            {
+                nian_anim.SetTrigger("scratch");
+                yield return new WaitForSeconds(attackCD);
+            }
+            else if(health.status == 1) //fire attack
+            {
+
+                if (PhotonNetwork.isMasterClient || GameManager.debug)
+                {
+                    //Debug.Log("Fire start");
+                    IsFiring = true;
+                    yield return new WaitForSeconds(fireLastTime);
+                    IsFiring = false;
+                    yield return new WaitForSeconds(attackCD);
+                }
+                
+            }
+            else
+            {
+                yield break;
+            }
         }
         yield break;
     }
@@ -308,4 +353,21 @@ public class NianAI : MonoBehaviour {
     }
 
 
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            // We own this player: send the others our data
+            stream.SendNext(IsFiring);
+            //stream.SendNext(active_target_idx);
+            //stream.SendNext(alive);
+        }
+        else
+        {
+            // Network player, receive data
+            this.IsFiring = (bool)stream.ReceiveNext();
+            //this.active_target_idx = (int)stream.ReceiveNext();
+            //this.alive = (bool)stream.ReceiveNext();
+        }
     }
+}
