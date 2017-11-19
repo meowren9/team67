@@ -79,13 +79,15 @@ public class GameManager : Photon.PunBehaviour
 
     void Update()
     {
-
         if(Input.GetKeyDown(KeyCode.Space))
         {
             ready = true;
         }
 
-        switch(status)
+        if (!(PhotonNetwork.isMasterClient || GameManager.debug))
+            return;
+
+        switch (status)
         {
             case 0:
                 if (ready)

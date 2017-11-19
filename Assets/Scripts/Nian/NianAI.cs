@@ -87,8 +87,6 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
         hangingTarget = new Vector3(0, transform.position.y, 0);//init
 
         StartCoroutine(FireSync());
-        //StartCoroutine(UpdateZmax());
-
     }
 
 
@@ -96,6 +94,9 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
     void Update()
     {
         //to be master control
+
+        if (!(PhotonNetwork.isMasterClient || GameManager.debug))
+            return;
 
         if(health.status == 2)
         {
