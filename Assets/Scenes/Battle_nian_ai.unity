@@ -3309,6 +3309,60 @@ MonoBehaviour:
   health: 100
   heartSpeed: 10
   Blood: {fileID: 1387769194}
+--- !u!1001 &377055610
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.165
+      objectReference: {fileID: 0}
+    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.016
+      objectReference: {fileID: 0}
+    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.10306
+      objectReference: {fileID: 0}
+    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
+      propertyPath: m_RootOrder
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.6942124
+      objectReference: {fileID: 0}
+    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4.6942124
+      objectReference: {fileID: 0}
+    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4.6942124
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
+  m_IsPrefabParent: 0
 --- !u!1 &385117835
 GameObject:
   m_ObjectHideFlags: 0
@@ -5559,11 +5613,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4599504393707834, guid: c95d6d4638a7a5940b5afbc0b7000905,
     type: 2}
   m_PrefabInternal: {fileID: 658165425}
---- !u!1 &660125965 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1809586997997772, guid: ceedb2e9e513db14d8fd8ae82bf59ffb,
-    type: 2}
-  m_PrefabInternal: {fileID: 520537744}
 --- !u!1 &677165494
 GameObject:
   m_ObjectHideFlags: 0
@@ -12217,7 +12266,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1809586997997772, guid: ceedb2e9e513db14d8fd8ae82bf59ffb, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ceedb2e9e513db14d8fd8ae82bf59ffb, type: 2}
@@ -15852,7 +15901,7 @@ MonoBehaviour:
   p1Ava: {fileID: 51029337}
   p2Ava: {fileID: 1633192752}
   define_debug: 1
-  player: 2
+  player: 1
   firework: {fileID: 1474218876850914, guid: 43494118131b9914fac898281b9d1871, type: 2}
   cube: {fileID: 1121034311964238, guid: 321b59199dc79fc4780f8d2a0607baac, type: 2}
   p1: {fileID: 347737183}
@@ -17463,7 +17512,7 @@ Prefab:
       objectReference: {fileID: 1415966934}
     - target: {fileID: 1081585137132590, guid: 86fc02bf52173654d98a5d48bb8f4fdf, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 23676179976726802, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
@@ -17611,42 +17660,42 @@ Prefab:
         type: 2}
       propertyPath: textureDrag.Array.data[0]
       value: 
-      objectReference: {fileID: 2800000, guid: 95d00a9f9f5f79c44a9de0126129e803, type: 3}
+      objectReference: {fileID: 2800000, guid: 5768e90beb0244b4c876729879a854f2, type: 3}
     - target: {fileID: 114776721460109308, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
       propertyPath: textureDrag.Array.data[1]
       value: 
-      objectReference: {fileID: 2800000, guid: fd56a9f44b68f9b4aab7ceb79aee108f, type: 3}
+      objectReference: {fileID: 2800000, guid: 5768e90beb0244b4c876729879a854f2, type: 3}
     - target: {fileID: 114776721460109308, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
       propertyPath: tutorial
       value: 
-      objectReference: {fileID: 660125965}
+      objectReference: {fileID: 2093762838}
     - target: {fileID: 114776721460109308, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
       propertyPath: textureRelease.Array.data[0]
       value: 
-      objectReference: {fileID: 2800000, guid: 04a291491c5110a42a130b1d4fc58121, type: 3}
+      objectReference: {fileID: 2800000, guid: bda7fb218398d4b438bed3a40b23b9f7, type: 3}
     - target: {fileID: 114776721460109308, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
       propertyPath: textureRelease.Array.data[1]
       value: 
-      objectReference: {fileID: 2800000, guid: eae03379b80eb54478c5d504ee8b3aa9, type: 3}
+      objectReference: {fileID: 2800000, guid: bda7fb218398d4b438bed3a40b23b9f7, type: 3}
     - target: {fileID: 114776721460109308, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
       propertyPath: texturePull.Array.data[0]
       value: 
-      objectReference: {fileID: 2800000, guid: de04558332c68d345977c24bc5b03466, type: 3}
+      objectReference: {fileID: 2800000, guid: dd7a77572f800754881f1331aab984db, type: 3}
     - target: {fileID: 114776721460109308, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
       propertyPath: texturePull.Array.data[1]
       value: 
-      objectReference: {fileID: 2800000, guid: c5fc627241388d74b8d2779c6ce6e66b, type: 3}
+      objectReference: {fileID: 2800000, guid: dd7a77572f800754881f1331aab984db, type: 3}
     - target: {fileID: 114776721460109308, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
       propertyPath: texturePull.Array.data[2]
       value: 
-      objectReference: {fileID: 2800000, guid: 22330bf2784a27f449022b6c60657f68, type: 3}
+      objectReference: {fileID: 2800000, guid: dd7a77572f800754881f1331aab984db, type: 3}
     - target: {fileID: 4722919074563978, guid: 86fc02bf52173654d98a5d48bb8f4fdf, type: 2}
       propertyPath: m_RootOrder
       value: 1
@@ -24337,6 +24386,11 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2089370005}
   m_Mesh: {fileID: 4300002, guid: 10acd694a06ff844f8365c1f72f3fb6e, type: 3}
+--- !u!1 &2093762838 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1809586997997772, guid: ceedb2e9e513db14d8fd8ae82bf59ffb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1113128255}
 --- !u!1001 &2097801930
 Prefab:
   m_ObjectHideFlags: 0
