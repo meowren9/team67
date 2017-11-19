@@ -46,6 +46,12 @@ public class GrabController : MonoBehaviour {
         float prevFlex = m_prevFlex;
         m_prevFlex = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, m_controller);
         CheckForGrabOrRelease(prevFlex);
+
+        if(m_prevFlex == 0)
+        {
+            ReleaseObject();
+        }
+
     }
 
     protected void CheckForGrabOrRelease(float prevFlex)

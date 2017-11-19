@@ -204,7 +204,8 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
                targerPosition = new Vector3(hangingTarget.x, transform.position.y, hangingTarget.z);
             } else if(current_strategy == 2)
             {
-                targerPosition = new Vector3(dodgingTarget.x, transform.position.y, dodgingTarget.z);
+                //targerPosition = new Vector3(dodgingTarget.x, transform.position.y, dodgingTarget.z);
+                targerPosition = new Vector3(facingTarget.position.x, transform.position.y, facingTarget.position.z);
             } else
             {
                 targerPosition = new Vector3(facingTarget.position.x, transform.position.y, facingTarget.position.z);
@@ -321,6 +322,9 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
         yield break;
     }
 
+    public float smoothTime = 0.3F;
+    public float dodgingDistance = 8f;
+
     IEnumerator Dodge()
     {
         Debug.Log("dodging...");
@@ -333,13 +337,20 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
         x = Mathf.Clamp(x, limit_x_min, limit_x_max);
         z = Mathf.Clamp(z, limit_z_min, limit_z_max);
 
-        dodgingTarget = new Vector3(x, transform.position.y, z);
+        
+        //Vector3 TransformPoint = Vector3.zero;
+        Vector3 velocity = Vector3.zero;
+
+        //dodgingTarget = new Vector3(x, transform.position.y, z);
+        dodgingTarget = transform.position - new Vector3(transform.forward.x * Random.Range(1, dodgingDistance), 0, transform.forward.z * Random.Range(1, dodgingDistance));
+
 
         dodgeLock = true;
 
         while (Vector3.Distance(dodgingTarget, transform.position) > 0.3f) // to be public
         {
-            transform.position = Vector3.Lerp(transform.position, dodgingTarget, Time.deltaTime * dodgeSpeed);
+            transform.position = Vector3.SmoothDamp(transform.position, dodgingTarget, ref velocity, smoothTime);
+            //transform.position = Vector3.Lerp(transform.position, dodgingTarget, Time.deltaTime * dodgeSpeed);
             yield return null;
         }
 

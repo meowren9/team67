@@ -27,7 +27,7 @@ public class HitTheGround : MonoBehaviour {
                 particle.SetActive(true);
             }
 
-            Destroy(firework, 0.1f);
+            Destroy(this.gameObject, 3.0f);
         }
     }
 }

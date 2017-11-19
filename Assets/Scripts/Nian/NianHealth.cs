@@ -12,6 +12,7 @@ public class NianHealth : MonoBehaviour {
     public int health = 0;
 
     public GameObject particle;
+    public Detection danger;
 
 
     int AnalyseStatus()
@@ -48,7 +49,10 @@ public class NianHealth : MonoBehaviour {
                 //Set particle
                 hit_count++;
                 status = AnalyseStatus();
-                Destroy(other.gameObject,0.1f);
+                
+                Destroy(other.gameObject);
+                danger.isDetected = false;
+
             }
         }
     }

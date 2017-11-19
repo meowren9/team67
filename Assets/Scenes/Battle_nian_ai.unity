@@ -6659,7 +6659,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1474218876850914, guid: 6baf70d451ddbf1499a0b4304173f7b1, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4977514720322844, guid: 6baf70d451ddbf1499a0b4304173f7b1, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 900
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6baf70d451ddbf1499a0b4304173f7b1, type: 2}
@@ -16654,6 +16658,8 @@ MonoBehaviour:
   safeHeight: 12
   health: {fileID: 1131272458}
   nian_anim: {fileID: 1731483764}
+  smoothTime: 0.3
+  dodgingDistance: 5
 --- !u!1 &1608504762
 GameObject:
   m_ObjectHideFlags: 0
@@ -16800,6 +16806,10 @@ Prefab:
     - target: {fileID: 4599504393707834, guid: c95d6d4638a7a5940b5afbc0b7000905, type: 2}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230228411152308, guid: c95d6d4638a7a5940b5afbc0b7000905, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c95d6d4638a7a5940b5afbc0b7000905, type: 2}
