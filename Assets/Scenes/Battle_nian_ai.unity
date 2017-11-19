@@ -15956,7 +15956,7 @@ MonoBehaviour:
   p2ovr: {fileID: 346512512}
   p1Ava: {fileID: 51029337}
   p2Ava: {fileID: 1633192752}
-  define_debug: 1
+  define_debug: 0
   player: 1
 --- !u!4 &1491062922 stripped
 Transform:
