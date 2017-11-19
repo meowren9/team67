@@ -110,10 +110,16 @@ public class GrabController : MonoBehaviour {
         if(other.tag == "basket")
         {
             inBasket = true;
+            //finish grab tutorial
+            if (GameObject.Find("tutorial_2"))
+            { 
+                Destroy(GameObject.Find("tutorial_2"), 3f);
+            }
+            //finish grab tutorial end
             //return;
         }
 
-        if(other.tag == "firework")
+        if (other.tag == "firework")
         {
             Debug.Log("colide with firework");
             SetCollidingObject(other);
@@ -162,6 +168,10 @@ public class GrabController : MonoBehaviour {
 
     private void ReleaseObject()
     {
+
+
+
+
         // 1
         if (GetComponent<FixedJoint>())
         {

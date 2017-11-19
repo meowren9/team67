@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class VillagerController : MonoBehaviour {
 
+    public Animator anim;
+
     public Transform inside;
     public Transform outside;
     public Transform inTheMiddle;
@@ -36,27 +38,44 @@ public class VillagerController : MonoBehaviour {
         {
             this.transform.position = Vector3.Lerp(inside.position, outside.position, t);
             t += speedVillager * Time.deltaTime * Random.Range(0.2f, 3.0f);
+            
         }
 
-
-        else if(t > 1.0f && t < 2.0f)
+        else
         {
-            lantern.transform.position = Vector3.Lerp(lanternPosition.position, inTheMiddle.position, t - 1);
-            people.transform.position = Vector3.Lerp(peoplePosition.position, inside.position, t - 1);
-            
-            t += speedVillager * Time.deltaTime * Random.Range(0.2f, 3.0f);
-
+            StartCoroutine(ReleaseLight());
         }
         
 
-        else if(t > 2.0f && t < 3.0f)
+
+
+
+    }
+
+
+    IEnumerator ReleaseLight()
+    {
+        anim.SetBool("Release", true);
+        yield return new WaitForSeconds(0.01f);
+        anim.SetBool("Release", false);
+        yield return new WaitForSeconds(2.0f);
+
+        if (t > 1.0f && t < 2.0f)
+        {
+            
+            lantern.transform.position = Vector3.Lerp(lanternPosition.position, inTheMiddle.position, t - 1);
+            people.transform.position = Vector3.Lerp(peoplePosition.position, inside.position, t - 1);
+            people.transform.LookAt(outside);
+            t += speedVillager * Time.deltaTime * Random.Range(0.2f, 3.0f);
+
+        }
+
+
+        else if (t > 2.0f && t < 3.0f)
         {
             Destroy(people, 0.1f);
             lantern.transform.position += new Vector3(0.0f, 0.4f * speedLanternUp * Random.Range(0.2f, 3.0f), 0.0f);
         }
-
-
-
 
     }
 }

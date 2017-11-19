@@ -11,6 +11,13 @@ public class PlaneToPoint : MonoBehaviour
     void Update()
     {
 
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (GameObject.Find("tutorial_2"))
+            {
+                Destroy(GameObject.Find("tutorial_2"), 0.1f);
+            }
+        }
 
         Plane planeVir = new Plane(playerSky.position, playerGround.position, playerSky.position + 
             new Vector3(0.0f, 0.2f, 0.0f));
