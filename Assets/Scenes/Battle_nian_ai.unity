@@ -6653,17 +6653,9 @@ Prefab:
       propertyPath: instantiationId
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1450925956257908, guid: 6baf70d451ddbf1499a0b4304173f7b1, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1474218876850914, guid: 6baf70d451ddbf1499a0b4304173f7b1, type: 2}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4977514720322844, guid: 6baf70d451ddbf1499a0b4304173f7b1, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 900
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6baf70d451ddbf1499a0b4304173f7b1, type: 2}
@@ -12488,6 +12480,7 @@ MonoBehaviour:
   change_point: 3
   health: 5
   particle: {fileID: 1685502648}
+  danger: {fileID: 1354010809}
 --- !u!23 &1131272459
 MeshRenderer:
   m_ObjectHideFlags: 0

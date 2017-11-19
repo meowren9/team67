@@ -12,7 +12,7 @@ public class Detection : MonoBehaviour {
     //2 - targer ???
 
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         //Debug.Log("trigger stay");
         if(other.tag == "Player" && mode == 0)
@@ -21,7 +21,11 @@ public class Detection : MonoBehaviour {
         }
         if(other.tag == "firework" && mode ==1)
         {
-            isDetected = true;
+            if (other.gameObject != null)
+            {
+                isDetected = true;
+                print(other.name);
+            }
         }
     }
     void OnTriggerExit(Collider other)

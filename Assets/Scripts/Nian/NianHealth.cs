@@ -51,6 +51,7 @@ public class NianHealth : MonoBehaviour {
                 status = AnalyseStatus();
                 
                 Destroy(other.gameObject);
+                Debug.Log("danger change detected...");
                 danger.isDetected = false;
 
             }
