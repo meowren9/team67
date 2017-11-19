@@ -37,7 +37,7 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
     //attack
     public float attackCD = 0f;
     public float fireLastTime;
-    bool IsFiring = false;
+    public bool IsFiring = false;
     public float fireCD = 0f;
     public ParticleSystem Fire;
     //public CapsuleCollider attackRange;
@@ -81,11 +81,18 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
 
     void Start()
     {
-        currentCoroutine = StartCoroutine(Follow());
-        facingTarget = player2;
-        facingCoroutine = StartCoroutine(Facing());
-        hangingTarget = new Vector3(0, transform.position.y, 0);//init
+        
+       
 
+        if ((PhotonNetwork.isMasterClient || GameManager.debug))
+        {
+            facingTarget = player2;
+            hangingTarget = new Vector3(0, transform.position.y, 0);
+            currentCoroutine = StartCoroutine(Follow());
+            facingCoroutine = StartCoroutine(Facing());
+        }
+           
+        //both
         StartCoroutine(FireSync());
     }
 
@@ -186,6 +193,7 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
 
     IEnumerator FireSync()
     {
+        Debug.Log("in fire sync");
         while(!dead)
         {
             var emission = Fire.emission;
