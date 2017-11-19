@@ -15944,7 +15944,7 @@ MonoBehaviour:
   p1Ava: {fileID: 51029337}
   p2Ava: {fileID: 1633192752}
   lotus: {fileID: 867700298}
-  define_debug: 1
+  define_debug: 0
   player: 2
 --- !u!4 &1491062922 stripped
 Transform:
