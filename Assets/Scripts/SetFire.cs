@@ -7,6 +7,7 @@ public class SetFire : MonoBehaviour {
 
     public GameObject Sparkle;
     public bool fired = false;
+    public GameObject firedSound;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +25,7 @@ public class SetFire : MonoBehaviour {
         {
             Sparkle.SetActive(true);
             fired = true;
+            firedSound.SetActive(true);
         }
     }
 }

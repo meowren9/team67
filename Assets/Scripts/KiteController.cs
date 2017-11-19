@@ -127,9 +127,9 @@ public class KiteController : MonoBehaviour {
         {
             if (
                 playerSky.position.y + kiteDirection.y * 0.003f < highest 
-                && playerSky.position.x + kiteDirection.x * 0.003f < zMax 
-                && playerSky.position.z - kiteDirection.z * 0.003f > xMin 
-                && playerSky.position.z + kiteDirection.z * 0.003f < xMax)
+                && playerSky.position.z + kiteDirection.z * 0.003f < zMax 
+                && playerSky.position.x - kiteDirection.x * 0.003f > xMin 
+                && playerSky.position.x + kiteDirection.x * 0.003f < xMax)
             {
                 print("release");
                 playerSky.position += kiteDirection * 0.003f;
@@ -143,7 +143,7 @@ public class KiteController : MonoBehaviour {
         {
 
             if (playerSky.position.y - kiteDirection.y * 0.003f > lowest
-                && playerSky.position.x - kiteDirection.x * 0.003f > zMin)
+                && playerSky.position.z - kiteDirection.z * 0.003f > zMin)
             {
 
                 playerSky.position -= kiteDirection * 0.003f;

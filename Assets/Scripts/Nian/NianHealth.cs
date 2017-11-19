@@ -11,6 +11,9 @@ public class NianHealth : MonoBehaviour {
 
     public int health = 0;
 
+    public GameObject particle;
+
+
     int AnalyseStatus()
     {
         if(hit_count < change_point)
@@ -39,10 +42,13 @@ public class NianHealth : MonoBehaviour {
             var firework = other.gameObject.GetComponent<SetFire>();
             if(firework.fired)
             {
+                particle.SetActive(false);
+                particle.SetActive(true);
                 //Destroy firework
                 //Set particle
                 hit_count++;
                 status = AnalyseStatus();
+                Destroy(other.gameObject,0.1f);
             }
         }
     }
