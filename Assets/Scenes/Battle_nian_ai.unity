@@ -14628,8 +14628,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1354010808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.11, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalPosition: {x: 0, y: 2.59, z: 0}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_Children: []
   m_Father: {fileID: 1438888713}
   m_RootOrder: 4
@@ -15923,7 +15923,7 @@ MonoBehaviour:
   p1Ava: {fileID: 51029337}
   p2Ava: {fileID: 1633192752}
   define_debug: 1
-  player: 1
+  player: 2
 --- !u!4 &1491062922 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4140781240773348, guid: de13414c9e9771e4da2d7bb28aa23766,
@@ -16681,7 +16681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1601181326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16718,7 +16718,7 @@ MonoBehaviour:
   turnTarget: []
   FlyingSpeed: 0.5
   player2: {fileID: 373841209}
-  safeHeight: 5
+  safeHeight: 8
   health: {fileID: 1131272458}
   dead: 0
   nian_anim: {fileID: 1731483764}
@@ -17625,7 +17625,7 @@ Prefab:
       objectReference: {fileID: 1415966934}
     - target: {fileID: 1081585137132590, guid: 86fc02bf52173654d98a5d48bb8f4fdf, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23676179976726802, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}

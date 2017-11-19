@@ -11310,6 +11310,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114465330985475450, guid: 838691f0daf8d074da0f1e59039a9bae,
+        type: 2}
+      propertyPath: viewIdField
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114465330985475450, guid: 838691f0daf8d074da0f1e59039a9bae,
+        type: 2}
+      propertyPath: instantiationId
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 838691f0daf8d074da0f1e59039a9bae, type: 2}
   m_IsPrefabParent: 0
@@ -11925,15 +11935,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd43388350f1064584e525526d52e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: 0
+  ready: 0
+  health: {fileID: 0}
+  villagers: {fileID: 0}
+  nian: {fileID: 0}
+  showPoint: {fileID: 0}
+  showSpeed: 0
   p1ovr: {fileID: 1665044369}
   p2ovr: {fileID: 346512512}
   p1Ava: {fileID: 51029337}
   p2Ava: {fileID: 1633192752}
   define_debug: 1
   player: 2
-  firework: {fileID: 1474218876850914, guid: 43494118131b9914fac898281b9d1871, type: 2}
-  cube: {fileID: 1121034311964238, guid: 321b59199dc79fc4780f8d2a0607baac, type: 2}
-  p1: {fileID: 347737183}
 --- !u!4 &1491062922 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4140781240773348, guid: de13414c9e9771e4da2d7bb28aa23766,
