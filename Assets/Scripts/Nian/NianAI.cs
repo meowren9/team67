@@ -68,7 +68,7 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
 
     //health
     public NianHealth health;
-    bool dead = false;
+    public bool dead = false;
 
     //anim
     public Animator nian_anim;
@@ -198,6 +198,8 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
     {
         while (!dead)
         {
+            
+
             Vector3 targerPosition = Vector3.forward;
             if (current_strategy == 3)
             {
@@ -343,7 +345,7 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
 
         //dodgingTarget = new Vector3(x, transform.position.y, z);
         dodgingTarget = transform.position - new Vector3(transform.forward.x * Random.Range(1, dodgingDistance), 0, transform.forward.z * Random.Range(1, dodgingDistance));
-
+        
 
         dodgeLock = true;
 
@@ -374,6 +376,8 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
                 yield return null;
             }
 
+            //roar
+
         }
         yield break;
     }
@@ -382,7 +386,7 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
 
     IEnumerator Die()
     {
-
+        GameManager.nian_defeat = true;
         //anything else?
 
         int turn_len = turnTarget.Length;

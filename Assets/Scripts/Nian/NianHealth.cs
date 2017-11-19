@@ -5,7 +5,7 @@ using UnityEngine;
 public class NianHealth : MonoBehaviour {
 
     public int status = 0; //0:normal 1:angry 2:dead
-    int hit_count = 0;
+    [SerializeField] int hit_count = 0;
 
     public int change_point = 0;
 
@@ -36,6 +36,21 @@ public class NianHealth : MonoBehaviour {
         return -1;
     }
 
+    void Update()
+    {
+        if(GameManager.debug)
+        {
+            if(Input.GetKeyDown(KeyCode.H))
+            {
+                particle.SetActive(false);
+                particle.SetActive(true);
+                hit_count++;
+                status = AnalyseStatus();
+                danger.isDetected = false;
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "firework")
@@ -45,11 +60,9 @@ public class NianHealth : MonoBehaviour {
             {
                 particle.SetActive(false);
                 particle.SetActive(true);
-                //Destroy firework
-                //Set particle
                 hit_count++;
                 status = AnalyseStatus();
-                
+               
                 Destroy(other.gameObject);
                 Debug.Log("danger change detected...");
                 danger.isDetected = false;
