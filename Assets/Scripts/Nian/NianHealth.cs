@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NianHealth : MonoBehaviour {
+public class NianHealth : Photon.PunBehaviour, IPunObservable
+{
 
     public int status = 0; //0:normal 1:angry 2:dead
     [SerializeField] int hit_count = 0;
@@ -11,9 +12,10 @@ public class NianHealth : MonoBehaviour {
 
     public int health = 0;
 
-    public GameObject particle;
+    public ParticleSystem particle;
     public Detection danger;
 
+    bool explode = false;
 
     int AnalyseStatus()
     {
@@ -42,32 +44,70 @@ public class NianHealth : MonoBehaviour {
         {
             if(Input.GetKeyDown(KeyCode.H))
             {
-                particle.SetActive(false);
-                particle.SetActive(true);
+                //particle.SetActive(false);
+                //particle.SetActive(true);
+                StartCoroutine(Explode());
                 hit_count++;
                 status = AnalyseStatus();
                 danger.isDetected = false;
             }
         }
+
+        var emission = particle.emission;
+        emission.enabled = explode;
+    }
+
+    //public float p_len;
+
+    
+
+    IEnumerator Explode()
+    {
+        explode = false;
+        yield return null;
+        explode = true;
+        yield return new WaitForSeconds(3f);
+        explode = false;
+        yield break;
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!(!PhotonNetwork.isMasterClient || GameManager.debug))
+            return;
+
+
         if(other.tag == "firework")
         {
             var firework = other.gameObject.GetComponent<SetFire>();
             if(firework.fired)
             {
-                particle.SetActive(false);
-                particle.SetActive(true);
+                //particle.SetActive(false);
+                //particle.SetActive(true);
+                StartCoroutine(Explode());
+
                 hit_count++;
                 status = AnalyseStatus();
                
                 Destroy(other.gameObject);
-                Debug.Log("danger change detected...");
+                //Debug.Log("danger change detected...");
                 danger.isDetected = false;
 
             }
+        }
+    }
+
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(status);
+            stream.SendNext(explode);
+        }
+        else
+        {
+            this.status = (int)stream.ReceiveNext();
+            this.explode = (bool)stream.ReceiveNext();
         }
     }
 
