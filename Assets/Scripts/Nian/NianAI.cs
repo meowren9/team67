@@ -10,6 +10,9 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
     public float limit_x_max = 0f;
     public float limit_z_min = 0f;
     public float limit_z_max = 0f;
+    public float stable_z_max = 0f;
+
+    public Transform location;
 
     //range
     public Detection danger;
@@ -37,6 +40,8 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
     bool IsFiring = false;
     public float fireCD = 0f;
     public ParticleSystem Fire;
+    //public CapsuleCollider attackRange;
+    public GameObject attackRange;
 
     //dodge
     public float dodgeSpeed = 0f;
@@ -82,7 +87,8 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
         hangingTarget = new Vector3(0, transform.position.y, 0);//init
 
         StartCoroutine(FireSync());
-        
+        //StartCoroutine(UpdateZmax());
+
     }
 
 
@@ -167,6 +173,16 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
         return -1;
     }
 
+    IEnumerator UpdateZmax() //master
+    {
+        while(!dead)
+        {
+            limit_z_max = Mathf.Max(player2.position.z - 5, stable_z_max);
+            yield return null;
+        }
+        yield break;
+    }
+
     IEnumerator FireSync()
     {
         while(!dead)
@@ -239,16 +255,39 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
 
     IEnumerator Follow()
     {
-        while (Analysis() == 0)
+        //while (Analysis() == 0)
+        //{
+        //    Debug.Log("Following...");
+        //    if (CheckMoveable())
+        //    {
+        //        transform.Translate(Vector3.forward * followSpeed * Time.deltaTime);
+        //    }
+        //    else
+        //    {
+
+        //    }
+        //    yield return null;
+        //}
+
+        while(!dead)
         {
-            Debug.Log("Following...");
-            if(CheckMoveable())
+            var targetPosition = new Vector3(location.position.x, transform.position.y, location.position.z);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * followSpeed);
+            if(Vector3.Distance(targetPosition,transform.position) < 0.3)
             {
-                transform.Translate(Vector3.forward * followSpeed * Time.deltaTime);
+                attackRange.SetActive(true);
+                //yield break;
+            }
+            else
+            {
+                attackRange.SetActive(false);
             }
             yield return null;
         }
+
         yield break;
+
+
     }
 
     IEnumerator Attack()
