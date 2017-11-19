@@ -12,12 +12,12 @@ public class KiteController : MonoBehaviour {
     public Transform kiteKit;
     public Transform handRight;
 
-    public float highest = 35.0f;
-    public float lowest = 6.0f;
-    public float xMax = 16.0f;
-    public float xMin = -7.0f;
-    public float zMax = 28.0f;
-    public float zMin = -8.0f;
+    public float highest = 40.0f;
+    public float lowest = 0.0f;
+    public float xMax = 20.0f;
+    public float xMin = -20.0f;
+    public float zMax = 50.0f;
+    public float zMin = 10.0f;
     Vector3 kiteDirection;
 
     bool added = false;
@@ -106,7 +106,7 @@ public class KiteController : MonoBehaviour {
             if (Database.handDrag)
             {
                 print("drag back");
-                if (playerSky.position.z - 0.02 > zMin)
+                //if (playerSky.position.z - 0.02 > zMin)
                     playerSky.position += new Vector3(0.0f, 0.0f, -0.02f);
             }
            
@@ -117,7 +117,7 @@ public class KiteController : MonoBehaviour {
             if (Database.handDrag)
             {
                 print("drag forward");
-                if (playerSky.position.z + 0.02 < zMax)
+                //if (playerSky.position.z + 0.02 < zMax)
                     playerSky.position += new Vector3(0.0f, 0.0f, 0.02f);
             }
         }
