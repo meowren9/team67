@@ -30,6 +30,9 @@ public class GameManager : Photon.PunBehaviour
     public GameObject p1Ava;
     public GameObject p2Ava;
 
+    //lantern
+    public GameObject lotus;
+
     //debug
     public bool define_debug;
     public static bool debug = true;
@@ -47,6 +50,7 @@ public class GameManager : Photon.PunBehaviour
                 p2ovr.SetActive(false);
                 p1Ava.SetActive(false);
                 p2Ava.SetActive(true);
+                lotus.SetActive(false);
 
             }
             else
@@ -55,6 +59,7 @@ public class GameManager : Photon.PunBehaviour
                 p2ovr.SetActive(true);
                 p1Ava.SetActive(true);
                 p2Ava.SetActive(false);
+                lotus.SetActive(true);
             }
 
         }
@@ -66,6 +71,7 @@ public class GameManager : Photon.PunBehaviour
                 p2ovr.SetActive(false);
                 p1Ava.SetActive(false);
                 p2Ava.SetActive(true);
+                lotus.SetActive(false);
             }
             else //p2
             {
@@ -73,6 +79,7 @@ public class GameManager : Photon.PunBehaviour
                 p2ovr.SetActive(true);
                 p1Ava.SetActive(true);
                 p2Ava.SetActive(false);
+                lotus.SetActive(true);
             }
         }
     }

@@ -2,30 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetFire : MonoBehaviour {
-
+public class SetFire : Photon.PunBehaviour, IPunObservable
+{
 
     public GameObject Sparkle;
     public bool fired = false;
     public GameObject firedSound;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "fireLantern")
+        if(other.tag == "fireLantern" && !PhotonNetwork.isMasterClient)
         {
             Sparkle.SetActive(true);
             fired = true;
             firedSound.SetActive(true);
+        }
+    }
+
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(fired);
+        }
+        else
+        {
+            this.fired = (bool)stream.ReceiveNext();
         }
     }
 }

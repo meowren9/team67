@@ -6658,10 +6658,6 @@ Prefab:
       propertyPath: instantiationId
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1474218876850914, guid: 6baf70d451ddbf1499a0b4304173f7b1, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6baf70d451ddbf1499a0b4304173f7b1, type: 2}
   m_IsPrefabParent: 0
@@ -6907,6 +6903,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7139edf8b0718544087f510ca92a3a31, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &867700298 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1431002568140074, guid: 7139edf8b0718544087f510ca92a3a31,
+    type: 2}
+  m_PrefabInternal: {fileID: 867700297}
 --- !u!1 &875023899
 GameObject:
   m_ObjectHideFlags: 0
@@ -13857,6 +13858,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 26
       objectReference: {fileID: 0}
+    - target: {fileID: 114782749040553366, guid: 7ad982b38e152584db9343ba73b7e064,
+        type: 2}
+      propertyPath: VillagersPerUnitTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114782749040553366, guid: 7ad982b38e152584db9343ba73b7e064,
+        type: 2}
+      propertyPath: timeSlot
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ad982b38e152584db9343ba73b7e064, type: 2}
   m_IsPrefabParent: 0
@@ -15858,6 +15869,7 @@ MonoBehaviour:
   p2ovr: {fileID: 346512512}
   p1Ava: {fileID: 51029337}
   p2Ava: {fileID: 1633192752}
+  lotus: {fileID: 867700298}
   define_debug: 0
   player: 1
 --- !u!4 &1491062922 stripped
