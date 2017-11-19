@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6542ba31ab208d040ad0758203293cd2
+guid: 27893d43da4ba8d4383ca3c470e10508
 timeCreated: 1511066961
 licenseType: Pro
 ModelImporter:
@@ -78,7 +78,7 @@ ModelImporter:
     400068: mixamorig:Spine2
     400070: //RootNode
     4300000: cunmin
-    7400000: Walk
+    7400000: Release
     9500000: //RootNode
     13700000: cunmin
   materials:
@@ -106,17 +106,17 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walk
+      name: Release
       takeName: Take 001
-      firstFrame: 0
-      lastFrame: 31
+      firstFrame: 32
+      lastFrame: 98
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
