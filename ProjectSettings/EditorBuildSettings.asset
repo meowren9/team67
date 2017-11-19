@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle.unity
     guid: b9135ccf17eeb5e4cbac9c8e75ced9a4
+  - enabled: 1
+    path: Assets/Scenes/Battle_nian_ai.unity
+    guid: 920a4284671aec541945656bba173c48
