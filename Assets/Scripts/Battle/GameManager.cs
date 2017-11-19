@@ -13,7 +13,7 @@ public class GameManager : Photon.PunBehaviour
 
     public bool ready = false;
     //public static bool nian_angry = false;
-    public NianHealth health;
+    NianHealth health;
     public static bool nian_defeat = false;
     //public NianAI nian_ai;
 
@@ -87,6 +87,9 @@ public class GameManager : Photon.PunBehaviour
                 nian = PhotonNetwork.Instantiate(nian_prefab.name, appearPoint.position, appearPoint.rotation, 0);
             }
         }
+
+        health = nian.GetComponent<NianAI>().health;
+
     }
 
     void Update()
@@ -111,6 +114,7 @@ public class GameManager : Photon.PunBehaviour
             case 1:
                 if (health.status == 1)
                 {
+                    //!!!
                     villagers.SetActive(true);
                     status = 2;
                 }

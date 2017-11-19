@@ -8703,11 +8703,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &1117322640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8719,16 +8714,6 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
 --- !u!223 &1117322641
 Canvas:
   m_ObjectHideFlags: 0
@@ -8896,12 +8881,6 @@ Transform:
   m_Father: {fileID: 64322313}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1131272458 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114194522322807964, guid: 41a6c323637fff84bb24a346f47728dd,
-    type: 2}
-  m_PrefabInternal: {fileID: 579708431}
-  m_Script: {fileID: 11500000, guid: 6f5fa527b76e2174fab86df2d175cc21, type: 3}
 --- !u!4 &1147257820 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4140781240773348, guid: de13414c9e9771e4da2d7bb28aa23766,
@@ -11264,22 +11243,6 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
 --- !u!222 &1387769197
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12129,7 +12092,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 0
   ready: 0
-  health: {fileID: 1131272458}
   villagers: {fileID: 233952031}
   nian: {fileID: 0}
   nian_prefab: {fileID: 1679548694086108, guid: 41a6c323637fff84bb24a346f47728dd,
@@ -14162,6 +14124,88 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1001 &1692446042
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4334288752528696, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334288752528696, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334288752528696, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334288752528696, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334288752528696, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334288752528696, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334288752528696, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334288752528696, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
+      propertyPath: m_RootOrder
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 114483033414718908, guid: e81f5fb88452d90409fc381572d59b87,
+        type: 2}
+      propertyPath: viewIdField
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114483033414718908, guid: e81f5fb88452d90409fc381572d59b87,
+        type: 2}
+      propertyPath: instantiationId
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319491744837366, guid: e81f5fb88452d90409fc381572d59b87,
+        type: 2}
+      propertyPath: viewIdField
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114319491744837366, guid: e81f5fb88452d90409fc381572d59b87,
+        type: 2}
+      propertyPath: instantiationId
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114098536758851340, guid: e81f5fb88452d90409fc381572d59b87,
+        type: 2}
+      propertyPath: viewIdField
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114098536758851340, guid: e81f5fb88452d90409fc381572d59b87,
+        type: 2}
+      propertyPath: instantiationId
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114820474524409020, guid: e81f5fb88452d90409fc381572d59b87,
+        type: 2}
+      propertyPath: speedLanternUp
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 114820474524409020, guid: e81f5fb88452d90409fc381572d59b87,
+        type: 2}
+      propertyPath: speedLantern
+      value: 0.05
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1693542037
 Prefab:
   m_ObjectHideFlags: 0
@@ -15790,13 +15834,6 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
 --- !u!114 &1946890938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15808,9 +15845,6 @@ MonoBehaviour:
   m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 5
 --- !u!4 &1946890939
 Transform:
   m_ObjectHideFlags: 0

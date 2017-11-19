@@ -11,6 +11,8 @@ public class VillagerCreater : MonoBehaviour {
     public int VillagersPerUnitTime = 10;
     public float timeSlot = 3.0f;
 
+    public GameObject villagerPrefab;
+
 	// Use this for initialization
 	void Start () {
         StartCoroutine(CreateVillager());
@@ -31,11 +33,16 @@ public class VillagerCreater : MonoBehaviour {
             {
                 int PositionNumber = Random.Range(0, 21);
                 int VillagerNumber = Random.Range(0, 2);
-                GameObject.Instantiate(VillagerWithLantern[VillagerNumber], presetPositon[PositionNumber]);
+                if(GameManager.debug)
+                    GameObject.Instantiate(VillagerWithLantern[VillagerNumber], presetPositon[PositionNumber]);
+                else
+                {
+                    if (!PhotonNetwork.isMasterClient)
+                    {
+                        PhotonNetwork.Instantiate(VillagerWithLantern[VillagerNumber].name, presetPositon[PositionNumber].position, presetPositon[PositionNumber].rotation, 0);
+                    }
+                }
             }
-
-                
-
 
             yield return new WaitForSeconds(timeSlot);
         }
