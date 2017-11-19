@@ -104,12 +104,14 @@ public class GrabController : MonoBehaviour {
         if(other.tag == "basket")
         {
             inBasket = true;
+            //return;
         }
 
         if(other.tag == "firework")
         {
             Debug.Log("colide with firework");
             SetCollidingObject(other);
+            //return;
         }
     }
 

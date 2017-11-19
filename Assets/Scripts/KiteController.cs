@@ -82,33 +82,16 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
-                if(playerSky.position.z+0.02 < zMax)
-                    playerSky.position += new Vector3(0.0f, 0.0f, 0.02f);
+                //if(playerSky.position.z+0.02 < zMax)
+                //    playerSky.position += new Vector3(0.0f, 0.0f, 0.02f);
+
+                if (playerSky.position.x - 0.02 > xMin)
+                    playerSky.position += new Vector3(-0.02f, 0.0f, 0.0f);
             }
             
         }
 
         if (Database.dragRight)
-        {
-            if (Database.handDrag)
-            {
-                if (playerSky.position.z-0.02 > zMin)
-                    playerSky.position += new Vector3(0.0f, 0.0f, -0.02f);
-            }
-        }
-
-
-        if (Database.dragBack)
-        {
-            if (Database.handDrag)
-            {
-                if (playerSky.position.x-0.02 > xMin)
-                    playerSky.position += new Vector3(-0.02f, 0.0f, 0.0f);
-            }
-           
-        }
-
-        if (Database.dragForward)
         {
             if (Database.handDrag)
             {
@@ -118,14 +101,36 @@ public class KiteController : MonoBehaviour {
         }
 
 
+        if (Database.dragBack)
+        {
+            if (Database.handDrag)
+            {
+                print("drag back");
+                if (playerSky.position.z - 0.02 > zMin)
+                    playerSky.position += new Vector3(0.0f, 0.0f, -0.02f);
+            }
+           
+        }
+
+        if (Database.dragForward)
+        {
+            if (Database.handDrag)
+            {
+                print("drag forward");
+                if (playerSky.position.z + 0.02 < zMax)
+                    playerSky.position += new Vector3(0.0f, 0.0f, 0.02f);
+            }
+        }
+
+
 
         if (Database.releaseKite)
         {
             if (
                 playerSky.position.y + kiteDirection.y * 0.003f < highest 
-                && playerSky.position.x + kiteDirection.x * 0.003f < xMax 
-                && playerSky.position.z - kiteDirection.z * 0.003f > zMin 
-                && playerSky.position.z + kiteDirection.z * 0.003f < zMax)
+                && playerSky.position.x + kiteDirection.x * 0.003f < zMax 
+                && playerSky.position.z - kiteDirection.z * 0.003f > xMin 
+                && playerSky.position.z + kiteDirection.z * 0.003f < xMax)
             {
                 print("release");
                 playerSky.position += kiteDirection * 0.003f;
@@ -139,7 +144,7 @@ public class KiteController : MonoBehaviour {
         {
 
             if (playerSky.position.y - kiteDirection.y * 0.003f > lowest
-                && playerSky.position.x - kiteDirection.x * 0.003f > xMin)
+                && playerSky.position.x - kiteDirection.x * 0.003f > zMin)
             {
 
                 playerSky.position -= kiteDirection * 0.003f;

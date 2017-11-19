@@ -11,7 +11,7 @@ public class GameManager : Photon.PunBehaviour
     public GameObject p1Ava;
     public GameObject p2Ava;
 
-
+    public bool define_debug;
     public static bool debug = true;
     public int player = 2;
     public GameObject firework;
@@ -22,23 +22,8 @@ public class GameManager : Photon.PunBehaviour
 
     void Start()
     {
-        //fire work
-        //if (firework == null)
-        //{
-        //    Debug.LogError("<Color=Red><a>Missing</a></Color> playerPrefab Reference. Please set it up in GameObject 'Game Manager'", this);
-        //}
-        //else
-        //{
-        //    //instantiate firework and basket
-        //    if (!PhotonNetwork.isMasterClient)
-        //    {
-        //        //TODO
-        //        GameObject f = PhotonNetwork.Instantiate(this.firework.name, new Vector3(0f, 0f, 0f), Quaternion.identity, 0);
 
-        //    }
-
-        //}
-
+        debug = define_debug;
            
             if (GameManager.debug)
             {
