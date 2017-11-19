@@ -12394,6 +12394,7 @@ GameObject:
   - component: {fileID: 1131272460}
   - component: {fileID: 1131272459}
   - component: {fileID: 1131272458}
+  - component: {fileID: 1131272462}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -12417,7 +12418,7 @@ MonoBehaviour:
   hit_count: 0
   change_point: 3
   health: 5
-  particle: {fileID: 1685502648}
+  particle: {fileID: 1685502651}
   danger: {fileID: 1354010809}
 --- !u!23 &1131272459
 MeshRenderer:
@@ -12473,6 +12474,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1131272457}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1131272462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1131272457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1131272458}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 8
+  instantiationId: 8
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!4 &1131272463
 Transform:
   m_ObjectHideFlags: 0
@@ -18061,7 +18088,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1685502649
 AudioSource:
   m_ObjectHideFlags: 0
@@ -18069,7 +18096,7 @@ AudioSource:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1685502648}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 36c412aac4a8ad7469f58323a10be935, type: 3}
@@ -18204,9 +18231,9 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1685502648}
   serializedVersion: 5
-  lengthInSec: 6
+  lengthInSec: 1
   simulationSpeed: 1
-  looping: 0
+  looping: 1
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -18256,7 +18283,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -187505467
+  randomSeed: 542593777
   InitialModule:
     serializedVersion: 3
     enabled: 1
