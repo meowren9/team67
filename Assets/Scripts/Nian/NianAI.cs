@@ -79,16 +79,14 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
     //2:dodge
     //3.hang
 
-    void Start()
+    void Awake()
     {
-        
        
-
         if ((PhotonNetwork.isMasterClient || GameManager.debug))
         {
             facingTarget = player2;
-            hangingTarget = new Vector3(0, transform.position.y, 0);
-            currentCoroutine = StartCoroutine(Follow());
+            hangingTarget = new Vector3(0, transform.position.y, 0);//init
+            //currentCoroutine = StartCoroutine(Follow());
             facingCoroutine = StartCoroutine(Facing());
         }
            
