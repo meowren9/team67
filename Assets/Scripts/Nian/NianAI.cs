@@ -203,13 +203,15 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
             Vector3 targerPosition = Vector3.forward;
             if (current_strategy == 3)
             {
-               targerPosition = new Vector3(hangingTarget.x, transform.position.y, hangingTarget.z);
+                //targerPosition = new Vector3(hangingTarget.x, transform.position.y, hangingTarget.z);
+                targerPosition = new Vector3(facingTarget.position.x, transform.position.y, facingTarget.position.z);
             } else if(current_strategy == 2)
             {
                 //targerPosition = new Vector3(dodgingTarget.x, transform.position.y, dodgingTarget.z);
                 targerPosition = new Vector3(facingTarget.position.x, transform.position.y, facingTarget.position.z);
             } else
             {
+                //targerPosition = new Vector3(facingTarget.position.x, transform.position.y, facingTarget.position.z);
                 targerPosition = new Vector3(facingTarget.position.x, transform.position.y, facingTarget.position.z);
             }
 
