@@ -113,8 +113,8 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
             return;
         }
 
-        if (dodgeLock)
-            return;
+        //if (dodgeLock)
+        //    return;
 
         int strategy = Analysis();
         status = strategy;
@@ -149,11 +149,11 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
         }
     }
 
-   
-   
-
+  
     int Analysis()
     {
+        
+
         if (danger.isDetected)
             return 2;
 
@@ -199,7 +199,6 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
     {
         while (!dead)
         {
-            
 
             Vector3 targerPosition = Vector3.forward;
             if (current_strategy == 3)
@@ -345,10 +344,27 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
         Vector3 velocity = Vector3.zero;
 
         //dodgingTarget = new Vector3(x, transform.position.y, z);
-        dodgingTarget = transform.position - new Vector3(transform.forward.x * Random.Range(1, dodgingDistance), 0, transform.forward.z * Random.Range(1, dodgingDistance));
-        
+        int directionChoose = Random.Range(0, 2);
+        Vector3 direction;
+        switch (directionChoose)
+        {
+            case 0:
+                direction = transform.forward;
+                break;
+            case 1:
+                direction = transform.right;
+                break;
+            case 2:
+                direction = -transform.right;
+                break;
+            default:
+                direction = transform.forward;
+                break;
+        }
 
-        dodgeLock = true;
+        dodgingTarget = transform.position - new Vector3(direction.x * Random.Range(1, dodgingDistance), 0, direction.z * Random.Range(1, dodgingDistance));
+        
+        //dodgeLock = true;
 
         while (Vector3.Distance(dodgingTarget, transform.position) > 0.3f) // to be public
         {
@@ -357,7 +373,7 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
             yield return null;
         }
 
-        dodgeLock = false;
+        //dodgeLock = false;
         yield break;
     }
 
