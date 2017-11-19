@@ -66,11 +66,6 @@ public class P1Input : MonoBehaviour
         }
 
 
-        if(Database.tutorialTarget == 3)
-        {
-            Nian.SetActive(true);
-            oldMan.SetActive(false);
-        }
 
 
 

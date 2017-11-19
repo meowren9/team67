@@ -9,7 +9,7 @@ public class VillagerCreater : MonoBehaviour {
 
     public Transform[] presetPositon;
     public int VillagersPerUnitTime = 10;
-
+    public float timeSlot = 3.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -36,7 +36,7 @@ public class VillagerCreater : MonoBehaviour {
                 
 
 
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(timeSlot);
         }
         
     }
