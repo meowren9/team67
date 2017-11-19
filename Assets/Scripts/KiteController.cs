@@ -37,26 +37,26 @@ public class KiteController : MonoBehaviour {
         if(Database.finishFight == true)
         {
 
-            lowest = 0.52f;
-            xMin = -12.95f;
-            float dist = Vector3.Distance(playerSky.position, kiteKit.position);
-            if(dist < 1.0f)
-            {
-                //near enough
-            }
+            //lowest = 0.52f;
+            //xMin = -12.95f;
+            //float dist = Vector3.Distance(playerSky.position, kiteKit.position);
+            //if(dist < 1.0f)
+            //{
+            //    //near enough
+            //}
 
         }
 
         if (Database.isTutorial == true)
         {
 
-            lowest = 0.52f;
-            xMin = -12.95f;
-            float dist = Vector3.Distance(playerSky.position, kiteKit.position);
-            if (dist < 1.0f)
-            {
-                //near enough
-            }
+            //lowest = 0.52f;
+            //xMin = -12.95f;
+            //float dist = Vector3.Distance(playerSky.position, kiteKit.position);
+            //if (dist < 1.0f)
+            //{
+            //    //near enough
+            //}
 
         }
 
@@ -82,9 +82,7 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
-                //if(playerSky.position.z+0.02 < zMax)
-                //    playerSky.position += new Vector3(0.0f, 0.0f, 0.02f);
-
+                print("left");
                 if (playerSky.position.x - 0.02 > xMin)
                     playerSky.position += new Vector3(-0.02f, 0.0f, 0.0f);
             }
@@ -95,6 +93,7 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
+                print("right");
                 if (playerSky.position.x + 0.02 < xMax)
                     playerSky.position += new Vector3(0.02f, 0.0f, 0.0f);
             }
@@ -105,8 +104,8 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
-                print("drag back");
-                //if (playerSky.position.z - 0.02 > zMin)
+                print("back");
+                if (playerSky.position.z - 0.02 > zMin)
                     playerSky.position += new Vector3(0.0f, 0.0f, -0.02f);
             }
            
@@ -116,8 +115,8 @@ public class KiteController : MonoBehaviour {
         {
             if (Database.handDrag)
             {
-                print("drag forward");
-                //if (playerSky.position.z + 0.02 < zMax)
+                print("forward");
+                if (playerSky.position.z + 0.02 < zMax)
                     playerSky.position += new Vector3(0.0f, 0.0f, 0.02f);
             }
         }

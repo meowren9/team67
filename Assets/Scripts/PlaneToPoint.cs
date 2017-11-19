@@ -12,17 +12,19 @@ public class PlaneToPoint : MonoBehaviour
     {
 
 
-        Plane planeVir = new Plane(playerSky.position, playerGround.position, playerSky.position + new Vector3(0.0f, 0.2f, 0.0f));
-        Plane planeHori = new Plane(playerSky.position, playerGround.position, playerSky.position + new Vector3(0.0f, 0.0f, 0.1f));
+        Plane planeVir = new Plane(playerSky.position, playerGround.position, playerSky.position + 
+            new Vector3(0.0f, 0.2f, 0.0f));
+        Plane planeHori = new Plane(playerSky.position, playerGround.position, playerSky.position + 
+            new Vector3(0.2f, 0.0f, 0.0f));
 
         float distanceVir = planeVir.GetDistanceToPoint(target.position);
         float distanceHori = planeHori.GetDistanceToPoint(target.position);
-        Debug.Log("distance:" + distanceHori);
+        //Debug.Log("distance:" + distanceHori);
 
 
 
 
-        if (distanceHori < -0.1f)//dragback distance
+        if (distanceHori < -0.04f)//dragback distance
         {
             if (Database.handDrag)
             {
@@ -32,9 +34,8 @@ public class PlaneToPoint : MonoBehaviour
         }
 
 
-        if (distanceHori > 0.1f)
+        if (distanceHori > 0.04f)
         {
-
             if (Database.handDrag)
             {
                 Database.dragBack = false;
@@ -68,7 +69,7 @@ public class PlaneToPoint : MonoBehaviour
             Database.dragRight = false;
         }
 
-        if (distanceHori < -0.12f && distanceHori > 0.12f)
+        if (distanceHori < 0.03f && distanceHori > -0.03f)
         {
             Database.dragBack = false;
             Database.dragForward = false;
