@@ -7551,7 +7551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &991817381
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16288,7 +16288,7 @@ Prefab:
         type: 2}
       propertyPath: playerSky
       value: 
-      objectReference: {fileID: 373841209}
+      objectReference: {fileID: 951727848}
     - target: {fileID: 114774556612955746, guid: 61063b4a41998cd41b7fa4ae9bdfa84c,
         type: 2}
       propertyPath: playerGround
