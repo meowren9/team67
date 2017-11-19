@@ -257,7 +257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1649250993656020
 GameObject:
   m_ObjectHideFlags: 1
@@ -754,7 +754,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632388646209440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.09375, y: 4.8867188, z: -2.8359375}
+  m_LocalPosition: {x: -5.09375, y: -25.3, z: -2.8359375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4548128916335066}
@@ -1909,8 +1909,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   VillagerWithLantern:
   - {fileID: 1585953989990810, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
-  - {fileID: 1141911357236884, guid: 57e4d7a93d947924c94b0fa3b33c2065, type: 2}
-  - {fileID: 1523466575068584, guid: 35042a4cb998ab446b7184bca90801d5, type: 2}
+  - {fileID: 1585953989990810, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
+  - {fileID: 1585953989990810, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
   presetPositon:
   - {fileID: 4396895358437098}
   - {fileID: 4369131411862210}
@@ -1934,4 +1934,5 @@ MonoBehaviour:
   - {fileID: 4505511918235952}
   - {fileID: 4267351697446604}
   - {fileID: 4070280307830462}
-  VillagersPerUnitTime: 6
+  VillagersPerUnitTime: 2
+  timeSlot: 8

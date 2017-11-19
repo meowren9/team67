@@ -3333,64 +3333,6 @@ MonoBehaviour:
   health: 100
   heartSpeed: 10
   Blood: {fileID: 1387769194}
---- !u!1001 &377055610
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.165
-      objectReference: {fileID: 0}
-    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.016
-      objectReference: {fileID: 0}
-    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.10306
-      objectReference: {fileID: 0}
-    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
-      propertyPath: m_RootOrder
-      value: 29
-      objectReference: {fileID: 0}
-    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4.6942124
-      objectReference: {fileID: 0}
-    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.6942124
-      objectReference: {fileID: 0}
-    - target: {fileID: 400070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4.6942124
-      objectReference: {fileID: 0}
-    - target: {fileID: 100070, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 6542ba31ab208d040ad0758203293cd2, type: 3}
-  m_IsPrefabParent: 0
 --- !u!1 &385117835
 GameObject:
   m_ObjectHideFlags: 0
@@ -13998,20 +13940,6 @@ Prefab:
     - target: {fileID: 4823383084910502, guid: 7ad982b38e152584db9343ba73b7e064, type: 2}
       propertyPath: m_RootOrder
       value: 26
-      objectReference: {fileID: 0}
-    - target: {fileID: 1632388646209440, guid: 7ad982b38e152584db9343ba73b7e064, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114782749040553366, guid: 7ad982b38e152584db9343ba73b7e064,
-        type: 2}
-      propertyPath: VillagersPerUnitTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114782749040553366, guid: 7ad982b38e152584db9343ba73b7e064,
-        type: 2}
-      propertyPath: timeSlot
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ad982b38e152584db9343ba73b7e064, type: 2}

@@ -16,6 +16,8 @@ public class VillagerController : MonoBehaviour {
     public float speedVillager = 0.5f;
     public float speedLanternUp = 0.5f;
 
+    bool villagerGone = false;
+    bool releaseLantern = false;
     public GameObject lantern;
     public GameObject people;
 
@@ -43,7 +45,12 @@ public class VillagerController : MonoBehaviour {
 
         else
         {
-            StartCoroutine(ReleaseLight());
+            if (!releaseLantern)
+            {
+                StartCoroutine(ReleaseLight());
+                releaseLantern = true;
+            }
+
         }
         
 
@@ -55,10 +62,13 @@ public class VillagerController : MonoBehaviour {
 
     IEnumerator ReleaseLight()
     {
-        anim.SetBool("Release", true);
-        yield return new WaitForSeconds(0.01f);
-        anim.SetBool("Release", false);
-        yield return new WaitForSeconds(2.0f);
+        if (!villagerGone)
+        {
+
+            anim.SetTrigger("Release");
+            yield return new WaitForSeconds(2.0f);
+
+        }
 
         if (t > 1.0f && t < 2.0f)
         {
@@ -73,6 +83,7 @@ public class VillagerController : MonoBehaviour {
 
         else if (t > 2.0f && t < 3.0f)
         {
+            villagerGone = true;
             Destroy(people, 0.1f);
             lantern.transform.position += new Vector3(0.0f, 0.4f * speedLanternUp * Random.Range(0.2f, 3.0f), 0.0f);
         }
