@@ -33,7 +33,7 @@ public class VillagerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
+        print("t="+ t);
 
 
         if(t < 1.0f)
@@ -45,11 +45,11 @@ public class VillagerController : MonoBehaviour {
 
         else
         {
-            if (!releaseLantern)
-            {
+            //if (!releaseLantern)
+            //{
                 StartCoroutine(ReleaseLight());
-                releaseLantern = true;
-            }
+            //    releaseLantern = true;
+            //}
 
         }
         
@@ -64,8 +64,12 @@ public class VillagerController : MonoBehaviour {
     {
         if (!villagerGone)
         {
-
-            anim.SetTrigger("Release");
+            if (!releaseLantern)
+            {
+                anim.SetTrigger("Release");
+                releaseLantern = true;
+            }
+            
             yield return new WaitForSeconds(2.0f);
 
         }
