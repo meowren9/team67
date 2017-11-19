@@ -21,6 +21,8 @@ public class GameManager : Photon.PunBehaviour
 
     //nian
     public GameObject nian;
+    public GameObject nian_prefab;
+    public Transform appearPoint;
     public Transform showPoint;
     public float showSpeed = 0f;
 
@@ -41,6 +43,7 @@ public class GameManager : Photon.PunBehaviour
 
     void Start()
     {
+
         debug = define_debug;
         if (GameManager.debug)
         {
@@ -62,6 +65,7 @@ public class GameManager : Photon.PunBehaviour
                 lotus.SetActive(true);
             }
 
+            nian = Instantiate(nian_prefab, appearPoint.position, appearPoint.rotation);
         }
         else
         {
@@ -80,6 +84,7 @@ public class GameManager : Photon.PunBehaviour
                 p1Ava.SetActive(true);
                 p2Ava.SetActive(false);
                 lotus.SetActive(true);
+                nian = PhotonNetwork.Instantiate(nian_prefab.name, appearPoint.position, appearPoint.rotation, 0);
             }
         }
     }
@@ -91,7 +96,7 @@ public class GameManager : Photon.PunBehaviour
             ready = true;
         }
 
-        if (!(PhotonNetwork.isMasterClient || GameManager.debug))
+        if (!(!PhotonNetwork.isMasterClient || GameManager.debug)) //p2 control
             return;
 
         switch (status)
@@ -106,7 +111,6 @@ public class GameManager : Photon.PunBehaviour
             case 1:
                 if (health.status == 1)
                 {
-                    //active kongming lantern
                     villagers.SetActive(true);
                     status = 2;
                 }

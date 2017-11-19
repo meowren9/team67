@@ -33,6 +33,7 @@ public class VillagerCreater : MonoBehaviour {
                 int VillagerNumber = Random.Range(0, 2);
                 GameObject.Instantiate(VillagerWithLantern[VillagerNumber], presetPositon[PositionNumber]);
             }
+
                 
 
 
