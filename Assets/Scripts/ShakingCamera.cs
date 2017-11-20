@@ -4,19 +4,31 @@ using UnityEngine;
 
 public class ShakingCamera : MonoBehaviour
 {
-    private Vector3 deltaPosition = Vector3.zero;   
+    Vector3 deltaPosition = Vector3.zero;
 
-    private void Update()
+    void Update()
     {
-        ShakeCamera();
+
+        if (Database.hurt)
+        {
+            ShakeCamera();
+            StartCoroutine(DelayShakeEnd());
+        }
+
     }
 
 
     public void ShakeCamera()
     {
-        transform.localPosition -= deltaPosition; 
-        deltaPosition = Random.insideUnitCircle / 3.0f; 
-        transform.position += deltaPosition;      
+        transform.localPosition -= deltaPosition;
+        deltaPosition = Random.insideUnitCircle / 3.0f;
+        transform.position += deltaPosition;
     }
 
+
+    IEnumerator DelayShakeEnd()
+    {
+        yield return new WaitForSeconds(2.0f);
+        Database.hurt = false;
+    }
 }

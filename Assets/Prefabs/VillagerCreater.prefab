@@ -1908,9 +1908,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VillagerWithLantern:
-  - {fileID: 1585953989990810, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
-  - {fileID: 1585953989990810, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
-  - {fileID: 1585953989990810, guid: e81f5fb88452d90409fc381572d59b87, type: 2}
+  - {fileID: 1374716871940682, guid: 29539dbee2f142149b0059b50934432f, type: 2}
+  - {fileID: 1374716871940682, guid: 29539dbee2f142149b0059b50934432f, type: 2}
+  - {fileID: 1374716871940682, guid: 29539dbee2f142149b0059b50934432f, type: 2}
   presetPositon:
   - {fileID: 4396895358437098}
   - {fileID: 4369131411862210}
@@ -1935,4 +1935,4 @@ MonoBehaviour:
   - {fileID: 4267351697446604}
   - {fileID: 4070280307830462}
   VillagersPerUnitTime: 3
-  timeSlot: 1
+  timeSlot: 10

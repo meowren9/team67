@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 114845619605197222}
   - component: {fileID: 114822888182094752}
   m_Layer: 0
-  m_Name: VillagerWithLantern
+  m_Name: VillagerWithLantern(important)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2171,6 +2171,8 @@ MonoBehaviour:
   speedLanternUp: 0.01
   lantern: {fileID: 1713570149978564}
   people: {fileID: 1497821994681950}
+  lantern_prefab: {fileID: 0}
+  people_prefab: {fileID: 0}
   minimum: -1
   maximum: 1
 --- !u!114 &114822888182094752

@@ -16,6 +16,7 @@ TagManager:
   - ground
   - HugeFirework
   - SpecialFirework
+  - claw
   layers:
   - Default
   - TransparentFX

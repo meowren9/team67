@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VillagerController : MonoBehaviour {
 
-    public Animator anim;
+    Animator anim;
 
     public Transform inside;
     public Transform outside;
@@ -18,8 +18,14 @@ public class VillagerController : MonoBehaviour {
 
     bool villagerGone = false;
     bool releaseLantern = false;
-    public GameObject lantern;
-    public GameObject people;
+    GameObject lantern;
+    GameObject people;
+    GameObject duanbianpao;
+
+    public GameObject lantern_prefab;
+    public GameObject people_prefab;
+    public GameObject duanbianpao_prefab;
+    
 
     float t = 0.0f;
     public float minimum = -1.0f;
@@ -28,13 +34,42 @@ public class VillagerController : MonoBehaviour {
     float randNum;
     // Use this for initialization
     void Start () {
+       
+        if (!(!PhotonNetwork.isMasterClient || GameManager.debug))
+            return;
+
         randNum = Random.Range(1, 20);
-	}
+        if (GameManager.debug)
+        {
+            lantern = Instantiate(lantern_prefab, lanternPosition.position,lanternPosition.rotation);
+            lantern.transform.parent = this.transform;
+            people = Instantiate(people_prefab, peoplePosition.position, peoplePosition.rotation);
+            people.transform.forward = -people.transform.forward;
+            people.transform.parent = this.transform;
+            anim = people.GetComponent<Animator>();
+            duanbianpao = Instantiate(duanbianpao_prefab, lanternPosition.position, lanternPosition.rotation);
+            duanbianpao.transform.parent = lantern.transform;
+        }
+        else
+        {
+            if(!PhotonNetwork.isMasterClient)
+            {
+                lantern = PhotonNetwork.Instantiate(lantern_prefab.name, lanternPosition.position, lanternPosition.rotation,0);
+                lantern.transform.parent = this.transform;
+                people = PhotonNetwork.Instantiate(people_prefab.name, peoplePosition.position, peoplePosition.rotation,0);
+                people.transform.forward = -people.transform.forward;
+                people.transform.parent = this.transform;
+                anim = people.GetComponent<Animator>();
+                duanbianpao = PhotonNetwork.Instantiate(duanbianpao_prefab.name, lanternPosition.position, lanternPosition.rotation,0);
+                duanbianpao.transform.parent = lantern.transform;
+            }
+        }
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
-        //print("t="+ t);
         if (!(!PhotonNetwork.isMasterClient || GameManager.debug))
             return;
 
@@ -70,20 +105,13 @@ public class VillagerController : MonoBehaviour {
             }
             
             yield return new WaitForSeconds(2.0f);
-
-
-
         }
-
-
         if (t > 1.0f && t < 2.0f)
         {
-
             lantern.transform.position = Vector3.Lerp(lanternPosition.position, new Vector3(inTheMiddle.position.x, inTheMiddle.position.y, inTheMiddle.position.z + randNum), t - 1);
             people.transform.position = Vector3.Lerp(peoplePosition.position, inside.position, t - 1);
-            people.transform.LookAt(outside);
+            people.transform.LookAt(inside);
             t += speedVillager * Time.deltaTime * Random.Range(0.2f, 3.0f);
-
         }
 
         else if (t > 2.0f && t < 3.0f)

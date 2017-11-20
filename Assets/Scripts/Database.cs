@@ -42,4 +42,7 @@ public class Database : MonoBehaviour
 
     public static int tutorialTarget = 0;
 
+
+    public static bool hurt = false;
+
 }
