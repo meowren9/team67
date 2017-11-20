@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : Photon.PunBehaviour
+public class GameManager : Photon.PunBehaviour,IPunObservable
 {
     //game status
     public int status = 0;
@@ -153,6 +153,18 @@ public class GameManager : Photon.PunBehaviour
 
         // game start
         yield break;
+    }
+
+    void IPunObservable.OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            stream.SendNext(status);
+        }
+        else
+        {
+            this.status = (int)stream.ReceiveNext();
+        }
     }
 
 }
