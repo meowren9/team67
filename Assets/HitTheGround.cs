@@ -42,7 +42,7 @@ public class HitTheGround : MonoBehaviour {
     }
 
     [PunRPC]
-    void NetworkHitGroundSound(int index)
+    void NetworkHitGroundSound()
     {
         my_audio.Stop();
         my_audio.PlayOneShot(hit_ground_sound);
