@@ -43,6 +43,8 @@ public class VillagerController : MonoBehaviour {
         {
             lantern = Instantiate(lantern_prefab, lanternPosition.position,lanternPosition.rotation);
             lantern.transform.parent = this.transform;
+
+
             people = Instantiate(people_prefab, peoplePosition.position, peoplePosition.rotation);
             people.transform.forward = -people.transform.forward;
             people.transform.parent = this.transform;
@@ -122,4 +124,6 @@ public class VillagerController : MonoBehaviour {
         }
 
     }
+
+
 }
