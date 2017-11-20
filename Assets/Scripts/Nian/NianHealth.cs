@@ -119,8 +119,10 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
                 hit_count++;
                 status = AnalyseStatus();
 
-                
-                Destroy(other.gameObject);
+                if (GameManager.debug)
+                    Destroy(other.gameObject);
+                else
+                    PhotonNetwork.Destroy(other.gameObject);
                 //Debug.Log("danger change detected...");
                 danger.isDetected = false;
 
@@ -141,7 +143,11 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
                 hit_count++;
                 status = AnalyseStatus();
 
-                Destroy(other.gameObject);
+                if (GameManager.debug)
+                    Destroy(other.gameObject);
+                else
+                    PhotonNetwork.Destroy(other.gameObject);
+
                 //Debug.Log("danger change detected...");
                 danger.isDetected = false;
             }
