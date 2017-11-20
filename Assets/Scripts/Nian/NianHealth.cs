@@ -16,6 +16,8 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
     public Detection danger;
 
     bool explode = false;
+    public ParticleSystem health_particle;
+
 
     int AnalyseStatus()
     {
@@ -55,6 +57,14 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
 
         var emission = particle.emission;
         emission.enabled = explode;
+
+        //health
+
+        var remainHealth = health - hit_count + 5;
+        var main = health_particle.main;
+        main.startSize = remainHealth;
+        //health_particle.main.startSize = startsize;
+
     }
 
     //public float p_len;
@@ -103,11 +113,13 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
         {
             stream.SendNext(status);
             stream.SendNext(explode);
+            stream.SendNext(hit_count);
         }
         else
         {
             this.status = (int)stream.ReceiveNext();
             this.explode = (bool)stream.ReceiveNext();
+            this.hit_count = (int)stream.ReceiveNext();
         }
     }
 
