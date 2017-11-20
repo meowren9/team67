@@ -8,6 +8,12 @@ public class BGMManager : MonoBehaviour, IPunObservable
     public AudioClip[] bgms;
     AudioSource my_audio;
 
+    private void Start()
+    {
+        my_audio = GetComponent<AudioSource>();
+        my_audio.Play();
+    }
+
     private void Update()
     {
         PlayMusic();

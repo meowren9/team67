@@ -41,6 +41,10 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
     public int player = 2;
 
 
+    //bgm
+    public GameObject bgm_prefab;
+    BGMManager bgm_manager;
+
     void Start()
     {
 
@@ -67,6 +71,7 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
 
             nian = Instantiate(nian_prefab, appearPoint.position, appearPoint.rotation);
             health = nian.GetComponent<NianAI>().health;
+            bgm_manager = Instantiate(bgm_prefab).GetComponent<BGMManager>();
         }
         else
         {
@@ -87,6 +92,7 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
                 lotus.SetActive(true);
                 nian = PhotonNetwork.Instantiate(nian_prefab.name, appearPoint.position, appearPoint.rotation, 0);
                 health = nian.GetComponent<NianAI>().health;
+                bgm_manager = PhotonNetwork.Instantiate(bgm_prefab.name,Vector3.zero,Quaternion.identity,0).GetComponent<BGMManager>();
             }
         }
 
@@ -110,7 +116,9 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
                 if (ready)
                 {
                     StartCoroutine(PrepareNian());
+                    //bgm_manager.current_bgm_index = 1;
                     status = 1;
+                    bgm_manager.current_bgm_index = status;
                 }
                 break;
             case 1:
@@ -119,6 +127,7 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
                     //!!!
                     villagers.SetActive(true);
                     status = 2;
+                    bgm_manager.current_bgm_index = status;
                 }
                 break;
 
@@ -127,6 +136,7 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
                 {
                     //ending scene
                     status = 3;
+                    bgm_manager.current_bgm_index = status;
                 }
                 break;
         }
