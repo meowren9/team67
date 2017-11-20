@@ -40,7 +40,7 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
 
     void Update()
     {
-        if(GameManager.debug)
+        if(GameManager.debug || true)
         {
             if(Input.GetKeyDown(KeyCode.H))
             {
