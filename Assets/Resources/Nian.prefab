@@ -1362,7 +1362,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702709784743522}
-  m_LocalRotation: {x: -0.69931495, y: 0.104683146, z: 0.70069385, w: 0.095016524}
+  m_LocalRotation: {x: -0.699315, y: 0.10468315, z: 0.7006939, w: 0.09501653}
   m_LocalPosition: {x: -0.002077104, y: -0.00095583446, z: -0.0223102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2411,7 +2411,7 @@ MonoBehaviour:
   change_point: 3
   health: 5
   particle: {fileID: 198046341719221070}
-  s_particle: {fileID: 0}
+  s_particle: {fileID: 198903738886055398}
   danger: {fileID: 114732647103996782}
   health_particle: {fileID: 198080045238938320}
   nian_anim: {fileID: 95773597084863204}
