@@ -11,7 +11,7 @@ public class VillagerCreater : MonoBehaviour {
     public int VillagersPerUnitTime = 10;
     public float timeSlot = 3.0f;
 
-    public GameObject villagerPrefab;
+    
 
 	// Use this for initialization
 	void Start () {

@@ -119,6 +119,12 @@ public class GrabController : MonoBehaviour {
             //return;
         }
 
+        if(other.tag == "SpecialFirework")
+        {
+            Debug.Log("colide with firework");
+            SetCollidingObject(other);
+        }
+
         if (other.tag == "firework")
         {
             Debug.Log("colide with firework");
@@ -127,10 +133,10 @@ public class GrabController : MonoBehaviour {
         }
     }
 
-    public void OnTriggerStay(Collider other)
-    {
-        SetCollidingObject(other);
-    }
+    //public void OnTriggerStay(Collider other)
+    //{
+    //    SetCollidingObject(other);
+    //}
 
     public void OnTriggerExit(Collider other)
     {
@@ -148,10 +154,15 @@ public class GrabController : MonoBehaviour {
 
     private void GrabObject()
     {
-        //todo:
         objectInHand = collidingObject;
         collidingObject = null;
-        // 2
+
+        if (objectInHand.tag == "SpecialFirework")
+        {
+            objectInHand.transform.parent = null;
+            objectInHand.GetComponent<Rigidbody>().useGravity = true;
+        }
+
         var joint = AddFixedJoint();
         joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
     }

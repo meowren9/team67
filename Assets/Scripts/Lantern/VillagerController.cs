@@ -25,15 +25,16 @@ public class VillagerController : MonoBehaviour {
     public float minimum = -1.0f;
     public float maximum = 1.0f;
 
+    float randNum;
     // Use this for initialization
     void Start () {
-		
+        randNum = Random.Range(1, 20);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-        print("t="+ t);
+        //print("t="+ t);
 
 
         if(t < 1.0f)
@@ -77,7 +78,7 @@ public class VillagerController : MonoBehaviour {
         if (t > 1.0f && t < 2.0f)
         {
             
-            lantern.transform.position = Vector3.Lerp(lanternPosition.position, inTheMiddle.position, t - 1);
+            lantern.transform.position = Vector3.Lerp(lanternPosition.position, new Vector3(inTheMiddle.position.x, inTheMiddle.position.y, inTheMiddle.position.z+randNum), t - 1);
             people.transform.position = Vector3.Lerp(peoplePosition.position, inside.position, t - 1);
             people.transform.LookAt(outside);
             t += speedVillager * Time.deltaTime * Random.Range(0.2f, 3.0f);

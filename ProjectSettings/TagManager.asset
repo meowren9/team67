@@ -15,6 +15,7 @@ TagManager:
   - fireLantern
   - ground
   - HugeFirework
+  - SpecialFirework
   layers:
   - Default
   - TransparentFX

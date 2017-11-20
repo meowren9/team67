@@ -1934,5 +1934,5 @@ MonoBehaviour:
   - {fileID: 4505511918235952}
   - {fileID: 4267351697446604}
   - {fileID: 4070280307830462}
-  VillagersPerUnitTime: 2
-  timeSlot: 8
+  VillagersPerUnitTime: 8
+  timeSlot: 1
