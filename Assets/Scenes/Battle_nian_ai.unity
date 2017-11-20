@@ -1781,6 +1781,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -4126,6 +4140,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -4485,6 +4513,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -7780,6 +7822,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -8267,6 +8323,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -8949,6 +9019,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -11075,6 +11159,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -11136,6 +11234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1485951493}
   - component: {fileID: 1485951494}
+  - component: {fileID: 1485951495}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -11184,6 +11283,32 @@ MonoBehaviour:
   lotus: {fileID: 867700298}
   define_debug: 0
   player: 2
+--- !u!114 &1485951495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1485951492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ownerId: 0
+  group: 0
+  OwnerShipWasTransfered: 0
+  prefixBackup: -1
+  synchronization: 3
+  onSerializeTransformOption: 3
+  onSerializeRigidBodyOption: 2
+  ownershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 1485951494}
+  ObservedComponentsFoldoutOpen: 1
+  viewIdField: 4
+  instantiationId: 4
+  currentMasterID: -1
+  isRuntimeInstantiated: 0
 --- !u!4 &1491062922 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4140781240773348, guid: de13414c9e9771e4da2d7bb28aa23766,
@@ -12683,12 +12808,12 @@ Prefab:
         type: 2}
       propertyPath: textureDrag.Array.data[0]
       value: 
-      objectReference: {fileID: 2800000, guid: bda7fb218398d4b438bed3a40b23b9f7, type: 3}
+      objectReference: {fileID: 2800000, guid: 386e86a0bd9239145ba669506fac1827, type: 3}
     - target: {fileID: 114776721460109308, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
       propertyPath: textureDrag.Array.data[1]
       value: 
-      objectReference: {fileID: 2800000, guid: fe43189243d210844a9bb0ebfe095cfb, type: 3}
+      objectReference: {fileID: 2800000, guid: ae06373f222921045b92d1c986aa8544, type: 3}
     - target: {fileID: 114776721460109308, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
       propertyPath: tutorial
@@ -12698,27 +12823,27 @@ Prefab:
         type: 2}
       propertyPath: textureRelease.Array.data[0]
       value: 
-      objectReference: {fileID: 2800000, guid: dd7a77572f800754881f1331aab984db, type: 3}
+      objectReference: {fileID: 2800000, guid: 7e77ebbd1c4117b479d388a947f5acc2, type: 3}
     - target: {fileID: 114776721460109308, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
       propertyPath: textureRelease.Array.data[1]
       value: 
-      objectReference: {fileID: 2800000, guid: e89a3e19ef8218a4b8b2ae947aa1dd58, type: 3}
+      objectReference: {fileID: 2800000, guid: 99f88fdc0d1f0c2449dd1089b32e01dd, type: 3}
     - target: {fileID: 114776721460109308, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
       propertyPath: texturePull.Array.data[0]
       value: 
-      objectReference: {fileID: 2800000, guid: 7840ccad4d2e52841b1f843d160993cd, type: 3}
+      objectReference: {fileID: 2800000, guid: 53d5ddb773d9ae145ae4e091508d6414, type: 3}
     - target: {fileID: 114776721460109308, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
       propertyPath: texturePull.Array.data[1]
       value: 
-      objectReference: {fileID: 2800000, guid: 302f6e08d4eef6a4b8e379879907622b, type: 3}
+      objectReference: {fileID: 2800000, guid: 6c3dc4988b741a94a8b4a7c87bc1e3df, type: 3}
     - target: {fileID: 114776721460109308, guid: 86fc02bf52173654d98a5d48bb8f4fdf,
         type: 2}
       propertyPath: texturePull.Array.data[2]
       value: 
-      objectReference: {fileID: 2800000, guid: 8d84511e48b0f0542a0f8496cfe4e973, type: 3}
+      objectReference: {fileID: 2800000, guid: 144eff8a49002744199bc94656c8d43e, type: 3}
     - target: {fileID: 4722919074563978, guid: 86fc02bf52173654d98a5d48bb8f4fdf, type: 2}
       propertyPath: m_RootOrder
       value: 0
@@ -13346,6 +13471,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -13483,6 +13622,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -14293,6 +14446,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -16191,6 +16358,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
+  m_FalloffTable:
+    m_Table[0]: 0
+    m_Table[1]: 0
+    m_Table[2]: 0
+    m_Table[3]: 0
+    m_Table[4]: 0
+    m_Table[5]: 0
+    m_Table[6]: 0
+    m_Table[7]: 0
+    m_Table[8]: 0
+    m_Table[9]: 0
+    m_Table[10]: 0
+    m_Table[11]: 0
+    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
