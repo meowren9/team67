@@ -26,7 +26,6 @@ public class VillagerController : MonoBehaviour {
     public GameObject people_prefab;
     public GameObject duanbianpao_prefab;
     
-
     float t = 0.0f;
     public float minimum = -1.0f;
     public float maximum = 1.0f;
@@ -34,7 +33,9 @@ public class VillagerController : MonoBehaviour {
     float randNum;
     // Use this for initialization
     void Start () {
-       
+
+        GameManager.debug = true;
+
         if (!(!PhotonNetwork.isMasterClient || GameManager.debug))
             return;
 
@@ -42,40 +43,48 @@ public class VillagerController : MonoBehaviour {
 
         if (GameManager.debug)
         {
-            lantern = Instantiate(lantern_prefab, lanternPosition.position,lanternPosition.rotation);
+            //lantern = Instantiate(lantern_prefab, lanternPosition.position,lanternPosition.rotation);
             //lantern.transform.parent = this.transform;
-            lantern.GetComponent<FollowParent>().parent = this.gameObject;
+            ////antern.GetComponent<FollowParent>().parent = this.gameObject;
 
-            people = Instantiate(people_prefab, peoplePosition.position, peoplePosition.rotation);
-            people.transform.forward = -people.transform.forward;
+            //people = Instantiate(people_prefab, peoplePosition.position, peoplePosition.rotation);
+            //people.transform.forward = -people.transform.forward;
             //people.transform.parent = this.transform;
-            people.GetComponent<FollowParent>().parent = this.gameObject;
+            ////people.GetComponent<FollowParent>().parent = this.gameObject;
 
-            anim = people.GetComponent<Animator>();
-            duanbianpao = Instantiate(duanbianpao_prefab, lanternPosition.position, lanternPosition.rotation);
+            //anim = people.GetComponent<Animator>();
+            //duanbianpao = Instantiate(duanbianpao_prefab, lanternPosition.position, lanternPosition.rotation);
             //duanbianpao.transform.parent = lantern.transform;
-            duanbianpao.GetComponent<FollowParent>().parent = lantern;
+            ////duanbianpao.GetComponent<FollowParent>().parent = lantern;
+
+            lantern = lantern_prefab;
+            people = people_prefab;
+            anim = people.GetComponent<Animator>();
 
         }
         else
         {
             if(!PhotonNetwork.isMasterClient)
             {
-                lantern = PhotonNetwork.Instantiate(lantern_prefab.name, lanternPosition.position, lanternPosition.rotation,0);
-                //PhotonNetwork.Instantiate()
+                //lantern = PhotonNetwork.Instantiate(lantern_prefab.name, lanternPosition.position, lanternPosition.rotation,0);
+                ////PhotonNetwork.Instantiate()
 
-                //lantern.GetComponent<FollowParent>().parent = this.gameObject;
+                ////lantern.GetComponent<FollowParent>().parent = this.gameObject;
                 //lantern.transform.parent = this.transform;
 
-                people = PhotonNetwork.Instantiate(people_prefab.name, peoplePosition.position, peoplePosition.rotation,0);
-                people.transform.forward = -people.transform.forward;
+                //people = PhotonNetwork.Instantiate(people_prefab.name, peoplePosition.position, peoplePosition.rotation,0);
+                //people.transform.forward = -people.transform.forward;
                 //people.transform.parent = this.transform;
-                //people.GetComponent<FollowParent>().parent = this.gameObject;
+                ////people.GetComponent<FollowParent>().parent = this.gameObject;
 
-                anim = people.GetComponent<Animator>();
-                duanbianpao = PhotonNetwork.Instantiate(duanbianpao_prefab.name, lanternPosition.position, lanternPosition.rotation,0);
+                //anim = people.GetComponent<Animator>();
+                //duanbianpao = PhotonNetwork.Instantiate(duanbianpao_prefab.name, lanternPosition.position, lanternPosition.rotation,0);
                 //duanbianpao.transform.parent = lantern.transform;
-                //duanbianpao.GetComponent<FollowParent>().parent = lantern;
+                ////duanbianpao.GetComponent<FollowParent>().parent = lantern;
+
+                lantern = lantern_prefab;
+                people = people_prefab;
+                anim = people.GetComponent<Animator>();
             }
         }
 
@@ -91,19 +100,18 @@ public class VillagerController : MonoBehaviour {
         {
             this.transform.position = Vector3.Lerp(inside.position, outside.position, t);
             t += speedVillager * Time.deltaTime * Random.Range(0.2f, 3.0f);
-            
         }
 
         else
         {
-            //if (!releaseLantern)
-            //{
+            if (!releaseLantern)
+            {
                 StartCoroutine(ReleaseLight());
-            //    releaseLantern = true;
-            //}
+                releaseLantern = true;
+            }
 
-        }
-        
+    }
+
 
     }
 

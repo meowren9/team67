@@ -124,6 +124,7 @@ public class Launcher : Photon.PunBehaviour
         Debug.Log("PhotonNetwork : Loading Level : " + PhotonNetwork.room.PlayerCount);
         //TODO: load battle
         PhotonNetwork.LoadLevel("Battle_nian_ai");
+        //PhotonNetwork.LoadLevel("TestLantern");
         //PhotonNetwork.LoadLevel("Room for " + PhotonNetwork.room.playerCount);
     }
 

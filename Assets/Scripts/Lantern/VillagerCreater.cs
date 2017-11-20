@@ -35,7 +35,7 @@ public class VillagerCreater : MonoBehaviour {
                 int PositionNumber = Random.Range(0, 21);
                 int VillagerNumber = Random.Range(0, 2);
                 if(GameManager.debug)
-                    GameObject.Instantiate(VillagerWithLantern[VillagerNumber], presetPositon[PositionNumber]);
+                    GameObject.Instantiate(VillagerWithLantern[VillagerNumber], presetPositon[PositionNumber].position, presetPositon[PositionNumber].rotation);
                 else
                 {
                     if (!PhotonNetwork.isMasterClient)
