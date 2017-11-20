@@ -73,23 +73,25 @@ public class VillagerController : MonoBehaviour {
             
             yield return new WaitForSeconds(2.0f);
 
+
+            if (t > 1.0f && t < 2.0f)
+            {
+
+                lantern.transform.position = Vector3.Lerp(lanternPosition.position, new Vector3(inTheMiddle.position.x, inTheMiddle.position.y, inTheMiddle.position.z + randNum), t - 1);
+                people.transform.position = Vector3.Lerp(peoplePosition.position, inside.position, t - 1);
+                people.transform.LookAt(outside);
+                t += speedVillager * Time.deltaTime * Random.Range(0.2f, 3.0f);
+
+            }
         }
 
-        if (t > 1.0f && t < 2.0f)
-        {
-            
-            lantern.transform.position = Vector3.Lerp(lanternPosition.position, new Vector3(inTheMiddle.position.x, inTheMiddle.position.y, inTheMiddle.position.z+randNum), t - 1);
-            people.transform.position = Vector3.Lerp(peoplePosition.position, inside.position, t - 1);
-            people.transform.LookAt(outside);
-            t += speedVillager * Time.deltaTime * Random.Range(0.2f, 3.0f);
 
-        }
 
 
         else if (t > 2.0f && t < 3.0f)
         {
             villagerGone = true;
-            Destroy(people, 0.1f);
+            //Destroy(people, 0.1f);
             lantern.transform.position += new Vector3(0.0f, 0.4f * speedLanternUp * Random.Range(0.2f, 3.0f), 0.0f);
         }
 

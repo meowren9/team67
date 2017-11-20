@@ -66,6 +66,7 @@ public class GameManager : Photon.PunBehaviour
             }
 
             nian = Instantiate(nian_prefab, appearPoint.position, appearPoint.rotation);
+            health = nian.GetComponent<NianAI>().health;
         }
         else
         {
@@ -85,10 +86,11 @@ public class GameManager : Photon.PunBehaviour
                 p2Ava.SetActive(false);
                 lotus.SetActive(true);
                 nian = PhotonNetwork.Instantiate(nian_prefab.name, appearPoint.position, appearPoint.rotation, 0);
+                health = nian.GetComponent<NianAI>().health;
             }
         }
 
-        health = nian.GetComponent<NianAI>().health;
+        
 
     }
 
