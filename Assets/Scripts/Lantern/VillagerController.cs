@@ -61,18 +61,18 @@ public class VillagerController : MonoBehaviour {
             if(!PhotonNetwork.isMasterClient)
             {
                 lantern = PhotonNetwork.Instantiate(lantern_prefab.name, lanternPosition.position, lanternPosition.rotation,0);
-                lantern.GetComponent<FollowParent>().parent = this.gameObject;
-                //lantern.transform.parent = this.transform;
+                //lantern.GetComponent<FollowParent>().parent = this.gameObject;
+                lantern.transform.parent = this.transform;
 
                 people = PhotonNetwork.Instantiate(people_prefab.name, peoplePosition.position, peoplePosition.rotation,0);
                 people.transform.forward = -people.transform.forward;
-                //people.transform.parent = this.transform;
-                people.GetComponent<FollowParent>().parent = this.gameObject;
+                people.transform.parent = this.transform;
+                //people.GetComponent<FollowParent>().parent = this.gameObject;
 
                 anim = people.GetComponent<Animator>();
                 duanbianpao = PhotonNetwork.Instantiate(duanbianpao_prefab.name, lanternPosition.position, lanternPosition.rotation,0);
-                //duanbianpao.transform.parent = lantern.transform;
-                duanbianpao.GetComponent<FollowParent>().parent = lantern;
+                duanbianpao.transform.parent = lantern.transform;
+                //duanbianpao.GetComponent<FollowParent>().parent = lantern;
             }
         }
 
