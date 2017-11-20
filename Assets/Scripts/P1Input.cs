@@ -270,7 +270,7 @@ public class P1Input : MonoBehaviour
                 else
                 {
 
-                    targetSet.SetActive(true);
+                    //targetSet.SetActive(true);
                 }
             }
 

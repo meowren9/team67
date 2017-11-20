@@ -16,8 +16,10 @@ public class Hurt : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+        print("collide");
         if(other.tag == "claw")
         {
+            print("inclaw");
             Database.hurt = true;
         }
     }

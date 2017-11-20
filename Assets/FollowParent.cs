@@ -13,6 +13,6 @@ public class FollowParent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.transform.position = parent.transform.position;
+        //this.transform.position = parent.transform.position;
 	}
 }

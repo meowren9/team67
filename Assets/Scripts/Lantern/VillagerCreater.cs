@@ -40,7 +40,7 @@ public class VillagerCreater : MonoBehaviour {
                 {
                     if (!PhotonNetwork.isMasterClient)
                     {
-                        Instantiate(VillagerWithLantern[VillagerNumber], presetPositon[PositionNumber].position, presetPositon[PositionNumber].rotation);
+                        PhotonNetwork.Instantiate(VillagerWithLantern[VillagerNumber].name, presetPositon[PositionNumber].position, presetPositon[PositionNumber].rotation,0);
                     }
                 }
             }
