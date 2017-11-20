@@ -93,6 +93,9 @@ public class LanternManager : MonoBehaviour {
         {
 
             Transform choose = spawnLocations[Random.Range(0, spawnLocations.Length)];
+
+            //choose = new Vector3(0, 0, 30);
+
             GameObject villager;
             if (GameManager.debug)
                 villager = Instantiate(villagerPrefeb, choose.position, choose.rotation);
