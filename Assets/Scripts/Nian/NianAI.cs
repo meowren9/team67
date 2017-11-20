@@ -412,24 +412,33 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
 
     //rotate?
 
+
     IEnumerator Die()
     {
+
+        Jump jump = GameObject.Find("Jump").GetComponent<Jump>();
+
+
         GameManager.nian_defeat = true;
         //anything else?
 
-        int turn_len = turnTarget.Length;
+        int turn_len = jump.jump_point.Length;
         //todo: facing?
         for(int i = 0; i < turn_len; i++)
         {
-            while (Vector3.Distance(turnTarget[i].position, transform.position) > 0.3f) // to be public
+            Vector3 direction = jump.jump_point[i].position - transform.position;
+            transform.forward = -direction;
+            while (Vector3.Distance(jump.jump_point[i].position, transform.position) > 1f) // to be public
             {
-                transform.position = Vector3.Lerp(transform.position, turnTarget[i].position, Time.deltaTime * FlyingSpeed);
+                transform.position = Vector3.Lerp(transform.position, jump.jump_point[i].position, Time.deltaTime * FlyingSpeed);
                 yield return null;
             }
             //todo: turn delay
         }
         
         //todo: explode
+
+
 
         yield break;
     }

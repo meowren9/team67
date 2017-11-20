@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestLantern.unity
     guid: dd2e3d8d0b43bc04d8bf7d87ad06da17
+  - enabled: 1
+    path: Assets/Scenes/RPC.unity
+    guid: 15dd6e1376998704fbac06ef79804718

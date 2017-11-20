@@ -45,6 +45,9 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
     public GameObject bgm_prefab;
     BGMManager bgm_manager;
 
+    //rpc
+    public RPCManager rpc_manager;
+
     void Start()
     {
 
@@ -135,6 +138,7 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
                 if(nian_defeat)
                 {
                     //ending scene
+                    rpc_manager.SetFirework();
                     status = 3;
                     bgm_manager.current_bgm_index = status;
                 }

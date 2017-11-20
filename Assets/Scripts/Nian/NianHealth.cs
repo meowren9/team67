@@ -13,10 +13,19 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
     public int health = 0;
 
     public ParticleSystem particle;
+    bool explode = false;
+
+    public ParticleSystem s_particle;
+    bool s_explode = false;
+
+
+
     public Detection danger;
 
-    bool explode = false;
+    
     public ParticleSystem health_particle;
+
+    public Animator nian_anim;
 
 
     int AnalyseStatus()
@@ -49,6 +58,7 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
                 //particle.SetActive(false);
                 //particle.SetActive(true);
                 StartCoroutine(Explode());
+                nian_anim.SetTrigger("angry");
                 hit_count++;
                 status = AnalyseStatus();
                 danger.isDetected = false;
@@ -58,26 +68,34 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
         var emission = particle.emission;
         emission.enabled = explode;
 
+        var s_emission = s_particle.emission;
+        s_emission.enabled = s_explode;
+
         //health
 
         var remainHealth = health - hit_count + 5;
         var main = health_particle.main;
         main.startSize = remainHealth;
-        //health_particle.main.startSize = startsize;
 
     }
-
-    //public float p_len;
-
-    
 
     IEnumerator Explode()
     {
         explode = false;
         yield return null;
         explode = true;
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         explode = false;
+        yield break;
+    }
+
+    IEnumerator S_Explode()
+    {
+        s_explode = false;
+        yield return null;
+        s_explode = true;
+        yield return new WaitForSeconds(3f);
+        s_explode = false;
         yield break;
     }
 
@@ -96,13 +114,36 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
                 //particle.SetActive(true);
                 StartCoroutine(Explode());
 
+                nian_anim.SetTrigger("angry");
+
                 hit_count++;
                 status = AnalyseStatus();
-               
+
+                
                 Destroy(other.gameObject);
                 //Debug.Log("danger change detected...");
                 danger.isDetected = false;
 
+            }
+        }
+
+
+        if (other.tag == "SpecialFirework")
+        {
+            var firework = other.gameObject.GetComponent<SetFire>();
+            if (firework.fired)
+            {
+                StartCoroutine(Explode());
+                StartCoroutine(S_Explode());
+
+                nian_anim.SetTrigger("angry");
+
+                hit_count++;
+                status = AnalyseStatus();
+
+                Destroy(other.gameObject);
+                //Debug.Log("danger change detected...");
+                danger.isDetected = false;
             }
         }
     }
@@ -113,12 +154,14 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
         {
             stream.SendNext(status);
             stream.SendNext(explode);
+            stream.SendNext(s_explode);
             stream.SendNext(hit_count);
         }
         else
         {
             this.status = (int)stream.ReceiveNext();
             this.explode = (bool)stream.ReceiveNext();
+            this.s_explode = (bool)stream.ReceiveNext();
             this.hit_count = (int)stream.ReceiveNext();
         }
     }
