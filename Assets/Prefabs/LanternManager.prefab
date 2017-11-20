@@ -98,7 +98,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1190959267334670
 GameObject:
   m_ObjectHideFlags: 1
@@ -460,7 +460,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1189759089206152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 27.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4233878568306384}
@@ -1941,10 +1941,25 @@ MonoBehaviour:
   - {fileID: 4901046298544702}
   - {fileID: 4255246668162234}
   - {fileID: 4089723111133964}
-  - {fileID: 4089723111133964}
+  - {fileID: 4342276440707452}
+  - {fileID: 4451457302307672}
+  - {fileID: 4487709366005042}
+  - {fileID: 4586282156144842}
+  - {fileID: 4552864553792638}
+  - {fileID: 4284249002299882}
+  - {fileID: 4368819205871404}
+  - {fileID: 4677867630724416}
+  - {fileID: 4277646645614866}
+  - {fileID: 4948702389141056}
+  - {fileID: 4406360813635652}
+  - {fileID: 4121224202247754}
+  - {fileID: 4972181327015814}
+  - {fileID: 4443713549386906}
+  - {fileID: 4373140017646424}
+  - {fileID: 4691054376177330}
   center: {fileID: 4233878568306384}
   villagerPrefeb: {fileID: 1248430392987208, guid: 3fd5214bd2cfa20428e699c339010253,
     type: 2}
   lanternPrefab: {fileID: 1018535248909244, guid: 97e306a6222063f48ab7fe90b1f2dabd,
     type: 2}
-  SpawnCD: 2
+  SpawnCD: 5

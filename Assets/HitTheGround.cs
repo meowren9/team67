@@ -7,15 +7,16 @@ public class HitTheGround : MonoBehaviour {
 
     public GameObject particle;
     public GameObject firework;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public AudioClip hit_ground_sound;
+    AudioSource my_audio;
+    PhotonView photonView;
+
+    private void Start()
+    {
+        my_audio = GetComponent<AudioSource>();
+        photonView = GetComponent<PhotonView>();
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,10 +25,27 @@ public class HitTheGround : MonoBehaviour {
             if (GetComponent<SetFire>().fired)
             {
                 print("touch ground");
+
+                if (!PhotonNetwork.isMasterClient)
+                    photonView.RPC("NetworkHitGroundSound", PhotonTargets.All);
+
                 particle.SetActive(true);
             }
 
-            Destroy(this.gameObject, 3.0f);
+            //if(GameManager.debug)
+                Destroy(this.gameObject, 3.0f);
+            //else
+            //{
+            //    PhotonNetwork.Destroy(this.gameObject);
+            //}
         }
     }
+
+    [PunRPC]
+    void NetworkHitGroundSound(int index)
+    {
+        my_audio.Stop();
+        my_audio.PlayOneShot(hit_ground_sound);
+    }
+
 }

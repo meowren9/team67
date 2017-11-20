@@ -44,4 +44,6 @@ MonoBehaviour:
   - TaggedPlayer
   - NetworkSetFirework
   - NetworkPlaySound
+  - NetworkHitGroundSounn
+  - NetworkHitGroundSound
   DisableAutoOpenWizard: 1
