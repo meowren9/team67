@@ -27,6 +27,13 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
 
     public Animator nian_anim;
 
+    RPCManager rpc_manager;
+
+    private void Start()
+    {
+        rpc_manager = GameObject.Find("RPCManager").GetComponent<RPCManager>();
+    }
+
 
     int AnalyseStatus()
     {
@@ -60,6 +67,7 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
                 StartCoroutine(Explode());
                 nian_anim.SetTrigger("angry");
                 hit_count++;
+                //rpc_manager.Roar();
                 status = AnalyseStatus();
                 danger.isDetected = false;
             }
@@ -115,14 +123,18 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
                 StartCoroutine(Explode());
 
                 nian_anim.SetTrigger("angry");
-
                 hit_count++;
                 status = AnalyseStatus();
-
+ 
                 if (GameManager.debug)
                     Destroy(other.gameObject);
                 else
+                {
+                    rpc_manager.Normal();
+                    rpc_manager.Roar();
                     PhotonNetwork.Destroy(other.gameObject);
+                }
+                    
                 //Debug.Log("danger change detected...");
                 danger.isDetected = false;
 
@@ -146,7 +158,12 @@ public class NianHealth : Photon.PunBehaviour, IPunObservable
                 if (GameManager.debug)
                     Destroy(other.gameObject);
                 else
+                {
+                    rpc_manager.Special();
+                    rpc_manager.Roar();
                     PhotonNetwork.Destroy(other.gameObject);
+                }
+                   
 
                 //Debug.Log("danger change detected...");
                 danger.isDetected = false;

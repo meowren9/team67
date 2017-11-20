@@ -9,6 +9,11 @@ public class RPCManager : Photon.MonoBehaviour {
     AudioSource my_audio;
     PhotonView photonview;
 
+    public AudioSource nianroar;
+    public AudioSource special;
+    public AudioSource normal;
+
+
     void Start()
     {
         photonview = GetComponent<PhotonView>();
@@ -27,6 +32,21 @@ public class RPCManager : Photon.MonoBehaviour {
 
     }
 
+    public void Roar()
+    {
+        photonView.RPC("NetworkRoar", PhotonTargets.All);
+    }
+
+    public void Normal()
+    {
+        photonView.RPC("NetworkNormal", PhotonTargets.All);
+    }
+
+    public void Special()
+    {
+        photonView.RPC("NetworkSpecial", PhotonTargets.All);
+    }
+
     public void SetFirework()
     {
         photonView.RPC("NetworkSetFirework", PhotonTargets.All);
@@ -35,6 +55,24 @@ public class RPCManager : Photon.MonoBehaviour {
     public void PlaySound(int index)
     {
         photonView.RPC("NetworkPlaySound", PhotonTargets.All, index);
+    }
+
+    [PunRPC]
+    void NetworkRoar()
+    {
+        nianroar.Play();
+    }
+
+    [PunRPC]
+    void NetworkSpecial()
+    {
+        special.Play();
+    }
+
+    [PunRPC]
+    void NetworkNormal()
+    {
+        normal.Play();
     }
 
 
