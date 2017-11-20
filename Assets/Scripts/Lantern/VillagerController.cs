@@ -35,7 +35,8 @@ public class VillagerController : MonoBehaviour {
 	void Update () {
 
         //print("t="+ t);
-
+        if (!(!PhotonNetwork.isMasterClient || GameManager.debug))
+            return;
 
         if(t < 1.0f)
         {
@@ -54,9 +55,6 @@ public class VillagerController : MonoBehaviour {
 
         }
         
-
-
-
 
     }
 
