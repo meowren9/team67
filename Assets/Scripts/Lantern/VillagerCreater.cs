@@ -15,7 +15,8 @@ public class VillagerCreater : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        StartCoroutine(CreateVillager());
+        if(GameManager.debug || !PhotonNetwork.isMasterClient)
+            StartCoroutine(CreateVillager());
     }
 	
 	// Update is called once per frame

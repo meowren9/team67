@@ -10289,6 +10289,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 114782749040553366, guid: 7ad982b38e152584db9343ba73b7e064,
+        type: 2}
+      propertyPath: VillagersPerUnitTime
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ad982b38e152584db9343ba73b7e064, type: 2}
   m_IsPrefabParent: 0
@@ -12143,7 +12148,7 @@ MonoBehaviour:
   p1Ava: {fileID: 51029337}
   p2Ava: {fileID: 1633192752}
   lotus: {fileID: 867700298}
-  define_debug: 1
+  define_debug: 0
   player: 2
 --- !u!4 &1491062922 stripped
 Transform:
