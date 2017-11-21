@@ -97,8 +97,6 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
             }
         }
 
-        
-
     }
 
     void Update()
@@ -137,12 +135,9 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
                 if (health.status == 1)
                 {
                     //nian roar!!!
-                    rpc_manager.DestroyBasket();
-                    villagers.SetActive(true);
-
-                    //villager help
+                    StartCoroutine(ShowVillagers());
                     status = 2;
-                    bgm_manager.current_bgm_index = status;
+                    
                 }
                 break;
 
@@ -159,14 +154,25 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
         }
     }
 
-    //IEnumerator 
+    IEnumerator ShowVillagers()
+    {
+        rpc_manager.DestroyBasket();
+        yield return new WaitForSeconds(5f);
+        rpc_manager.PlaySound(2);
+        yield return new WaitForSeconds(5f);
+        villagers.SetActive(true);
+        bgm_manager.current_bgm_index = status;
+        yield break;
+    }
 
     IEnumerator PrepareNian()
     {
         //nian.SetActive(true);
         bgm_manager.StopMusic();
         rpc_manager.PlaySound(0);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(6f);
+        rpc_manager.PlaySound(1);
+        yield return new WaitForSeconds(2f);
         bgm_manager.current_bgm_index = status;
 
         Vector3 targetPosition = new Vector3(showPoint.position.x, nian.transform.position.y, showPoint.position.z);

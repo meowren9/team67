@@ -416,10 +416,9 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
     IEnumerator Die()
     {
 
+        nian_anim.SetTrigger("fly");
         Jump jump = GameObject.Find("Jump").GetComponent<Jump>();
 
-
-        
         //anything else?
 
         int turn_len = jump.jump_point.Length;
@@ -438,9 +437,15 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
 
         //todo: explode
 
-
-
         GameManager.nian_defeat = true;
+        if(GameManager.debug)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            PhotonNetwork.Destroy(this.gameObject);
+        }
 
         yield break;
     }

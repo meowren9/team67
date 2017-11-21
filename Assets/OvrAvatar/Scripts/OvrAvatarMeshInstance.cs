@@ -49,7 +49,7 @@ public class OvrAvatarMeshInstance : MonoBehaviour
             MeshInstance.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             Mesh.sharedMesh = ((OvrAvatarAssetMesh)asset).mesh;
 
-            Material mat = new Material(Shader.Find("OvrAvatar/AvatarSurfaceShaderSelfOccluding"));
+            Material mat = new Material(Shader.Find("Custom/HandShader"));
             MeshInstance.material = mat;
         }
 

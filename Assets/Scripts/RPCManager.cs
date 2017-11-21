@@ -116,7 +116,7 @@ public class RPCManager : Photon.MonoBehaviour {
     }
 
     [PunRPC]
-    void NetworkShowEnding(int index)
+    void NetworkShowEnding()
     {
         StartCoroutine(Ending());
     }

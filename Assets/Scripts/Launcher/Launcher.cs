@@ -14,6 +14,10 @@ public class Launcher : Photon.PunBehaviour
     public GameObject waitInfo;
 
 
+    public GameObject image_1;
+    public GameObject image_2;
+
+
     void Awake()
     {
         // we don't join the lobby. There is no need to join a lobby to get the list of rooms.
@@ -26,6 +30,9 @@ public class Launcher : Photon.PunBehaviour
     {
         waitInfo.SetActive(false);
         startBtn.SetActive(true);
+
+        image_2.SetActive(false);
+        image_1.SetActive(true);
     }
 
     bool pressed = false;
@@ -43,6 +50,9 @@ public class Launcher : Photon.PunBehaviour
     {
         waitInfo.SetActive(true);
         startBtn.SetActive(false);
+
+        image_2.SetActive(true);
+        image_1.SetActive(false);
         // we check if we are connected or not, we join if we are , else we initiate the connection to the server.
         if (PhotonNetwork.connected)
         {
