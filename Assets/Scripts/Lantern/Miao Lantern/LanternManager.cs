@@ -14,7 +14,8 @@ public class LanternManager : MonoBehaviour {
 
     void Start () {
         //GameManager.debug = false;
-        if(GameManager.debug || !PhotonNetwork.isMasterClient)
+        center = GameObject.Find("P2").transform;
+        if (GameManager.debug || !PhotonNetwork.isMasterClient)
         {
             StartCoroutine(Spawn());
         }
@@ -25,15 +26,15 @@ public class LanternManager : MonoBehaviour {
         //Vector3.Normalize
         Vector3 centerDirection = Vector3.Normalize(center.position - lantern.transform.position);
 
-        while(lantern.transform.position.y < 15f)
+        while(lantern.transform.position.y < 10f)
         {
-            lantern.transform.position += centerDirection * Time.deltaTime * 0.8f;
+            lantern.transform.position += centerDirection * Time.deltaTime * 1f;
             yield return null;
         }
 
         while(lantern.transform.position.y < 30f)
         {
-            lantern.transform.position += new Vector3(0, 1, 0) * Time.deltaTime * 0.5f;
+            lantern.transform.position += new Vector3(0, 1, 0) * Time.deltaTime * 0.3f;
             yield return null;
         }
 

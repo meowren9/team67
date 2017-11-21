@@ -89,7 +89,13 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
 
             facingTarget = player2;
             hangingTarget = new Vector3(0, transform.position.y, 0);//init
-            //currentCoroutine = StartCoroutine(Follow());
+
+            //int strategy = Analysis();
+            //status = strategy;
+
+            currentCoroutine = StartCoroutine(Hang());
+            current_strategy = 3;
+
             facingCoroutine = StartCoroutine(Facing());
         }
            
