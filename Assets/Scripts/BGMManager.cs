@@ -40,4 +40,10 @@ public class BGMManager : MonoBehaviour, IPunObservable
             this.current_bgm_index = (int)stream.ReceiveNext();
         }
     }
+
+    public void StopMusic()
+    {
+        my_audio.Stop();
+    }
+
 }

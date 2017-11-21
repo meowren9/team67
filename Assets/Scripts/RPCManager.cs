@@ -15,11 +15,18 @@ public class RPCManager : Photon.MonoBehaviour {
     public AudioSource special;
     public AudioSource normal;
 
+    public SpriteRenderer happy;
+    public GameObject credit;
+
+    public GameObject basket;
+
 
     void Start()
     {
         photonview = GetComponent<PhotonView>();
         my_audio = GetComponent<AudioSource>();
+        //ShowEnding();
+        //StartCoroutine(Ending());
     }
 
     void Update()
@@ -32,6 +39,22 @@ public class RPCManager : Photon.MonoBehaviour {
             }
         }
 
+    }
+
+    public void DestroyBasket()
+    {
+        photonView.RPC("NetworkDestroyBasket", PhotonTargets.All);
+    }
+
+    [PunRPC]
+    void NetworkDestroyBasket()
+    {
+        basket.SetActive(false);
+    }
+
+    public void ShowEnding()
+    {
+        photonView.RPC("NetworkShowEnding", PhotonTargets.All);
     }
 
     public void Roar()
@@ -90,6 +113,29 @@ public class RPCManager : Photon.MonoBehaviour {
     {
         my_audio.Stop();
         my_audio.PlayOneShot(sounds[index]);
+    }
+
+    [PunRPC]
+    void NetworkShowEnding(int index)
+    {
+        StartCoroutine(Ending());
+    }
+
+    public float showSpeed;
+
+    IEnumerator Ending()
+    {
+        credit.SetActive(true);
+        while(happy.color.a < 1)
+        {
+            var color = happy.color;
+            color.a = Mathf.Lerp(color.a, 1, Time.deltaTime * showSpeed);
+            //Debug.Log(color.a);
+            happy.color = color;
+            yield return null;
+        }
+
+        yield break;
     }
 
 }

@@ -72,8 +72,7 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
                 lotus.SetActive(true);
             }
 
-            nian = Instantiate(nian_prefab, appearPoint.position, appearPoint.rotation);
-            health = nian.GetComponent<NianAI>().health;
+            
             bgm_manager = Instantiate(bgm_prefab).GetComponent<BGMManager>();
         }
         else
@@ -93,8 +92,7 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
                 p1Ava.SetActive(true);
                 p2Ava.SetActive(false);
                 lotus.SetActive(true);
-                nian = PhotonNetwork.Instantiate(nian_prefab.name, appearPoint.position, appearPoint.rotation, 0);
-                health = nian.GetComponent<NianAI>().health;
+                
                 bgm_manager = PhotonNetwork.Instantiate(bgm_prefab.name,Vector3.zero,Quaternion.identity,0).GetComponent<BGMManager>();
             }
         }
@@ -118,17 +116,31 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
             case 0:
                 if (ready)
                 {
+                    if (GameManager.debug)
+                    {
+                        nian = Instantiate(nian_prefab, appearPoint.position, appearPoint.rotation);
+                        health = nian.GetComponent<NianAI>().health;
+
+                    }
+                    else
+                    {
+                        nian = PhotonNetwork.Instantiate(nian_prefab.name, appearPoint.position, appearPoint.rotation, 0);
+                        health = nian.GetComponent<NianAI>().health;
+                    }
                     StartCoroutine(PrepareNian());
                     //bgm_manager.current_bgm_index = 1;
                     status = 1;
-                    bgm_manager.current_bgm_index = status;
+                    
                 }
                 break;
             case 1:
                 if (health.status == 1)
                 {
-                    //!!!
+                    //nian roar!!!
+                    rpc_manager.DestroyBasket();
                     villagers.SetActive(true);
+
+                    //villager help
                     status = 2;
                     bgm_manager.current_bgm_index = status;
                 }
@@ -138,6 +150,7 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
                 if(nian_defeat)
                 {
                     //ending scene
+                    rpc_manager.ShowEnding();
                     rpc_manager.SetFirework();
                     status = 3;
                     bgm_manager.current_bgm_index = status;
@@ -146,19 +159,28 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
         }
     }
 
+    //IEnumerator 
+
     IEnumerator PrepareNian()
     {
-        nian.SetActive(true);
+        //nian.SetActive(true);
+        bgm_manager.StopMusic();
+        rpc_manager.PlaySound(0);
+        yield return new WaitForSeconds(3f);
+        bgm_manager.current_bgm_index = status;
+
         Vector3 targetPosition = new Vector3(showPoint.position.x, nian.transform.position.y, showPoint.position.z);
 
-        while(Vector3.Distance(targetPosition,nian.transform.position) > 0.3f)
+        Debug.Log("roar");
+
+        while (Vector3.Distance(targetPosition,nian.transform.position) > 0.3f)
         {
             nian.transform.position = Vector3.Lerp(nian.transform.position, targetPosition, Time.deltaTime * showSpeed);
             yield return null;
         }
 
         //roar
-        Debug.Log("roar");
+       
         yield return new WaitForSeconds(2f);
         //villiager disapear
         Debug.Log("villiager disapear");

@@ -49,4 +49,6 @@ MonoBehaviour:
   - NetworkNormal
   - NetworkRoar
   - NetworkSpecial
+  - NetworkShowEnding
+  - NetworkDestroyBasket
   DisableAutoOpenWizard: 1
