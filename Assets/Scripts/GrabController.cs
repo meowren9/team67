@@ -23,21 +23,6 @@ public class GrabController : MonoBehaviour {
     void Update()
     {
         OnUpdatedAnchors();
-        //debug
-        //if(Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    if (inBasket)
-        //    {
-        //        GameObject f = Instantiate(firework, this.transform.position,this.transform.rotation);
-        //        collidingObject = f;
-        //        GrabObject();
-        //    }
-        //}
-
-        //if (Input.GetKeyUp(KeyCode.Space))
-        //{
-        //    ReleaseObject();
-        //}
 
     }
 
@@ -165,6 +150,7 @@ public class GrabController : MonoBehaviour {
 
         var joint = AddFixedJoint();
         joint.connectedBody = objectInHand.GetComponent<Rigidbody>();
+        objectInHand.transform.parent = this.transform;
     }
 
     // 3
@@ -180,21 +166,19 @@ public class GrabController : MonoBehaviour {
     private void ReleaseObject()
     {
 
-
-
-
-        // 1
         if (GetComponent<FixedJoint>())
         {
             // 2
             GetComponent<FixedJoint>().connectedBody = null;
             Destroy(GetComponent<FixedJoint>());
             // 3
-
+            objectInHand.transform.parent = null;
             objectInHand.GetComponent<Rigidbody>().velocity = speed*OVRInput.GetLocalControllerVelocity(m_controller);
             objectInHand.GetComponent<Rigidbody>().angularVelocity = speed*OVRInput.GetLocalControllerAngularVelocity(m_controller);
+            
         }
         // 4
+        objectInHand.transform.parent = null;
         objectInHand = null;
     }
 
