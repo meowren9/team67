@@ -935,7 +935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1924302319451816
 GameObject:
   m_ObjectHideFlags: 1
@@ -1225,8 +1225,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1101501158269402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0136, y: -0, z: -0}
-  m_LocalScale: {x: 0.040041592, y: 0.04004159, z: 0.05302565}
+  m_LocalPosition: {x: 0.0136, y: -0.0000000017881, z: 4.5e-14}
+  m_LocalScale: {x: 0.060163338, y: 0.060163338, z: 0.07967217}
   m_Children: []
   m_Father: {fileID: 4932986919347582}
   m_RootOrder: 0
@@ -1362,7 +1362,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702709784743522}
-  m_LocalRotation: {x: -0.69931495, y: 0.10468314, z: 0.70069385, w: 0.09501652}
+  m_LocalRotation: {x: -0.699315, y: 0.10468312, z: 0.7006939, w: 0.0950165}
   m_LocalPosition: {x: -0.002077104, y: -0.00095583446, z: -0.0223102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1994,8 +1994,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1903360517002420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.59, z: 0}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalPosition: {x: 0, y: 2.71, z: 0}
+  m_LocalScale: {x: 6.519251, y: 6.51925, z: 6.51925}
   m_Children: []
   m_Father: {fileID: 4954374454507830}
   m_RootOrder: 4
@@ -2134,7 +2134,7 @@ MeshRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1101501158269402}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_MotionVectors: 1
@@ -2477,7 +2477,7 @@ MonoBehaviour:
   turnTarget: []
   FlyingSpeed: 6
   player2: {fileID: 0}
-  safeHeight: 8
+  safeHeight: 10
   health: {fileID: 114194522322807964}
   dead: 0
   nian_anim: {fileID: 95773597084863204}
@@ -2623,7 +2623,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.65311754
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!136 &136708210692698722
 CapsuleCollider:
@@ -2635,9 +2635,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 2.512443
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.000000016198289, y: 0.25621986, z: 0.000000021073422}
 --- !u!137 &137264569648785640
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2879,7 +2879,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 946157044
+  randomSeed: -936511432
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -25381,7 +25381,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 2
-  randomSeed: -960875194
+  randomSeed: -313456880
   InitialModule:
     serializedVersion: 3
     enabled: 1

@@ -63,7 +63,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100005
 EditorExtensionImpl:
   serializedVersion: 6
@@ -225,8 +225,8 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: 15
-  maxSize: 20
+  minSize: 1
+  maxSize: 2
   minEnergy: 0.4
   maxEnergy: 0.7
   minEmission: 20

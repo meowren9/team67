@@ -5,6 +5,8 @@ using UnityEngine;
 public class RPCManager : Photon.MonoBehaviour {
 
     public GameObject firework_ending;
+    public GameObject firework_set;
+
     public AudioClip[] sounds;
     AudioSource my_audio;
     PhotonView photonview;
@@ -80,6 +82,7 @@ public class RPCManager : Photon.MonoBehaviour {
     void NetworkSetFirework()
     {
         firework_ending.SetActive(true);
+        firework_set.SetActive(true);
     }
 
     [PunRPC]

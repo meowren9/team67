@@ -419,7 +419,7 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
         Jump jump = GameObject.Find("Jump").GetComponent<Jump>();
 
 
-        GameManager.nian_defeat = true;
+        
         //anything else?
 
         int turn_len = jump.jump_point.Length;
@@ -435,10 +435,12 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
             }
             //todo: turn delay
         }
-        
+
         //todo: explode
 
 
+
+        GameManager.nian_defeat = true;
 
         yield break;
     }

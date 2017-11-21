@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1002 &100001
 EditorExtensionImpl:
   serializedVersion: 6
@@ -226,8 +226,8 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: 12
-  maxSize: 14
+  minSize: 2.4
+  maxSize: 4.8
   minEnergy: 3
   maxEnergy: 5
   minEmission: 60
@@ -256,8 +256,8 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: 30
-  maxSize: 40
+  minSize: 0.3
+  maxSize: 0.4
   minEnergy: 0.3
   maxEnergy: 10
   minEmission: 10
@@ -286,8 +286,8 @@ EllipsoidParticleEmitter:
   serializedVersion: 2
   m_Enabled: 1
   m_Emit: 1
-  minSize: 8
-  maxSize: 10
+  minSize: 0.8
+  maxSize: 1
   minEnergy: 0.2
   maxEnergy: 0.3
   minEmission: 400
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86024758683d448c0bfe6c5278bb1650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 5
   useYrandom: 0
 --- !u!1002 &11400005
 EditorExtensionImpl:
@@ -570,7 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e90b82f2fe948ed9f260e30e63054a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: -60
+  force: -6
   smokeTrail: {fileID: 400000}
   timeMin: 1.8
   timeMax: 2.2

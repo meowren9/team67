@@ -33,6 +33,11 @@ public class P1Input : MonoBehaviour
     int count2 = 0;
 
 
+
+    public AudioSource audioSource;
+    public AudioClip[] tutorialClip;
+
+
     void Update()
     {
 
@@ -41,6 +46,7 @@ public class P1Input : MonoBehaviour
         if(Database.releaseKite && isDragTutorial)
         {
 
+            audioSource.PlayOneShot(tutorialClip[1]);
             isDragTutorial = false;
             isWaitingRelease = true;
 
@@ -50,8 +56,8 @@ public class P1Input : MonoBehaviour
         if ((Database.dragBack == true || Database.dragForward == true ||
            Database.dragLeft == true || Database.dragRight == true) == true && isReleaseTutorial)
         {
-            
 
+            audioSource.PlayOneShot(tutorialClip[2]);
             isReleaseTutorial = false;
             isWaitingPull = true;
         }
@@ -72,15 +78,15 @@ public class P1Input : MonoBehaviour
 
         //tutorial end
 
-        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0)
-        ////if (Input.GetKey(KeyCode.Space))
+        ////if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0)
+        if (Input.GetKey(KeyCode.Space))
         {
 
             spaceDown = true;
         }
 
-        if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) == 0)
-        ////if (Input.GetKeyUp(KeyCode.Space))
+        ////if (OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) == 0)
+        if (Input.GetKeyUp(KeyCode.Space))
         {
 
             spaceDown = false;
@@ -121,18 +127,18 @@ public class P1Input : MonoBehaviour
 
 
 
-        if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y > 0)
+        ////if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y > 0)
 
-        ////if (Input.GetKey(KeyCode.M))
+        if (Input.GetKey(KeyCode.M))
         {
             OVRInput.SetControllerVibration(1, 20, OVRInput.Controller.LTouch);
             Database.releaseKite = true;
             Wheel.transform.Rotate(10.0f, 0.0f, 0.0f);
         }
 
-        if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y == 0)
+        ////if (OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y == 0)
 
-        ////if (Input.GetKeyUp(KeyCode.M))
+        if (Input.GetKeyUp(KeyCode.M))
         {
             OVRInput.SetControllerVibration(0, 0, OVRInput.Controller.LTouch);
             Database.releaseKite = false;
@@ -169,6 +175,7 @@ public class P1Input : MonoBehaviour
 
     void Start()
     {
+        audioSource.PlayOneShot(tutorialClip[0]);
         StartCoroutine(tutorialPPT());
     }
     IEnumerator tutorialPPT()
