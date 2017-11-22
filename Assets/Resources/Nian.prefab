@@ -2885,7 +2885,7 @@ MonoBehaviour:
   health: 5
   particle: {fileID: 198046341719221070}
   s_particle: {fileID: 198903738886055398}
-  danger: {fileID: 114192368718317022}
+  danger: {fileID: 114732647103996782}
   health_particle: {fileID: 198080045238938320}
   nian_anim: {fileID: 95773597084863204}
 --- !u!114 &114231449530337334
