@@ -30,6 +30,7 @@ public class HitTheGround : MonoBehaviour {
                     photonView.RPC("NetworkHitGroundSound", PhotonTargets.All);
 
                 particle.SetActive(true);
+                this.GetComponent<SetFire>().firedSound.SetActive(false);
             }
 
             //if(GameManager.debug)
