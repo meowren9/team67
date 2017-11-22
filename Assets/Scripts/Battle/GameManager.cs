@@ -156,8 +156,8 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
 
     IEnumerator ShowVillagers()
     {
-        rpc_manager.DestroyBasket();
-        yield return new WaitForSeconds(5f);
+        //rpc_manager.DestroyBasket();
+        //yield return new WaitForSeconds(5f);
         rpc_manager.PlaySound(2);
         yield return new WaitForSeconds(5f);
         villagers.SetActive(true);
@@ -179,11 +179,12 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
 
         Debug.Log("roar");
 
-        while (Vector3.Distance(targetPosition,nian.transform.position) > 0.3f)
-        {
-            nian.transform.position = Vector3.Lerp(nian.transform.position, targetPosition, Time.deltaTime * showSpeed);
-            yield return null;
-        }
+        //while (Vector3.Distance(targetPosition,nian.transform.position) > 0.3f)
+        //{
+        //    Debug.Log("dis = " + Vector3.Distance(targetPosition, nian.transform.position));
+        //    nian.transform.position = Vector3.Lerp(nian.transform.position, targetPosition, Time.deltaTime * showSpeed);
+        //    yield return null;
+        //}
 
         //roar
        
