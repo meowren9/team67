@@ -394,7 +394,7 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
                 break;
         }
 
-        dodgingTarget = transform.position - new Vector3(direction.x * Random.Range(3, dodgingDistance), 0, direction.z * Random.Range(3, dodgingDistance));
+        dodgingTarget = transform.position - new Vector3(direction.x * Random.Range(2, dodgingDistance), 0, direction.z * Random.Range(2, dodgingDistance));
         
         //dodgeLock = true;
 

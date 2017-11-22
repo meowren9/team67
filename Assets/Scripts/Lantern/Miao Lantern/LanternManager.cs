@@ -10,6 +10,8 @@ public class LanternManager : MonoBehaviour {
     public GameObject villagerPrefeb;
     public GameObject lanternPrefab;
 
+    Transform p2;
+
     public float SpawnCD;
 
     void Start () {
@@ -17,15 +19,17 @@ public class LanternManager : MonoBehaviour {
         if(GameManager.debug || !PhotonNetwork.isMasterClient)
         {
             StartCoroutine(Spawn());
+            p2 = GameObject.Find("P2").transform;
         }
 	}
 
     IEnumerator MoveLantern(GameObject lantern)
     {
         //Vector3.Normalize
-        Vector3 centerDirection = Vector3.Normalize(center.position - lantern.transform.position);
+        //Vector3 centerDirection = Vector3.Normalize(center.position - lantern.transform.position);
+        Vector3 centerDirection = Vector3.Normalize(p2.position - lantern.transform.position);
 
-        while(lantern.transform.position.y < 15f)
+        while (lantern.transform.position.y < 15f)
         {
             lantern.transform.position += centerDirection * Time.deltaTime * 0.8f;
             yield return null;

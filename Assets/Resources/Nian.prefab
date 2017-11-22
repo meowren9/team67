@@ -2249,7 +2249,7 @@ Transform:
   m_GameObject: {fileID: 1903360517002420}
   m_LocalRotation: {x: 0.05677702, y: -0.7048237, z: 0.05677702, w: 0.7048237}
   m_LocalPosition: {x: -0.04863225, y: 0.0068479856, z: 0.0005930513}
-  m_LocalScale: {x: 0.224213, y: 0.22421278, z: 0.224213}
+  m_LocalScale: {x: 0.18766576, y: 0.18766561, z: 0.1876658}
   m_Children: []
   m_Father: {fileID: 4617582159004418}
   m_RootOrder: 1
@@ -2825,7 +2825,7 @@ MonoBehaviour:
   dead: 0
   nian_anim: {fileID: 95773597084863204}
   smoothTime: 0.3
-  dodgingDistance: 8
+  dodgingDistance: 5
 --- !u!114 &114043816858021552
 MonoBehaviour:
   m_ObjectHideFlags: 1
