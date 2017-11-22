@@ -176,9 +176,9 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
         //nian.SetActive(true);
         bgm_manager.StopMusic();
         rpc_manager.PlaySound(0);
-        yield return new WaitForSeconds(6f);
+        //yield return new WaitForSeconds(6f);
         rpc_manager.PlaySound(1);
-        yield return new WaitForSeconds(2f);
+        //yield return new WaitForSeconds(2f);
         bgm_manager.current_bgm_index = status;
 
         Vector3 targetPosition = new Vector3(showPoint.position.x, nian.transform.position.y, showPoint.position.z);

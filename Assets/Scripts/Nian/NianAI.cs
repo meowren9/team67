@@ -338,7 +338,6 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
             }
             else if(health.status == 1) //fire attack
             {
-
                 if (!PhotonNetwork.isMasterClient || GameManager.debug)
                 {
                     Debug.Log("Fire start");
@@ -357,7 +356,7 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
         yield break;
     }
 
-    public float smoothTime = 0.3F;
+    public float smoothTime = 0.2F;
     public float dodgingDistance = 8f;
 
     IEnumerator Dodge()
@@ -395,7 +394,7 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
                 break;
         }
 
-        dodgingTarget = transform.position - new Vector3(direction.x * Random.Range(1, dodgingDistance), 0, direction.z * Random.Range(1, dodgingDistance));
+        dodgingTarget = transform.position - new Vector3(direction.x * Random.Range(3, dodgingDistance), 0, direction.z * Random.Range(3, dodgingDistance));
         
         //dodgeLock = true;
 
