@@ -132,7 +132,9 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
                 }
                 break;
             case 1:
-                if (health.status == 1)
+
+                if(false)
+                //if (health.status == 1)
                 {
                     //nian roar!!!
                     StartCoroutine(ShowVillagers());
@@ -179,20 +181,20 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
 
         Debug.Log("roar");
 
-        //while (Vector3.Distance(targetPosition,nian.transform.position) > 0.3f)
-        //{
-        //    Debug.Log("dis = " + Vector3.Distance(targetPosition, nian.transform.position));
-        //    nian.transform.position = Vector3.Lerp(nian.transform.position, targetPosition, Time.deltaTime * showSpeed);
-        //    yield return null;
-        //}
+        while (Vector3.Distance(targetPosition, nian.transform.position) > 0.3f)
+        {
+            Debug.Log("dis = " + Vector3.Distance(targetPosition, nian.transform.position));
+            nian.transform.position = Vector3.Lerp(nian.transform.position, targetPosition, Time.deltaTime * showSpeed);
+            yield return null;
+        }
 
         //roar
-       
+
         yield return new WaitForSeconds(2f);
         //villiager disapear
         Debug.Log("villiager disapear");
 
-        nian.GetComponent<NianAI>().enabled = true;
+        nian.GetComponent<NianAI>().SetAwake();
 
         // game start
         yield break;

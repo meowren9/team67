@@ -82,6 +82,25 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
     void Awake()
     {
        
+        //if ((!PhotonNetwork.isMasterClient || GameManager.debug)) //p2
+        //{
+        //    player2 = GameObject.Find("P2").transform;
+        //    location = GameObject.Find("location").transform;
+
+        //    facingTarget = player2;
+        //    hangingTarget = new Vector3(0, transform.position.y, 0);//init
+        //    currentCoroutine = StartCoroutine(Follow());
+        //    facingCoroutine = StartCoroutine(Facing());
+        //}
+           
+        //both
+        //StartCoroutine(FireSync());
+    }
+
+    bool awake = false;
+
+    public void SetAwake()
+    {
         if ((!PhotonNetwork.isMasterClient || GameManager.debug)) //p2
         {
             player2 = GameObject.Find("P2").transform;
@@ -92,9 +111,9 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
             currentCoroutine = StartCoroutine(Follow());
             facingCoroutine = StartCoroutine(Facing());
         }
-           
-        //both
-        //StartCoroutine(FireSync());
+
+        StartCoroutine(FireSync());
+        awake = true;
     }
 
 
@@ -102,6 +121,8 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
     void Update()
     {
         //to be master control
+        if (!awake)
+            return;
 
         if (!(!PhotonNetwork.isMasterClient || GameManager.debug))
             return;

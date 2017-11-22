@@ -725,8 +725,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4954374454507830}
   - component: {fileID: 114595931426467886}
-  - component: {fileID: 114359703885397972}
   - component: {fileID: 114963088682819332}
+  - component: {fileID: 114025085042002804}
   m_Layer: 0
   m_Name: Nian
   m_TagString: Untagged
@@ -2372,6 +2372,48 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!114 &114025085042002804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1679548694086108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f02938f4afdbb44b6dd0b852d480b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  limit_x_min: -25
+  limit_x_max: 25
+  limit_z_min: 10
+  limit_z_max: 55
+  stable_z_max: 55
+  location: {fileID: 0}
+  danger: {fileID: 114732647103996782}
+  attack: {fileID: 114997692676618854}
+  status: 0
+  facingSpeed: 2
+  followSpeed: 1
+  followStopDistance: 5
+  attackCD: 5
+  fireLastTime: 3
+  IsFiring: 0
+  fireCD: 2
+  Fire: {fileID: 198599368619780654}
+  attackRange: {fileID: 1612806100099048}
+  dodgeSpeed: 1
+  dodgeDelay: 0
+  dodgeRange: 10
+  hangSpeed: 0.8
+  turnTarget: []
+  FlyingSpeed: 6
+  player2: {fileID: 0}
+  safeHeight: 10
+  health: {fileID: 114194522322807964}
+  dead: 0
+  nian_anim: {fileID: 95773597084863204}
+  smoothTime: 0.3
+  dodgingDistance: 5
 --- !u!114 &114043816858021552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2447,48 +2489,6 @@ MonoBehaviour:
   instantiationId: -1
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!114 &114359703885397972
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1679548694086108}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80f02938f4afdbb44b6dd0b852d480b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  limit_x_min: -25
-  limit_x_max: 25
-  limit_z_min: 10
-  limit_z_max: 55
-  stable_z_max: 55
-  location: {fileID: 0}
-  danger: {fileID: 114732647103996782}
-  attack: {fileID: 114997692676618854}
-  status: 0
-  facingSpeed: 2
-  followSpeed: 1
-  followStopDistance: 5
-  attackCD: 5
-  fireLastTime: 3
-  IsFiring: 0
-  fireCD: 2
-  Fire: {fileID: 198599368619780654}
-  attackRange: {fileID: 1612806100099048}
-  dodgeSpeed: 1
-  dodgeDelay: 0
-  dodgeRange: 10
-  hangSpeed: 0.8
-  turnTarget: []
-  FlyingSpeed: 6
-  player2: {fileID: 0}
-  safeHeight: 10
-  health: {fileID: 114194522322807964}
-  dead: 0
-  nian_anim: {fileID: 95773597084863204}
-  smoothTime: 0.3
-  dodgingDistance: 5
 --- !u!114 &114595931426467886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2510,7 +2510,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 114963088682819332}
-  - {fileID: 114359703885397972}
+  - {fileID: 114025085042002804}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 0
   instantiationId: -1
