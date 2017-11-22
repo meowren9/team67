@@ -133,8 +133,8 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
                 break;
             case 1:
 
-                if(false)
-                //if (health.status == 1)
+                //if(false)
+                if (health.status == 1)
                 {
                     //nian roar!!!
                     StartCoroutine(ShowVillagers());
@@ -158,8 +158,8 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
 
     IEnumerator ShowVillagers()
     {
-        //rpc_manager.DestroyBasket();
-        //yield return new WaitForSeconds(5f);
+        rpc_manager.DestroyBasket();
+        yield return new WaitForSeconds(5f);
         rpc_manager.PlaySound(2);
         yield return new WaitForSeconds(5f);
         villagers.SetActive(true);

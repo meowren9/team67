@@ -94,7 +94,7 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
         //}
            
         //both
-        //StartCoroutine(FireSync());
+        StartCoroutine(FireSync());
     }
 
     bool awake = false;
@@ -110,10 +110,11 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
             hangingTarget = new Vector3(0, transform.position.y, 0);//init
             currentCoroutine = StartCoroutine(Follow());
             facingCoroutine = StartCoroutine(Facing());
+            awake = true;
         }
 
-        StartCoroutine(FireSync());
-        awake = true;
+        //StartCoroutine(FireSync());
+
     }
 
 
@@ -338,15 +339,15 @@ public class NianAI : Photon.PunBehaviour, IPunObservable
             else if(health.status == 1) //fire attack
             {
 
-                if (PhotonNetwork.isMasterClient || GameManager.debug)
+                if (!PhotonNetwork.isMasterClient || GameManager.debug)
                 {
-                    //Debug.Log("Fire start");
+                    Debug.Log("Fire start");
                     IsFiring = true;
                     yield return new WaitForSeconds(fireLastTime);
                     IsFiring = false;
                     yield return new WaitForSeconds(attackCD);
                 }
-                
+                yield return null;
             }
             else
             {

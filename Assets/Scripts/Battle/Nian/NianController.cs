@@ -52,9 +52,6 @@ public class NianController : Photon.PunBehaviour, IPunObservable { //controled 
         var emission = Beams.emission;
         emission.enabled = IsFiring;
 
-        
-        
-
 
         for (int i = 0; i < health; i++)
         {
