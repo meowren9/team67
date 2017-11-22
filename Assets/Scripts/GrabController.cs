@@ -178,7 +178,7 @@ public class GrabController : MonoBehaviour {
             
         }
         // 4
-        objectInHand.transform.parent = null;
+        
         objectInHand = null;
     }
 
