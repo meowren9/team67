@@ -48,6 +48,8 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
     //rpc
     public RPCManager rpc_manager;
 
+    public GrabController grab;
+
     void Start()
     {
 
@@ -159,6 +161,8 @@ public class GameManager : Photon.PunBehaviour,IPunObservable
     IEnumerator ShowVillagers()
     {
         rpc_manager.DestroyBasket();
+        grab.inBasket = false;
+
         yield return new WaitForSeconds(5f);
         rpc_manager.PlaySound(2);
         yield return new WaitForSeconds(5f);

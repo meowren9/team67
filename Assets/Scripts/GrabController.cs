@@ -17,7 +17,7 @@ public class GrabController : MonoBehaviour {
 
     protected float m_prevFlex;
 
-    [SerializeField] bool inBasket = false;
+    public bool inBasket = false;
     public GameObject firework;
 
     void Update()
