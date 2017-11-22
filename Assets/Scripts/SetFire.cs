@@ -15,7 +15,7 @@ public class SetFire : Photon.PunBehaviour, IPunObservable
         {
             Sparkle.SetActive(true);
             fired = true;
-            //firedSound.SetActive(true);
+            firedSound.SetActive(true);
         }
     }
 
