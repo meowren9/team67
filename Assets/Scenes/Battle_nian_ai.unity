@@ -9282,10 +9282,11 @@ MonoBehaviour:
   p1Ava: {fileID: 51029337}
   p2Ava: {fileID: 1469341871}
   lotus: {fileID: 867700298}
-  define_debug: 1
+  define_debug: 0
   player: 2
   bgm_prefab: {fileID: 1207740585042576, guid: 95038ae34345eee4288ac7474ed3d069, type: 2}
   rpc_manager: {fileID: 47840313}
+  grab: {fileID: 2055448434}
 --- !u!114 &1485951495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13411,6 +13412,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2052915523}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2055448434 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114914183662387140, guid: c8d0bede534e0b449bb8a021cc70b1a2,
+    type: 2}
+  m_PrefabInternal: {fileID: 390854624}
+  m_Script: {fileID: 11500000, guid: 6d527ee51834fea469fe697123db2a40, type: 3}
 --- !u!1001 &2066958963
 Prefab:
   m_ObjectHideFlags: 0
