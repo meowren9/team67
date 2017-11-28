@@ -173,8 +173,11 @@ public class GrabController : MonoBehaviour {
             Destroy(GetComponent<FixedJoint>());
             // 3
             objectInHand.transform.parent = null;
-            objectInHand.GetComponent<Rigidbody>().velocity = speed*OVRInput.GetLocalControllerVelocity(m_controller);
-            objectInHand.GetComponent<Rigidbody>().angularVelocity = speed*OVRInput.GetLocalControllerAngularVelocity(m_controller);
+            var origin_v = OVRInput.GetLocalControllerVelocity(m_controller);
+            objectInHand.GetComponent<Rigidbody>().velocity = speed * new Vector3(-origin_v.x, origin_v.y, -origin_v.z);
+
+            //objectInHand.GetComponent<Rigidbody>().velocity = speed*OVRInput.GetLocalControllerVelocity(m_controller);
+            //objectInHand.GetComponent<Rigidbody>().angularVelocity = speed*OVRInput.GetLocalControllerAngularVelocity(m_controller);
             
         }
         // 4

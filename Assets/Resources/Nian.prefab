@@ -1106,6 +1106,7 @@ GameObject:
   - component: {fileID: 23023896216594388}
   - component: {fileID: 114194522322807964}
   - component: {fileID: 114019973235651904}
+  - component: {fileID: 65495147590008450}
   m_Layer: 0
   m_Name: Target (1)
   m_TagString: Untagged
@@ -2581,6 +2582,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65495147590008450
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1932686969480542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.80686945, y: 1.1850332, z: 1.3686504}
+  m_Center: {x: -0.006296468, y: -0.28031301, z: -0.97579587}
 --- !u!82 &82359918883419788
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2881,8 +2894,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   status: 0
   hit_count: 0
-  change_point: 4
-  health: 5
+  change_point: 3
+  health: 4
   particle: {fileID: 198046341719221070}
   s_particle: {fileID: 198903738886055398}
   danger: {fileID: 114732647103996782}
